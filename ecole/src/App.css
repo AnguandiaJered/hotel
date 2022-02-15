@@ -40,6 +40,16 @@
   text-align: center;
   width: 45px; 
 }
-/* .fa{
+.dashboard{
+  background: #ecf0f1;
+  margin-left: 16.9rem;
+  width:66.5rem;
+  height: 100%;
+}
+.titre{
   font-size: 30px;
-} */
+}
+.breadcrumb{
+  height: 40px;
+  display: flex;
+}
