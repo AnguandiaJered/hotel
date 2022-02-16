@@ -29,12 +29,12 @@ export const SidebarData = [
             },
             {
                 title: "Classe Chambres",
-                path: "/classe",
+                path: "/classechambre",
                 icon: <AiIcons.AiOutlineDoubleRight />,
             },
             {
                 title: "Reservation",
-                path: "/reserve",
+                path: "/reservationchambre",
                 icon: <AiIcons.AiOutlineDoubleRight />,
             },                      
         ]

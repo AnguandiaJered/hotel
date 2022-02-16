@@ -4,7 +4,7 @@ import { Saveclient } from "../modals/Saveclient";
 import { Editclient } from '../modals/Editclient';
 
 
-const Client = () =>{
+const ClasseChambre = () =>{
     const [openModal,setOpenModal]= useState(false);
     return(
         <Fragment>
@@ -17,7 +17,7 @@ const Client = () =>{
                             </h1>
                             <div className="container-fluid">
                                 <ol className="breadcrumb">
-                                    <li className="active"><i className="fa fa-dashboard"></i> Dashboard / Clients</li>
+                                    <li className="active"><i className="fa fa-dashboard"></i> Dashboard / Classe Chambre</li>
                                 </ol>
                             </div>                            
                         </div>
@@ -139,4 +139,4 @@ const Client = () =>{
     )
 }
 
-export default Client;
+export default ClasseChambre;

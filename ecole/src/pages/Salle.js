@@ -4,7 +4,7 @@ import { Saveclient } from "../modals/Saveclient";
 import { Editclient } from '../modals/Editclient';
 
 
-const Client = () =>{
+export const Salle = () =>{
     const [openModal,setOpenModal]= useState(false);
     return(
         <Fragment>
@@ -17,7 +17,7 @@ const Client = () =>{
                             </h1>
                             <div className="container-fluid">
                                 <ol className="breadcrumb">
-                                    <li className="active"><i className="fa fa-dashboard"></i> Dashboard / Clients</li>
+                                    <li className="active"><i className="fa fa-dashboard"></i> Dashboard / Salles</li>
                                 </ol>
                             </div>                            
                         </div>
@@ -139,4 +139,16 @@ const Client = () =>{
     )
 }
 
-export default Client;
+
+export const Reserves = () =>{
+    return(
+        <Fragment>
+           <div className='dashboard'>
+                <div className='text-center py-5 mt-5'>
+                    <h1 className='display-1'><span className='fa fa-settings'></span></h1>
+                    <h2>Le Reservation des salles</h2>
+                </div>
+            </div>
+        </Fragment>
+    )
+}
