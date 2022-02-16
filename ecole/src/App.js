@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Dashboard from './components/Dashboard';
 import ErrorPage from './components/ErrorPage';
 import Sidebar from './components/Sidebar';
+import {Client} from './pages/Client';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Sidebar />
       <Switch>
         <Route exact path='/' component={Dashboard} />
+        <Route path='/client' component={Client} />
         <Route component={ErrorPage} />
       </Switch>
     </Router>
