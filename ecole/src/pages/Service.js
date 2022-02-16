@@ -1,11 +1,11 @@
-import React,{ Fragment , useState } from "react";
+import React,{ Fragment } from "react";
 import { Link } from "react-router-dom";
-import { Saveclient } from "../modals/Saveclient";
-import { Editclient } from '../modals/Editclient';
+import { Saveservice } from "../modals/Saveservice";
+import { Editservice } from '../modals/Editservice';
 
 
 const Service = () =>{
-    const [openModal,setOpenModal]= useState(false);
+
     return(
         <Fragment>
             <div className='dashboard'>
@@ -23,12 +23,11 @@ const Service = () =>{
                         </div>
                     </div>
                 </div>
-                {/* { openModal && <Saveclient closeModal={setOpenModal}/>} */}
-                {/* <button onClick={()=>{setOpenModal(true)}} className="btn btn-primary offset-9 col-md-2"><i className="fa fa-plus"></i>  Add client</button> */}
+               
                 <div className="offset-10">
-                    <Saveclient />
+                    <Saveservice />
                 </div> 
-                { openModal && <Saveclient closeModal={setOpenModal}/>}
+                
                 <div className="container mt-5">
                     <div className="portlet-body">
                         <div className="table-responsive">
@@ -53,7 +52,7 @@ const Service = () =>{
                                         <td>281</td>
                                         <td>30.43%</td>
                                         <td>
-                                            <Editclient />
+                                            <Editservice />
                                             <Link  to="#" className="btn btn-danger ml-3 bd"><i className="fa fa-trash"></i></Link>
                                         </td>
                                     </tr>
@@ -65,7 +64,7 @@ const Service = () =>{
                                         <td>121</td>
                                         <td>36.73%</td>
                                         <td>
-                                            <Editclient />
+                                            <Editservice />
                                             <Link  to="#" className="btn btn-danger ml-3 bd"><i className="fa fa-trash"></i></Link>
                                         </td>
                                     </tr>
@@ -77,7 +76,7 @@ const Service = () =>{
                                         <td>102</td>
                                         <td>35.52%</td>
                                         <td>
-                                            <Editclient />
+                                            <Editservice />
                                             <Link  to="#" className="btn btn-danger ml-3 bd"><i className="fa fa-trash"></i></Link>
                                         </td>
                                     </tr>
@@ -89,7 +88,7 @@ const Service = () =>{
                                         <td>71</td>
                                         <td>36.24%</td>
                                         <td>
-                                            <Editclient />
+                                            <Editservice />
                                             <Link  to="#" className="btn btn-danger ml-3 bd"><i className="fa fa-trash"></i></Link>
                                         </td>
                                     </tr>
@@ -101,7 +100,7 @@ const Service = () =>{
                                         <td>56</td>
                                         <td>34.83%</td>
                                         <td>
-                                            <Editclient />
+                                            <Editservice />
                                             <Link  to="#" className="btn btn-danger ml-3 bd"><i className="fa fa-trash"></i></Link>
                                         </td>
                                     </tr>
@@ -113,7 +112,7 @@ const Service = () =>{
                                         <td>42</td>
                                         <td>32.73%</td>
                                         <td>
-                                            <Editclient />
+                                            <Editservice />
                                             <Link  to="#" className="btn btn-danger ml-3 bd"><i className="fa fa-trash"></i></Link>
                                         </td>
                                     </tr>
@@ -125,7 +124,7 @@ const Service = () =>{
                                         <td>44</td>
                                         <td>32.54%</td>
                                         <td>
-                                            <Editclient />
+                                            <Editservice />
                                             <Link  to="#" className="btn btn-danger ml-3 bd"><i className="fa fa-trash"></i></Link>
                                         </td>
                                     </tr>
