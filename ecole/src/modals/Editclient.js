@@ -74,30 +74,37 @@ export const Editclient = () => {
             <div className='row'>
               <div className='col-md-6'>
                 <div className='form-group'>
-                  <label htmlFor='nom'>Nom</label>
-                  <input type="text" placeholder='noms' className='form-control' />
+                  <label htmlFor='noms'>Noms</label>
+                  <input type="text" placeholder='Noms' className='form-control' />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='nom'>Nom</label>
-                    <input type="text" placeholder='noms' className='form-control' />
+                  <label htmlFor='sexe'>Sexe</label>
+                   <select className='form-control'> 
+                     <option>M</option>
+                     <option>F</option>
+                   </select>
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='nom'>Nom</label>
-                    <input type="text" placeholder='noms' className='form-control' />
+                    <label htmlFor='adresse'>Adresse</label>
+                    <input type="text" placeholder='Adresse' className='form-control' />
+                </div>
+                <div className='form-group'>
+                  <label htmlFor='Telephone'>Telephone</label>
+                  <input type="tel" placeholder='Telephone' className='form-control' />
                 </div>
               </div>
-              <div className='col-md-6'>
+              <div className='col-md-6'>              
                 <div className='form-group'>
-                  <label htmlFor='nom'>Nom</label>
-                  <input type="text" placeholder='noms' className='form-control' />
+                    <label htmlFor='datenaissance'>Date naissance</label>
+                    <input type="date"  className='form-control' />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='nom'>Nom</label>
-                    <input type="text" placeholder='noms' className='form-control' />
+                    <label htmlFor='profession'>Profession</label>
+                    <input type="text" placeholder='Profession' className='form-control' />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='nom'>Nom</label>
-                    <input type="text" placeholder='noms' className='form-control' />
+                  <label htmlFor='photo'>Photo</label>
+                  <input type="file" className='form-control' />
                 </div>
               </div>
             </div>

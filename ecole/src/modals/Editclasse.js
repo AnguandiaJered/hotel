@@ -71,33 +71,23 @@ export const Editclasse = () => {
         </BootstrapDialogTitle>
         <DialogContent dividers>
           <form>
-            <div className='row'>
-              <div className='col-md-6'>
+          <div className='row'>
+              <div className='col-md-12'>
                 <div className='form-group'>
-                  <label htmlFor='nom'>Nom</label>
-                  <input type="text" placeholder='noms' className='form-control' />
+                  <label htmlFor='designation'>Designation</label>
+                  <input type="text" placeholder='Designation' className='form-control' />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='nom'>Nom</label>
-                    <input type="text" placeholder='noms' className='form-control' />
-                </div>
-                <div className='form-group'>
-                    <label htmlFor='nom'>Nom</label>
-                    <input type="text" placeholder='noms' className='form-control' />
-                </div>
+                    <label htmlFor='montant'>Montant</label>
+                    <input type="number" placeholder='Montant' className='form-control' />
+                </div>                
               </div>
-              <div className='col-md-6'>
+              <div className='col-md-12'>
                 <div className='form-group'>
-                  <label htmlFor='nom'>Nom</label>
-                  <input type="text" placeholder='noms' className='form-control' />
-                </div>
-                <div className='form-group'>
-                    <label htmlFor='nom'>Nom</label>
-                    <input type="text" placeholder='noms' className='form-control' />
-                </div>
-                <div className='form-group'>
-                    <label htmlFor='nom'>Nom</label>
-                    <input type="text" placeholder='noms' className='form-control' />
+                  <label htmlFor='devise'>Devise</label>
+                   <select className='form-control'> 
+                     <option>USD</option>
+                   </select>
                 </div>
               </div>
             </div>

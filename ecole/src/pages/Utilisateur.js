@@ -35,11 +35,11 @@ export const Utilisateur = () =>{
                                 <thead>
                                     <tr>
                                         <th>Code</th>
-                                        <th>Country</th>
-                                        <th>Total Visits</th>
-                                        <th>Page Views</th>
-                                        <th>Orders</th>
-                                        <th>Bounce Rate</th>
+                                        <th>Noms</th>
+                                        <th>Username</th>
+                                        <th>Password</th>
+                                        <th>Email</th>
+                                        <th>Role</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -163,11 +163,11 @@ export const Parametre = () =>{
                                 <thead>
                                     <tr>
                                         <th>Code</th>
-                                        <th>Country</th>
-                                        <th>Total Visits</th>
-                                        <th>Page Views</th>
-                                        <th>Orders</th>
-                                        <th>Bounce Rate</th>
+                                        <th>Noms</th>
+                                        <th>Username</th>
+                                        <th>Password</th>
+                                        <th>Email</th>
+                                        <th>Role</th>
                                     </tr>
                                 </thead>
                                 <tbody>

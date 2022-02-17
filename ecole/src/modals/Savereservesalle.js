@@ -60,7 +60,7 @@ export const Savereservesalle = () => {
   return (
     <Fragment>
       <Button variant="outlined" onClick={handleClickOpen}>
-       <i className='fa fa-plus'></i> Add Reservation Salle
+       <i className='fa fa-plus'></i> Add Reservation
       </Button>
       <BootstrapDialog
         onClose={handleClose}
@@ -75,30 +75,35 @@ export const Savereservesalle = () => {
             <div className='row'>
               <div className='col-md-6'>
                 <div className='form-group'>
-                  <label htmlFor='nom'>Nom</label>
-                  <input type="text" placeholder='noms' className='form-control' />
+                  <label htmlFor='client'>Clients</label>
+                   <select className='form-control'> 
+                     <option>Jered</option>
+                     <option>Bob</option>
+                     <option>Marley</option>
+                     <option>Daniel</option>
+                   </select>
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='nom'>Nom</label>
-                    <input type="text" placeholder='noms' className='form-control' />
+                    <label htmlFor='datereservationsalle'>Date Reservation</label>
+                    <input type="date" className='form-control' />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='nom'>Nom</label>
-                    <input type="text" placeholder='noms' className='form-control' />
+                  <label htmlFor='salles'>Salles</label>
+                   <select className='form-control'> 
+                     <option>Salle 1</option>
+                     <option>Salle 2</option>
+                     <option>Salle 3</option>
+                   </select>
                 </div>
               </div>
               <div className='col-md-6'>
                 <div className='form-group'>
-                  <label htmlFor='nom'>Nom</label>
-                  <input type="text" placeholder='noms' className='form-control' />
+                  <label htmlFor='libelle'>Libelle</label>
+                  <input type="text" placeholder='Libelle' className='form-control' />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='nom'>Nom</label>
-                    <input type="text" placeholder='noms' className='form-control' />
-                </div>
-                <div className='form-group'>
-                    <label htmlFor='nom'>Nom</label>
-                    <input type="text" placeholder='noms' className='form-control' />
+                    <label htmlFor='dateceremonie'>Date Ceremonie</label>
+                    <input type="date" className='form-control' />
                 </div>
               </div>
             </div>

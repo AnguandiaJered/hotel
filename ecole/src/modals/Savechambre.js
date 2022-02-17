@@ -73,32 +73,23 @@ export const Savechambre = () => {
         <DialogContent dividers>
           <form>
             <div className='row'>
-              <div className='col-md-6'>
+              <div className='col-md-12'>
                 <div className='form-group'>
-                  <label htmlFor='nom'>Nom</label>
-                  <input type="text" placeholder='noms' className='form-control' />
+                  <label htmlFor='numchambre'>Numero chambre</label>
+                  <input type="number" placeholder='Numero chambre' className='form-control' />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='nom'>Nom</label>
-                    <input type="text" placeholder='noms' className='form-control' />
-                </div>
-                <div className='form-group'>
-                    <label htmlFor='nom'>Nom</label>
-                    <input type="text" placeholder='noms' className='form-control' />
+                    <label htmlFor='telchambre'>Telephone chambre</label>
+                    <input type="tel" placeholder='Telephone chambre' className='form-control' />
                 </div>
               </div>
-              <div className='col-md-6'>
+              <div className='col-md-12'>
                 <div className='form-group'>
-                  <label htmlFor='nom'>Nom</label>
-                  <input type="text" placeholder='noms' className='form-control' />
-                </div>
-                <div className='form-group'>
-                    <label htmlFor='nom'>Nom</label>
-                    <input type="text" placeholder='noms' className='form-control' />
-                </div>
-                <div className='form-group'>
-                    <label htmlFor='nom'>Nom</label>
-                    <input type="text" placeholder='noms' className='form-control' />
+                  <label htmlFor='classchambre'>Classe chambre</label>
+                   <select className='form-control'> 
+                     <option>VIP</option>
+                     <option>Ordinaire</option>
+                   </select>
                 </div>
               </div>
             </div>

@@ -24,7 +24,7 @@ const ReservationChambre = () =>{
                     </div>
                 </div>
                
-                <div className="offset-10">
+                <div className="offset-9">
                     <Savereservechambre />
                 </div> 
    
@@ -35,12 +35,17 @@ const ReservationChambre = () =>{
                                 <thead>
                                     <tr>
                                         <th>Code</th>
-                                        <th>Country</th>
-                                        <th>Total Visits</th>
-                                        <th>Page Views</th>
-                                        <th>Orders</th>
-                                        <th>Bounce Rate</th>
-                                        <th>Actions</th>
+                                        <th>Clients</th>
+                                        <th>Chambres</th>
+                                        <th>Date Entrée</th>
+                                        <th>Date Sortie</th>
+                                        <th>Prix</th>
+                                        <th>Devise</th>
+                                        <th>Libelle</th>
+                                        <th>Date Reservation</th>
+                                        <th>Observation</th>
+                                        <th>Provenance</th>
+                                        <th>ActionsActions </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -51,6 +56,12 @@ const ReservationChambre = () =>{
                                         <td>28,981</td>
                                         <td>281</td>
                                         <td>30.43%</td>
+                                        <td>United States</td>
+                                        <td>14,624</td>
+                                        <td>28,981</td>
+                                        <td>281</td>
+                                        <td>30.43%</td>
+                                   
                                         <td>
                                             <Editreservechambre />
                                             <Link  to="#" className="btn btn-danger ml-3 bd"><i className="fa fa-trash"></i></Link>
@@ -63,6 +74,12 @@ const ReservationChambre = () =>{
                                         <td>10,491</td>
                                         <td>121</td>
                                         <td>36.73%</td>
+                                        <td>China</td>
+                                        <td>5,745</td>
+                                        <td>10,491</td>
+                                        <td>121</td>
+                                        <td>36.73%</td>
+                                   
                                         <td>
                                             <Editreservechambre />
                                             <Link  to="#" className="btn btn-danger ml-3 bd"><i className="fa fa-trash"></i></Link>
@@ -75,6 +92,12 @@ const ReservationChambre = () =>{
                                         <td>11,165</td>
                                         <td>102</td>
                                         <td>35.52%</td>
+                                        <td>Japan</td>
+                                        <td>5,390</td>
+                                        <td>11,165</td>
+                                        <td>102</td>
+                                        <td>35.52%</td>
+                                     
                                         <td>
                                             <Editreservechambre />
                                             <Link  to="#" className="btn btn-danger ml-3 bd"><i className="fa fa-trash"></i></Link>
@@ -87,42 +110,12 @@ const ReservationChambre = () =>{
                                         <td>7,651</td>
                                         <td>71</td>
                                         <td>36.24%</td>
-                                        <td>
-                                            <Editreservechambre />
-                                            <Link  to="#" className="btn btn-danger ml-3 bd"><i className="fa fa-trash"></i></Link>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>05</strong></td>
-                                        <td>France</td>
-                                        <td>2,555</td>
-                                        <td>5,615</td>
-                                        <td>56</td>
-                                        <td>34.83%</td>
-                                        <td>
-                                            <Editreservechambre />
-                                            <Link  to="#" className="btn btn-danger ml-3 bd"><i className="fa fa-trash"></i></Link>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>06</strong></td>
-                                        <td>United Kingdom</td>
-                                        <td>2,258</td>
-                                        <td>4,651</td>
-                                        <td>42</td>
-                                        <td>32.73%</td>
-                                        <td>
-                                            <Editreservechambre />
-                                            <Link  to="#" className="btn btn-danger ml-3 bd"><i className="fa fa-trash"></i></Link>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>07</strong></td>
-                                        <td>Italy</td>
-                                        <td>2,036</td>
-                                        <td>4,498</td>
-                                        <td>44</td>
-                                        <td>32.54%</td>
+                                        <td>Germany</td>
+                                        <td>3,305</td>
+                                        <td>7,651</td>
+                                        <td>71</td>
+                                        <td>36.24%</td>
+                                        
                                         <td>
                                             <Editreservechambre />
                                             <Link  to="#" className="btn btn-danger ml-3 bd"><i className="fa fa-trash"></i></Link>

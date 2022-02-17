@@ -1,11 +1,11 @@
-import React,{ Fragment , useState } from "react";
+import React,{ Fragment } from "react";
 import { Link } from "react-router-dom";
 import { Saveclient } from "../modals/Saveclient";
 import { Editclient } from '../modals/Editclient';
 
 
 const Client = () =>{
-    const [openModal,setOpenModal]= useState(false);
+
     return(
         <Fragment>
             <div className='dashboard'>
@@ -23,12 +23,10 @@ const Client = () =>{
                         </div>
                     </div>
                 </div>
-                {/* { openModal && <Saveclient closeModal={setOpenModal}/>} */}
-                {/* <button onClick={()=>{setOpenModal(true)}} className="btn btn-primary offset-9 col-md-2"><i className="fa fa-plus"></i>  Add client</button> */}
+               
                 <div className="offset-10">
                     <Saveclient />
                 </div> 
-                { openModal && <Saveclient closeModal={setOpenModal}/>}
                 <div className="container mt-5">
                     <div className="portlet-body">
                         <div className="table-responsive">
@@ -36,11 +34,13 @@ const Client = () =>{
                                 <thead>
                                     <tr>
                                         <th>Code</th>
-                                        <th>Country</th>
-                                        <th>Total Visits</th>
-                                        <th>Page Views</th>
-                                        <th>Orders</th>
-                                        <th>Bounce Rate</th>
+                                        <th>Noms</th>
+                                        <th>Sexe</th>
+                                        <th>Adresse</th>
+                                        <th>Telephone</th>
+                                        <th>Date naissance</th>
+                                        <th>Profession</th>
+                                        <th>Photo</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -51,6 +51,8 @@ const Client = () =>{
                                         <td>14,624</td>
                                         <td>28,981</td>
                                         <td>281</td>
+                                        <td>30.43%</td>
+                                        <td>30.43%</td>
                                         <td>30.43%</td>
                                         <td>
                                             <Editclient />
@@ -64,6 +66,8 @@ const Client = () =>{
                                         <td>10,491</td>
                                         <td>121</td>
                                         <td>36.73%</td>
+                                        <td>36.73%</td>
+                                        <td>36.73%</td>
                                         <td>
                                             <Editclient />
                                             <Link  to="#" className="btn btn-danger ml-3 bd"><i className="fa fa-trash"></i></Link>
@@ -75,6 +79,8 @@ const Client = () =>{
                                         <td>5,390</td>
                                         <td>11,165</td>
                                         <td>102</td>
+                                        <td>35.52%</td>
+                                        <td>35.52%</td>
                                         <td>35.52%</td>
                                         <td>
                                             <Editclient />
@@ -88,6 +94,8 @@ const Client = () =>{
                                         <td>7,651</td>
                                         <td>71</td>
                                         <td>36.24%</td>
+                                        <td>36.24%</td>
+                                        <td>36.24%</td>
                                         <td>
                                             <Editclient />
                                             <Link  to="#" className="btn btn-danger ml-3 bd"><i className="fa fa-trash"></i></Link>
@@ -99,6 +107,8 @@ const Client = () =>{
                                         <td>2,555</td>
                                         <td>5,615</td>
                                         <td>56</td>
+                                        <td>34.83%</td>
+                                        <td>34.83%</td>
                                         <td>34.83%</td>
                                         <td>
                                             <Editclient />
@@ -112,6 +122,8 @@ const Client = () =>{
                                         <td>4,651</td>
                                         <td>42</td>
                                         <td>32.73%</td>
+                                        <td>32.73%</td>
+                                        <td>32.73%</td>
                                         <td>
                                             <Editclient />
                                             <Link  to="#" className="btn btn-danger ml-3 bd"><i className="fa fa-trash"></i></Link>
@@ -123,6 +135,8 @@ const Client = () =>{
                                         <td>2,036</td>
                                         <td>4,498</td>
                                         <td>44</td>
+                                        <td>32.54%</td>
+                                        <td>32.54%</td>
                                         <td>32.54%</td>
                                         <td>
                                             <Editclient />

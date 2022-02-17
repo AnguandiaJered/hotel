@@ -71,33 +71,70 @@ export const Editpersonnel = () => {
         </BootstrapDialogTitle>
         <DialogContent dividers>
           <form>
-            <div className='row'>
+          <div className='row'>
               <div className='col-md-6'>
                 <div className='form-group'>
-                  <label htmlFor='nom'>Nom</label>
-                  <input type="text" placeholder='noms' className='form-control' />
+                  <label htmlFor='matricule'>Matricule</label>
+                  <input type="text" placeholder='Matricule' className='form-control' />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='nom'>Nom</label>
-                    <input type="text" placeholder='noms' className='form-control' />
+                    <label htmlFor='noms'>Noms</label>
+                    <input type="text" placeholder='Noms' className='form-control' />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='nom'>Nom</label>
-                    <input type="text" placeholder='noms' className='form-control' />
+                  <label htmlFor='sexe'>Sexe</label>
+                   <select className='form-control'> 
+                     <option>M</option>
+                     <option>F</option>
+                   </select>
+                </div>
+                <div className='form-group'>
+                  <label htmlFor='datenaissance'>Date naissance</label>
+                  <input type="date"  className='form-control' />
+                </div>
+                <div className='form-group'>
+                    <label htmlFor='adresse'>Adresse</label>
+                    <input type="text" placeholder='Adresse' className='form-control' />
+                </div>
+                <div className='form-group'>
+                    <label htmlFor='etatcivil'>Etat civil</label>
+                    <select className='form-control'> 
+                     <option>Marié</option>
+                     <option>Celibataire</option>
+                     <option>Divorcé</option>
+                     <option>Autres</option>
+                    </select>
                 </div>
               </div>
               <div className='col-md-6'>
                 <div className='form-group'>
-                  <label htmlFor='nom'>Nom</label>
-                  <input type="text" placeholder='noms' className='form-control' />
+                  <label htmlFor='telephone'>Telephone</label>
+                  <input type="tel" placeholder='Telephone' className='form-control' />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='nom'>Nom</label>
-                    <input type="text" placeholder='noms' className='form-control' />
+                    <label htmlFor='nom'>Email</label>
+                    <input type="email" placeholder='Email' className='form-control' />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='nom'>Nom</label>
-                    <input type="text" placeholder='noms' className='form-control' />
+                    <label htmlFor='niveau'>Niveau Etude</label>
+                    <input type="text" placeholder='Niveau etude' className='form-control' />
+                </div>
+                <div className='form-group'>
+                  <label htmlFor='province'>Province Origine</label>
+                  <input type="text" placeholder='Province Origine' className='form-control' />
+                </div>
+                <div className='form-group'>
+                    <label htmlFor='fonction'>Fonction</label>
+                    <select className='form-control'> 
+                     <option>Comptable</option>
+                     <option>Reception</option>
+                     <option>Secretaire</option>
+                     <option>Informaticien</option>
+                    </select>
+                </div>
+                <div className='form-group'>
+                    <label htmlFor='photo'>Photo</label>
+                    <input type="file" className='form-control' />
                 </div>
               </div>
             </div>

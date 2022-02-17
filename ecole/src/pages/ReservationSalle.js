@@ -24,7 +24,7 @@ const ReservationSalle = () =>{
                     </div>
                 </div>
                
-                <div className="offset-10">
+                <div className="offset-9">
                     <Savereservesalle />
                 </div> 
                
@@ -35,11 +35,11 @@ const ReservationSalle = () =>{
                                 <thead>
                                     <tr>
                                         <th>Code</th>
-                                        <th>Country</th>
-                                        <th>Total Visits</th>
-                                        <th>Page Views</th>
-                                        <th>Orders</th>
-                                        <th>Bounce Rate</th>
+                                        <th>Clients</th>
+                                        <th>Date Reservation</th>
+                                        <th>Salles</th>
+                                        <th>Libelle</th>
+                                        <th>Date Ceremonie</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>

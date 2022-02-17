@@ -75,30 +75,37 @@ export const Savepaieconsommation = () => {
             <div className='row'>
               <div className='col-md-6'>
                 <div className='form-group'>
-                  <label htmlFor='nom'>Nom</label>
-                  <input type="text" placeholder='noms' className='form-control' />
+                  <label htmlFor='client'>Clients</label>
+                  <select className='form-control'> 
+                     <option>Jered</option>
+                     <option>Bob</option>
+                     <option>Marley</option>
+                     <option>Daniel</option>
+                   </select>
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='nom'>Nom</label>
-                    <input type="text" placeholder='noms' className='form-control' />
+                    <label htmlFor='montant'>Montant</label>
+                    <input type="number" placeholder='Montant' className='form-control' />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='nom'>Nom</label>
-                    <input type="text" placeholder='noms' className='form-control' />
+                    <label htmlFor='devise'>Devise</label>
+                    <select className='form-control'> 
+                     <option>USD</option>
+                    </select>
                 </div>
               </div>
               <div className='col-md-6'>
                 <div className='form-group'>
-                  <label htmlFor='nom'>Nom</label>
-                  <input type="text" placeholder='noms' className='form-control' />
+                  <label htmlFor='libelle'>Libelle</label>
+                  <input type="text" placeholder='Libelle' className='form-control' />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='nom'>Nom</label>
-                    <input type="text" placeholder='noms' className='form-control' />
+                    <label htmlFor='nom'>Date Payer</label>
+                    <input type="date" className='form-control' />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='nom'>Nom</label>
-                    <input type="text" placeholder='noms' className='form-control' />
+                    <label htmlFor='author'>Author</label>
+                    <input type="text" placeholder='Author' className='form-control' />
                 </div>
               </div>
             </div>
