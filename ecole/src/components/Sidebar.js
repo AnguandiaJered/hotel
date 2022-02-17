@@ -1,12 +1,10 @@
 import React from "react";
-// import {Link} from "react-router-dom";
 import styled from 'styled-components';
-// import * as FaIcons from 'react-icons/fa';
-// import * as AiIcons from 'react-icons/ai';
 import {SidebarData} from './SidebarData';
 import SubMenu from "./SubMenu";
 import { IconContext } from "react-icons/lib";
 import Jered from '../images/Jered.JPG';
+import { Logout } from "../modals/Logout";
 
 
 
@@ -39,7 +37,7 @@ const Sidebar = ()=>{
                                     <p className="welcome text-white">
                                         <i className="fa fa-key"></i> Logged in as
                                     </p>
-                                    <p className="text-white">Jered Anguandia <i className="fa fa-sign-out"></i></p>
+                                    <p className="text-white row">Jered Anguandia <Logout /></p>
                                     <div className="clearfix"></div>
                                 </li>
                                 <li className="nav-search">
