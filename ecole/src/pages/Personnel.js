@@ -35,12 +35,19 @@ const Personnel = () =>{
                                 <thead>
                                     <tr>
                                         <th>Code</th>
-                                        <th>Country</th>
-                                        <th>Total Visits</th>
-                                        <th>Page Views</th>
-                                        <th>Orders</th>
-                                        <th>Bounce Rate</th>
-                                        <th>Actions</th>
+                                        <th>Matricule</th>
+                                        <th>Noms</th>
+                                        <th>Sexe</th>
+                                        <th>Date naissance</th>
+                                        <th>Adresse</th>
+                                        <th>Etat civil</th>
+                                        <th>Telephone</th>
+                                        <th>Email</th>
+                                        <th>Nivrau etude</th>
+                                        <th>Province Origine</th>
+                                        <th>Fonction</th>
+                                        <th>Photo</th>
+                                        <th>ActionsActions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -50,6 +57,13 @@ const Personnel = () =>{
                                         <td>14,624</td>
                                         <td>28,981</td>
                                         <td>281</td>
+                                        <td>30.43%</td>
+                                        <td>United States</td>
+                                        <td>14,624</td>
+                                        <td>28,981</td>
+                                        <td>281</td>
+                                        <td>30.43%</td>
+                                        <td>30.43%</td>
                                         <td>30.43%</td>
                                         <td>
                                             <Editpersonnel />
@@ -63,6 +77,13 @@ const Personnel = () =>{
                                         <td>10,491</td>
                                         <td>121</td>
                                         <td>36.73%</td>
+                                        <td>China</td>
+                                        <td>5,745</td>
+                                        <td>10,491</td>
+                                        <td>121</td>
+                                        <td>36.73%</td>
+                                        <td>36.73%</td>
+                                        <td>36.73%</td>
                                         <td>
                                             <Editpersonnel />
                                             <Link  to="#" className="btn btn-danger ml-3 bd"><i className="fa fa-trash"></i></Link>
@@ -74,6 +95,13 @@ const Personnel = () =>{
                                         <td>5,390</td>
                                         <td>11,165</td>
                                         <td>102</td>
+                                        <td>35.52%</td>
+                                        <td>Japan</td>
+                                        <td>5,390</td>
+                                        <td>11,165</td>
+                                        <td>102</td>
+                                        <td>35.52%</td>
+                                        <td>35.52%</td>
                                         <td>35.52%</td>
                                         <td>
                                             <Editpersonnel />
@@ -87,42 +115,13 @@ const Personnel = () =>{
                                         <td>7,651</td>
                                         <td>71</td>
                                         <td>36.24%</td>
-                                        <td>
-                                            <Editpersonnel />
-                                            <Link  to="#" className="btn btn-danger ml-3 bd"><i className="fa fa-trash"></i></Link>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>05</strong></td>
-                                        <td>France</td>
-                                        <td>2,555</td>
-                                        <td>5,615</td>
-                                        <td>56</td>
-                                        <td>34.83%</td>
-                                        <td>
-                                            <Editpersonnel />
-                                            <Link  to="#" className="btn btn-danger ml-3 bd"><i className="fa fa-trash"></i></Link>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>06</strong></td>
-                                        <td>United Kingdom</td>
-                                        <td>2,258</td>
-                                        <td>4,651</td>
-                                        <td>42</td>
-                                        <td>32.73%</td>
-                                        <td>
-                                            <Editpersonnel />
-                                            <Link  to="#" className="btn btn-danger ml-3 bd"><i className="fa fa-trash"></i></Link>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>07</strong></td>
-                                        <td>Italy</td>
-                                        <td>2,036</td>
-                                        <td>4,498</td>
-                                        <td>44</td>
-                                        <td>32.54%</td>
+                                        <td>Germany</td>
+                                        <td>3,305</td>
+                                        <td>7,651</td>
+                                        <td>71</td>
+                                        <td>36.24%</td>
+                                        <td>36.24%</td>
+                                        <td>36.24%</td>
                                         <td>
                                             <Editpersonnel />
                                             <Link  to="#" className="btn btn-danger ml-3 bd"><i className="fa fa-trash"></i></Link>

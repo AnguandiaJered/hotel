@@ -32,11 +32,9 @@ export const Chambre = () =>{
                                 <thead>
                                     <tr>
                                         <th>Code</th>
-                                        <th>Country</th>
-                                        <th>Total Visits</th>
-                                        <th>Page Views</th>
-                                        <th>Orders</th>
-                                        <th>Bounce Rate</th>
+                                        <th>Numero Chambre</th>
+                                        <th>Telephone Chambre</th>
+                                        <th>Classe Chambre</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -46,8 +44,6 @@ export const Chambre = () =>{
                                         <td>United States</td>
                                         <td>14,624</td>
                                         <td>28,981</td>
-                                        <td>281</td>
-                                        <td>30.43%</td>
                                         <td>
                                             <Editchambre />
                                             <Link  to="#" className="btn btn-danger ml-3 bd"><i className="fa fa-trash"></i></Link>
@@ -58,8 +54,6 @@ export const Chambre = () =>{
                                         <td>China</td>
                                         <td>5,745</td>
                                         <td>10,491</td>
-                                        <td>121</td>
-                                        <td>36.73%</td>
                                         <td>
                                             <Editchambre />
                                             <Link  to="#" className="btn btn-danger ml-3 bd"><i className="fa fa-trash"></i></Link>
@@ -70,8 +64,6 @@ export const Chambre = () =>{
                                         <td>Japan</td>
                                         <td>5,390</td>
                                         <td>11,165</td>
-                                        <td>102</td>
-                                        <td>35.52%</td>
                                         <td>
                                             <Editchambre />
                                             <Link  to="#" className="btn btn-danger ml-3 bd"><i className="fa fa-trash"></i></Link>
@@ -82,8 +74,6 @@ export const Chambre = () =>{
                                         <td>Germany</td>
                                         <td>3,305</td>
                                         <td>7,651</td>
-                                        <td>71</td>
-                                        <td>36.24%</td>
                                         <td>
                                             <Editchambre />
                                             <Link  to="#" className="btn btn-danger ml-3 bd"><i className="fa fa-trash"></i></Link>
@@ -94,8 +84,6 @@ export const Chambre = () =>{
                                         <td>France</td>
                                         <td>2,555</td>
                                         <td>5,615</td>
-                                        <td>56</td>
-                                        <td>34.83%</td>
                                         <td>
                                             <Editchambre />
                                             <Link  to="#" className="btn btn-danger ml-3 bd"><i className="fa fa-trash"></i></Link>
@@ -106,8 +94,6 @@ export const Chambre = () =>{
                                         <td>United Kingdom</td>
                                         <td>2,258</td>
                                         <td>4,651</td>
-                                        <td>42</td>
-                                        <td>32.73%</td>
                                         <td>
                                             <Editchambre />
                                             <Link  to="#" className="btn btn-danger ml-3 bd"><i className="fa fa-trash"></i></Link>
@@ -118,8 +104,6 @@ export const Chambre = () =>{
                                         <td>Italy</td>
                                         <td>2,036</td>
                                         <td>4,498</td>
-                                        <td>44</td>
-                                        <td>32.54%</td>
                                         <td>
                                             <Editchambre />
                                             <Link  to="#" className="btn btn-danger ml-3 bd"><i className="fa fa-trash"></i></Link>

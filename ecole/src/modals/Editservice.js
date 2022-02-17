@@ -71,38 +71,12 @@ export const Editservice = () => {
         </BootstrapDialogTitle>
         <DialogContent dividers>
           <form>
-            <div className='row'>
-              <div className='col-md-6'>
-                <div className='form-group'>
-                  <label htmlFor='nom'>Nom</label>
-                  <input type="text" placeholder='noms' className='form-control' />
-                </div>
-                <div className='form-group'>
-                    <label htmlFor='nom'>Nom</label>
-                    <input type="text" placeholder='noms' className='form-control' />
-                </div>
-                <div className='form-group'>
-                    <label htmlFor='nom'>Nom</label>
-                    <input type="text" placeholder='noms' className='form-control' />
-                </div>
-              </div>
-              <div className='col-md-6'>
-                <div className='form-group'>
-                  <label htmlFor='nom'>Nom</label>
-                  <input type="text" placeholder='noms' className='form-control' />
-                </div>
-                <div className='form-group'>
-                    <label htmlFor='nom'>Nom</label>
-                    <input type="text" placeholder='noms' className='form-control' />
-                </div>
-                <div className='form-group'>
-                    <label htmlFor='nom'>Nom</label>
-                    <input type="text" placeholder='noms' className='form-control' />
-                </div>
-              </div>
+            <div className='form-group col-md-12'>
+              <label htmlFor='designation'>Designation</label>
+              <input type="text" placeholder='Designation' className='form-control' />
             </div>
             <div className='form-group'>
-                <input type="submit" value="Modifier" className='btn btn-primary col-md-6' />
+                <input type="submit" value="Modifier" className='btn btn-primary col-md-12' />
             </div>
           </form>          
         </DialogContent>

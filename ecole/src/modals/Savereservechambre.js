@@ -75,30 +75,58 @@ export const Savereservechambre = () => {
             <div className='row'>
               <div className='col-md-6'>
                 <div className='form-group'>
-                  <label htmlFor='nom'>Nom</label>
-                  <input type="text" placeholder='noms' className='form-control' />
+                  <label htmlFor='client'>Clients</label>
+                   <select className='form-control'> 
+                     <option>Jered</option>
+                     <option>Bob</option>
+                     <option>Marley</option>
+                     <option>Daniel</option>
+                   </select>
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='nom'>Nom</label>
-                    <input type="text" placeholder='noms' className='form-control' />
+                  <label htmlFor='chambre'>Chambres</label>
+                   <select className='form-control'> 
+                     <option>Ch1</option>
+                     <option>Ch2</option>
+                     <option>Ch3</option>
+                     <option>Ch4</option>
+                   </select>
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='nom'>Nom</label>
-                    <input type="text" placeholder='noms' className='form-control' />
+                    <label htmlFor='dateentree'>Date Entrée</label>
+                    <input type="date" className='form-control' />
+                </div>
+                <div className='form-group'>
+                    <label htmlFor='datesortie'>Date Sortie</label>
+                    <input type="date" className='form-control' />
+                </div>
+                <div className='form-group'>
+                    <label htmlFor='libelle'>Libelle</label>
+                    <input type="text" placeholder='Libelle' className='form-control' />
                 </div>
               </div>
               <div className='col-md-6'>
                 <div className='form-group'>
-                  <label htmlFor='nom'>Nom</label>
-                  <input type="text" placeholder='noms' className='form-control' />
+                  <label htmlFor='nom'>Prix unitaire</label>
+                  <input type="number" placeholder='Prix unitaire' className='form-control' />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='nom'>Nom</label>
-                    <input type="text" placeholder='noms' className='form-control' />
+                  <label htmlFor='devise'>Devise</label>
+                   <select className='form-control'> 
+                     <option>USD</option>
+                   </select>
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='nom'>Nom</label>
-                    <input type="text" placeholder='noms' className='form-control' />
+                    <label htmlFor='datereservation'>Date Reservation</label>
+                    <input type="date" className='form-control' />
+                </div>
+                <div className='form-group'>
+                    <label htmlFor='observation'>Observation</label>
+                    <input type="text" placeholder='Observation' className='form-control' />
+                </div>
+                <div className='form-group'>
+                    <label htmlFor='provenance'>Provenance</label>
+                    <input type="text" placeholder='Provenance' className='form-control' />
                 </div>
               </div>
             </div>
