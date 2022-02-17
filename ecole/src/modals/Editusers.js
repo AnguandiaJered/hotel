@@ -71,33 +71,29 @@ export const Editusers = () => {
         </BootstrapDialogTitle>
         <DialogContent dividers>
           <form>
-            <div className='row'>
+          <div className='row'>
               <div className='col-md-6'>
                 <div className='form-group'>
-                  <label htmlFor='nom'>Nom</label>
-                  <input type="text" placeholder='noms' className='form-control' />
+                  <label htmlFor='noms'>Noms</label>
+                  <input type="text" placeholder='Noms' className='form-control' />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='nom'>Nom</label>
-                    <input type="text" placeholder='noms' className='form-control' />
+                    <label htmlFor='username'>Username</label>
+                    <input type="text" placeholder='Username' className='form-control' />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='nom'>Nom</label>
-                    <input type="text" placeholder='noms' className='form-control' />
+                    <label htmlFor='password'>Password</label>
+                    <input type="password" placeholder='Password' className='form-control' />
                 </div>
               </div>
               <div className='col-md-6'>
                 <div className='form-group'>
-                  <label htmlFor='nom'>Nom</label>
-                  <input type="text" placeholder='noms' className='form-control' />
+                  <label htmlFor='email'>Email</label>
+                  <input type="email" placeholder='Email' className='form-control' />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='nom'>Nom</label>
-                    <input type="text" placeholder='noms' className='form-control' />
-                </div>
-                <div className='form-group'>
-                    <label htmlFor='nom'>Nom</label>
-                    <input type="text" placeholder='noms' className='form-control' />
+                    <label htmlFor='role'>Role</label>
+                    <input type="text" placeholder='Role' className='form-control' />
                 </div>
               </div>
             </div>
