@@ -79,7 +79,7 @@ export const Editsalle = () => {
                 </div>
                 <div className='form-group'>
                     <label htmlFor='prix'>Prix</label>
-                    <input type="number" placeholder='Prix' className='form-control' />
+                    <input type="number" placeholder='Prix' min="0" oninput="this.value = Math.abs(this.value)" className='form-control' />
                 </div>
               </div>
               <div className='col-md-12'>

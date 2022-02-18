@@ -76,7 +76,7 @@ export const Savechambre = () => {
               <div className='col-md-12'>
                 <div className='form-group'>
                   <label htmlFor='numchambre'>Numero chambre</label>
-                  <input type="number" placeholder='Numero chambre' className='form-control' />
+                  <input type="number" placeholder='Numero chambre' min="0" oninput="this.value = Math.abs(this.value)" className='form-control' />
                 </div>
                 <div className='form-group'>
                     <label htmlFor='telchambre'>Telephone chambre</label>
