@@ -107,7 +107,7 @@ export const Editreservechambre = () => {
               <div className='col-md-6'>
                 <div className='form-group'>
                   <label htmlFor='nom'>Prix unitaire</label>
-                  <input type="number" placeholder='Prix unitaire' className='form-control' />
+                  <input type="number" placeholder='Prix unitaire' min="0" oninput="this.value = Math.abs(this.value)" className='form-control' />
                 </div>
                 <div className='form-group'>
                   <label htmlFor='devise'>Devise</label>

@@ -85,7 +85,7 @@ export const Savepaiesalle = () => {
                 </div>
                 <div className='form-group'>
                     <label htmlFor='montant'>Montant</label>
-                    <input type="number" placeholder='Montant' className='form-control' />
+                    <input type="number" placeholder='Montant' min="0" oninput="this.value = Math.abs(this.value)" className='form-control' />
                 </div>
                 <div className='form-group'>
                     <label htmlFor='devise'>Devise</label>
