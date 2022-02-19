@@ -30,7 +30,7 @@ const Sidebar = ()=>{
             <IconContext.Provider value={{color:'#fff'}}>
                 <SidebarNav >
                     <SidebarWrap>                       
-                        <nav className="mt-3">
+                        <nav className="mt-5">
                             <ul className="navbar-nav">
                                 <li className="nav-item ml-5">
                                     <img className="rounded-circle" src={Jered} width={150} height={150} alt="" />

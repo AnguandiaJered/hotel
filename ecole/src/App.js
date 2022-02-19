@@ -19,12 +19,14 @@ import {Salle,Reserves} from './pages/Salle';
 import Service from './pages/Service';
 import {Parametre,Utilisateur} from './pages/Utilisateur';
 import Login from './components/Login';
+import Nav from './components/Nav';
 
 
 function App() {
   return (
     <Router>
-      <Navbar />
+      {/* <Navbar /> */}
+      <Nav />
       <Sidebar />
       <Switch>
         <Route exact path='/' component={Dashboard} />
