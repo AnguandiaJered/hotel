@@ -31,7 +31,7 @@ const Navbar = () =>{
                     <i className="fa fa-bars"></i> Menu
                 </button> */}
                 <div className="navbar-brand">
-                    <Link to="/" className="nav-link text-white">
+                    <Link to="/login" className="nav-link text-white">
                         Gold Star Hotel
                     </Link>
                 </div>
@@ -48,7 +48,7 @@ const Navbar = () =>{
             </div>
             <ul className="navbar-nav offset-7">
                 <li className="nav-item" id="envel">
-                    <Link to="#" className="nav-link" onClick={closeMobileMenu} >
+                    <Link to="#" className="nav-link"  >
                         <i className="fa fa-envelope text-white mt-2"></i>
                     </Link>
                 </li>

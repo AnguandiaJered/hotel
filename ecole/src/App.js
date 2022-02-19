@@ -18,6 +18,7 @@ import ReservationSalle from './pages/ReservationSalle';
 import {Salle,Reserves} from './pages/Salle';
 import Service from './pages/Service';
 import {Parametre,Utilisateur} from './pages/Utilisateur';
+import Login from './components/Login';
 
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
         <Route path='/service' component={Service} />
         <Route path='/parametre' component={Parametre} />
         <Route path='/users' component={Utilisateur} />
+        <Route path='/login' component={Login} />
         <Route component={ErrorPage} />
       </Switch>
     </Router>
