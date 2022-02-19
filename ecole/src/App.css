@@ -1,6 +1,6 @@
 .navbar-top{
   background-color: #2c3e50!important;
-  height: 50px;
+  height: 60px;
 }
 *{
   box-sizing: border-box;
@@ -13,6 +13,7 @@
   height: 50px;
   text-align: center;
   width: 45px;
+  margin-top: -15px;
 }
 #bell{
   background-color: #f39c12;
@@ -20,6 +21,7 @@
   height: 50px;
   width: 45px;
   text-align: center;
+  margin-top: -15px;
 }
 #task{
   background-color: #2980b9;
@@ -27,6 +29,7 @@
   height: 50px;
   text-align: center;
   width: 45px;
+  margin-top: -15px;
 }
 #setting:hover{
   background-color: #142434;
@@ -38,7 +41,8 @@
   margin-left: 5px;
   height: 50px;
   text-align: center;
-  width: 45px; 
+  width: 45px;
+  margin-top: -15px; 
 }
 .dashboard{
   background: #ecf0f1;
