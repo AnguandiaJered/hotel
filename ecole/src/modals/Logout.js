@@ -1,5 +1,5 @@
 import React,{ Fragment } from 'react';
-import Button from '@mui/material/Button';
+// import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
@@ -42,10 +42,10 @@ export const Logout = () => {
           </DialogContentText>
         </DialogContent>
         <DialogActions  className="log">
-          <Button className='btn btn-success mr-2' onClick={handleClose}>Logout</Button>
-          <Button className='btn btn-success mr-5' onClick={handleClose} autoFocus>
+          <Link to='/login' className='btn btn-success mr-2' onClick={handleClose}>Logout</Link>
+          <Link className='btn btn-success mr-5' to='/' onClick={handleClose} autoFocus>
             Cancel
-          </Button>
+          </Link>
         </DialogActions>
       </Dialog>
     </Fragment>

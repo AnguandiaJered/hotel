@@ -70,3 +70,19 @@
 .login{
   background: #34495e;
 }
+
+.login-heading{
+  background-color: #149077;
+  color: #fff;
+ height: 50px;
+
+}
+.portlet-green{
+  border: 1px solid #16a085;
+  background-color: #fff;
+}
+.btn-green{
+  background-color: #149077;
+  border-radius: 12px;
+  font-size: 25px;
+}
