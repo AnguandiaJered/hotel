@@ -1,5 +1,6 @@
 import React,{ Fragment } from "react";
 import { Link } from "react-router-dom";
+import logo from '../images/logo.png';
 
 const Login = () => {
     return (
@@ -7,19 +8,19 @@ const Login = () => {
             <div className="login">
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-5 col-md-offset-4 mt-5">
+                        <div className="col-md-6 offset-3 mt-3">
                             <div className="text-center text-white">
-                                <h1><i className="fa fa-gears"></i> Gold Star Hotel</h1>
+                                <h1> <img  src={logo} height={120} width={600} alt="" /></h1>
                             </div>
-                            <div className="portlet-green mt-5">
+                            <div className="portlet-green mt-3 ">
                                 <div className="login-heading">
                                     <div className="title text-center">
                                         <h4>
-                                            <strong>Login to Gold Star Hotel!</strong>
+                                            <strong> <i className="fa fa-gears"></i>  Gold Star International Hotel!</strong>
                                         </h4>
                                     </div>                                    
                                 </div>
-                                <div className="col-md-11 mt-3">
+                                <div className="col-md-11 mt-3 ml-4">
                                     <form>
                                         <div className="">
                                             <div className="form-group">

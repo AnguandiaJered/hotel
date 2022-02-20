@@ -1,79 +1,91 @@
-import React,{ useState } from "react";
-import { Link } from "react-router-dom";
-import Dropdown from "./Dropdown";
+import React,{ useState } from 'react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import Menu from '@mui/material/Menu';
+import Container from '@mui/material/Container';
+import Tooltip from '@mui/material/Tooltip';
+import MenuItem from '@mui/material/MenuItem';
+import { Link } from 'react-router-dom';
+import logo from '../images/logo.png';
 
 
-const Navbar = () =>{
-    const [click,setClick] = useState(false);
-    const [dropdown,setDropdown] = useState(false);
+const settings = ['Profile', 'Settings', 'Logout'];
 
-    const handleClick = () => setClick(!click);
-    const closeMobileMenu = () =>setClick(false);
+const Nav = () => {
 
-    const onMouseEnter = () =>{
-        if(window.innerWidth < 960){
-            setDropdown(false);
-        }else{
-            setDropdown(true);
-        }
-    };
-    const onMouseLeave = () =>{
-        if(window.innerWidth < 960){
-            setDropdown(false);
-        }else{
-            setDropdown(false);
-        }
-    };
-    return (
-        <nav className="navbar-top navbar navbar-expand-lg navbar-light bg-dark" role="navigation">
-            <div className="navbar-header">
-                {/* <button type="button" className="navbar-toggle pull-right" data-toggle="collapse" data-target=".sidebar-collapse">
-                    <i className="fa fa-bars"></i> Menu
-                </button> */}
-                <div className="navbar-brand">
-                    <Link to="/login" className="nav-link text-white">
-                        Gold Star Hotel
-                    </Link>
-                </div>
+  const [anchorElUser, setAnchorElUser] = useState(null);
+
+ 
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
+
+  return (
+    <AppBar position="static" className='navbar-top'>
+      <Container maxWidth="xl">
+        <Toolbar disableGutters>
+          <Typography
+            variant="h6"
+            noWrap
+            component="div"
+            sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
+          >           
+            <div className="navbar-brand">
+                <Link to="/" className="nav-link">
+                  <img  src={logo} height={55} alt="" />
+                </Link>
             </div>
-            <div className="offset-1" onClick={handleClick}>
-                <ul className="nav navbar-left navbar-nav">
-                    <li className="tooltip-sidebar-toggle nav-item">
-                        <Link to="#" className="nav-link text-white" id="sidebar-toggle" data-toggle="tooltip" data-placement="right" title="Sidebar Toggle">
-                            {/* <i className="fa fa-bars"></i> */}
-                            <i className={click ? 'fa fa-bars' :'fa fa-bars'}></i>
-                        </Link>
-                    </li>
-                </ul>         
-            </div>
-            <ul className="navbar-nav offset-7">
-                <li className="nav-item" id="envel">
-                    <Link to="#" className="nav-link"  >
-                        <i className="fa fa-envelope text-white mt-2"></i>
-                    </Link>
-                </li>
-                <li className="nav-item" id="bell">
-                    <Link to="#" className="nav-link" onClick={closeMobileMenu} >
-                        <i className="fa fa-bell text-white mt-2"></i> 
-                    </Link>
-                </li>
-                <li className="nav-item" id="task"> 
-                    <Link to="#" className="nav-link" onClick={closeMobileMenu} >
-                        <i className="fa fa-tasks text-white mt-2"></i> 
-                    </Link>
-                </li>
-                <li className="nav-item" id="setting"
-                    onMouseEnter={onMouseEnter} 
-                    onMouseLeave={onMouseLeave} >
-                    <Link to="#" className="nav-link" onClick={closeMobileMenu} >
-                        <i className="fa fa-user text-white mt-2"></i>  <i className="fa fa-caret-down text-white mt-2"></i>
-                    </Link>
-                    {dropdown && <Dropdown />}
-                </li>
-            </ul>
-        </nav>
-    )
-}
-
-
-export default Navbar;
+          </Typography>
+            <Box sx={{display: { xs: 'flex'} }} className="offset-8">
+             <Link to="#" className="nav-link" id="envel" >
+                <i className="fa fa-envelope text-white mt-2"></i>
+              </Link>
+             <Link to="#" className="nav-link" id="bell" >
+                <i className="fa fa-bell text-white mt-2"></i> 
+              </Link>
+            <Link to="#" className="nav-link" id="task" >
+              <i className="fa fa-tasks text-white mt-2"></i> 
+            </Link>
+            </Box>
+          <Box sx={{ flexGrow: 0 }} id="setting">
+            <Tooltip title="Open settings">
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                <i className="fa fa-user text-white mt-2"></i>  <i className="fa fa-caret-down text-white mt-2"></i>
+              </IconButton>
+            </Tooltip>
+            <Menu
+              sx={{ mt: '45px' }}
+              id="menu-appbar"
+              anchorEl={anchorElUser}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={Boolean(anchorElUser)}
+              onClose={handleCloseUserMenu} 
+            >
+              {settings.map((setting) => (
+                <MenuItem key={setting} onClick={handleCloseUserMenu} >
+                  <Typography textAlign="center">{setting}</Typography>
+                </MenuItem>
+              ))}
+            </Menu>
+          </Box>
+        </Toolbar>
+      </Container>
+    </AppBar>
+  );
+};
+export default Nav;

@@ -34,14 +34,14 @@ const Sidebar = ()=>{
                             <ul className="navbar-nav">
                                 <li className="nav-item ml-5">
                                     <img className="rounded-circle" src={Jered} width={150} height={150} alt="" />
-                                    <p className="welcome text-white">
+                                    <p className="text-white">
                                         <i className="fa fa-key"></i> Logged in as
                                     </p>
                                     <p className="text-white row">Jered Anguandia <Logout /></p>
                                     <div className="clearfix"></div>
                                 </li>
                                 <li className="nav-search">
-                                    <form role="form" className="col-md-12">
+                                    <form className="col-md-12">
                                         <input type="search" className="form-control" placeholder="Search..." />
                                     </form>
                                 </li>

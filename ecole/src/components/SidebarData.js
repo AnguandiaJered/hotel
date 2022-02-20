@@ -16,7 +16,7 @@ export const SidebarData = [
         icon: <FaIcons.FaUser />     
     },
     {
-        title: "Reservations",
+        title: "Reservation Chambre",
         path: "/reservation",
         icon: <FaIcons.FaProcedures />, 
         iconClosed:<IoIcons.IoIosArrowDown />,
