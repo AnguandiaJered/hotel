@@ -7,6 +7,7 @@ import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import { Link } from 'react-router-dom';
+import { FormControl, FormGroup, Input, InputLabel, MenuItem, Select } from '@mui/material';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
@@ -70,78 +71,78 @@ export const Editpersonnel = () => {
           Update Personnel
         </BootstrapDialogTitle>
         <DialogContent dividers>
-          <form>
+          <FormGroup>
           <div className='row'>
               <div className='col-md-6'>
                 <div className='form-group'>
-                  <label htmlFor='matricule'>Matricule</label>
-                  <input type="text" placeholder='Matricule' className='form-control' />
+                  <InputLabel htmlFor='matricule'>Matricule</InputLabel>
+                  <Input type="text" placeholder='Matricule' className='form-control' />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='noms'>Noms</label>
-                    <input type="text" placeholder='Noms' className='form-control' />
+                    <InputLabel htmlFor='noms'>Noms</InputLabel>
+                    <Input type="text" placeholder='Noms' className='form-control' />
                 </div>
                 <div className='form-group'>
-                  <label htmlFor='sexe'>Sexe</label>
-                   <select className='form-control'> 
-                     <option>M</option>
-                     <option>F</option>
-                   </select>
+                  <InputLabel htmlFor='sexe'>Sexe</InputLabel>
+                   <Select className='form-control'> 
+                     <MenuItem>M</MenuItem>
+                     <MenuItem>F</MenuItem>
+                   </Select>
                 </div>
                 <div className='form-group'>
-                  <label htmlFor='datenaissance'>Date naissance</label>
-                  <input type="date"  className='form-control' />
+                  <InputLabel htmlFor='datenaissance'>Date naissance</InputLabel>
+                  <Input type="date"  className='form-control' />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='adresse'>Adresse</label>
-                    <input type="text" placeholder='Adresse' className='form-control' />
+                    <InputLabel htmlFor='adresse'>Adresse</InputLabel>
+                    <Input type="text" placeholder='Adresse' className='form-control' />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='etatcivil'>Etat civil</label>
-                    <select className='form-control'> 
-                     <option>Marié</option>
-                     <option>Celibataire</option>
-                     <option>Divorcé</option>
-                     <option>Autres</option>
-                    </select>
+                    <InputLabel htmlFor='etatcivil'>Etat civil</InputLabel>
+                    <Select className='form-control'> 
+                     <MenuItem>Marié</MenuItem>
+                     <MenuItem>Celibataire</MenuItem>
+                     <MenuItem>Divorcé</MenuItem>
+                     <MenuItem>Autres</MenuItem>
+                    </Select>
                 </div>
               </div>
               <div className='col-md-6'>
                 <div className='form-group'>
-                  <label htmlFor='telephone'>Telephone</label>
-                  <input type="tel" placeholder='Telephone' className='form-control' />
+                  <InputLabel htmlFor='telephone'>Telephone</InputLabel>
+                  <Input type="tel" placeholder='Telephone' className='form-control' />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='nom'>Email</label>
-                    <input type="email" placeholder='Email' className='form-control' />
+                    <InputLabel htmlFor='nom'>Email</InputLabel>
+                    <Input type="email" placeholder='Email' className='form-control' />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='niveau'>Niveau Etude</label>
-                    <input type="text" placeholder='Niveau etude' className='form-control' />
+                    <InputLabel htmlFor='niveau'>Niveau Etude</InputLabel>
+                    <Input type="text" placeholder='Niveau etude' className='form-control' />
                 </div>
                 <div className='form-group'>
-                  <label htmlFor='province'>Province Origine</label>
-                  <input type="text" placeholder='Province Origine' className='form-control' />
+                  <InputLabel htmlFor='province'>Province Origine</InputLabel>
+                  <Input type="text" placeholder='Province Origine' className='form-control' />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='fonction'>Fonction</label>
-                    <select className='form-control'> 
-                     <option>Comptable</option>
-                     <option>Reception</option>
-                     <option>Secretaire</option>
-                     <option>Informaticien</option>
-                    </select>
+                    <InputLabel htmlFor='fonction'>Fonction</InputLabel>
+                    <Select className='form-control'> 
+                     <MenuItem>Comptable</MenuItem>
+                     <MenuItem>Reception</MenuItem>
+                     <MenuItem>Secretaire</MenuItem>
+                     <MenuItem>Informaticien</MenuItem>
+                    </Select>
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='photo'>Photo</label>
-                    <input type="file" className='form-control' />
+                    <InputLabel htmlFor='photo'>Photo</InputLabel>
+                    <Input type="file" className='form-control' />
                 </div>
               </div>
             </div>
-            <div className='form-group'>
-                <input type="submit" value="Modifier" className='btn btn-primary col-md-6' />
-            </div>
-          </form>          
+            <FormControl className='form-group'>
+                <Input type="submit" value="Modifier" className='btn btn-primary col-md-6' />
+            </FormControl>
+          </FormGroup>          
         </DialogContent>
       </BootstrapDialog>
     </Fragment>

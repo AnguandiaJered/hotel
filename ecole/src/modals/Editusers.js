@@ -7,6 +7,8 @@ import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import { Link } from 'react-router-dom';
+import { FormControl, FormGroup, Input, InputLabel } from '@mui/material';
+
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
@@ -70,37 +72,37 @@ export const Editusers = () => {
           Update Users
         </BootstrapDialogTitle>
         <DialogContent dividers>
-          <form>
+          <FormGroup>
           <div className='row'>
               <div className='col-md-6'>
                 <div className='form-group'>
-                  <label htmlFor='noms'>Noms</label>
-                  <input type="text" placeholder='Noms' className='form-control' />
+                  <InputLabel htmlFor='noms'>Noms</InputLabel>
+                  <Input type="text" placeholder='Noms' className='form-control' />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='username'>Username</label>
-                    <input type="text" placeholder='Username' className='form-control' />
+                    <InputLabel htmlFor='username'>Username</InputLabel>
+                    <Input type="text" placeholder='Username' className='form-control' />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='password'>Password</label>
-                    <input type="password" placeholder='Password' className='form-control' />
+                    <InputLabel htmlFor='password'>Password</InputLabel>
+                    <Input type="password" placeholder='Password' className='form-control' />
                 </div>
               </div>
               <div className='col-md-6'>
                 <div className='form-group'>
-                  <label htmlFor='email'>Email</label>
-                  <input type="email" placeholder='Email' className='form-control' />
+                  <InputLabel htmlFor='email'>Email</InputLabel>
+                  <Input type="email" placeholder='Email' className='form-control' />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='role'>Role</label>
-                    <input type="text" placeholder='Role' className='form-control' />
+                    <InputLabel htmlFor='role'>Role</InputLabel>
+                    <Input type="text" placeholder='Role' className='form-control' />
                 </div>
               </div>
             </div>
-            <div className='form-group'>
-                <input type="submit" value="Modifier" className='btn btn-primary col-md-6' />
-            </div>
-          </form>          
+            <FormControl className='form-group'>
+                <Input type="submit" value="Modifier" className='btn btn-primary col-md-6' />
+            </FormControl>
+          </FormGroup>          
         </DialogContent>
       </BootstrapDialog>
     </Fragment>

@@ -7,6 +7,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
+import { FormControl, FormGroup, Input, InputLabel, MenuItem, Select } from '@mui/material';
 
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -71,31 +72,31 @@ export const Savesalle = () => {
           Ajouter Salle
         </BootstrapDialogTitle>
         <DialogContent dividers>
-          <form>
+          <FormGroup>
             <div className='row'>
               <div className='col-md-12'>
                 <div className='form-group'>
-                  <label htmlFor='designation'>Designation</label>
-                  <input type="text" placeholder='Designation' className='form-control' />
+                  <InputLabel htmlFor='designation'>Designation</InputLabel>
+                  <Input type="text" placeholder='Designation' className='form-control' />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='prix'>Prix</label>
-                    <input type="number" placeholder='Prix' min="0" oninput="this.value = Math.abs(this.value)" className='form-control' />
+                    <InputLabel htmlFor='prix'>Prix</InputLabel>
+                    <Input type="number" placeholder='Prix' min="0" oninput="this.value = Math.abs(this.value)" className='form-control' />
                 </div>
               </div>
               <div className='col-md-12'>
                 <div className='form-group'>
-                  <label htmlFor='prix'>Devise</label>
-                   <select className='form-control'> 
-                     <option>USD</option>
-                   </select>
+                  <InputLabel htmlFor='prix'>Devise</InputLabel>
+                   <Select className='form-control'> 
+                     <MenuItem>USD</MenuItem>
+                   </Select>
                 </div>
               </div>
             </div>
-            <div className='form-group'>
-                <input type="submit" value="Enregistrer" className='btn btn-primary col-md-6' />
-            </div>
-          </form>          
+            <FormControl className='form-group'>
+                <Input type="submit" value="Enregistrer" className='btn btn-primary col-md-6' />
+            </FormControl>
+          </FormGroup>          
         </DialogContent>
       </BootstrapDialog>
     </Fragment>

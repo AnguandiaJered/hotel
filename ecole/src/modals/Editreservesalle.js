@@ -7,6 +7,8 @@ import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import { Link } from 'react-router-dom';
+import { FormControl, FormGroup, Input, InputLabel, MenuItem, Select } from '@mui/material';
+
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
@@ -70,46 +72,46 @@ export const Editreservesalle = () => {
           Update Reservation Salle
         </BootstrapDialogTitle>
         <DialogContent dividers>
-          <form>
+          <FormGroup>
             <div className='row'>
               <div className='col-md-6'>
                 <div className='form-group'>
-                  <label htmlFor='client'>Clients</label>
-                   <select className='form-control'> 
-                     <option>Jered</option>
-                     <option>Bob</option>
-                     <option>Marley</option>
-                     <option>Daniel</option>
-                   </select>
+                  <InputLabel htmlFor='client'>Clients</InputLabel>
+                   <Select className='form-control'> 
+                     <MenuItem>Jered</MenuItem>
+                     <MenuItem>Bob</MenuItem>
+                     <MenuItem>Marley</MenuItem>
+                     <MenuItem>Daniel</MenuItem>
+                   </Select>
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='datereservationsalle'>Date Reservation</label>
-                    <input type="date" className='form-control' />
+                    <InputLabel htmlFor='datereservationsalle'>Date Reservation</InputLabel>
+                    <Input type="date" className='form-control' />
                 </div>
                 <div className='form-group'>
-                  <label htmlFor='salles'>Salles</label>
-                   <select className='form-control'> 
-                     <option>Salle 1</option>
-                     <option>Salle 2</option>
-                     <option>Salle 3</option>
-                   </select>
+                  <InputLabel htmlFor='salles'>Salles</InputLabel>
+                   <Select className='form-control'> 
+                     <MenuItem>Salle 1</MenuItem>
+                     <MenuItem>Salle 2</MenuItem>
+                     <MenuItem>Salle 3</MenuItem>
+                   </Select>
                 </div>
               </div>
               <div className='col-md-6'>
                 <div className='form-group'>
-                  <label htmlFor='libelle'>Libelle</label>
-                  <input type="text" placeholder='Libelle' className='form-control' />
+                  <FormControl htmlFor='libelle'>Libelle</FormControl>
+                  <Input type="text" placeholder='Libelle' className='form-control' />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='dateceremonie'>Date Ceremonie</label>
-                    <input type="date" className='form-control' />
+                    <InputLabel htmlFor='dateceremonie'>Date Ceremonie</InputLabel>
+                    <Input type="date" className='form-control' />
                 </div>
               </div>
             </div>
-            <div className='form-group'>
-                <input type="submit" value="Modifier" className='btn btn-primary col-md-6' />
-            </div>
-          </form>          
+            <FormControl className='form-group'>
+                <Input type="submit" value="Modifier" className='btn btn-primary col-md-6' />
+            </FormControl>
+          </FormGroup>          
         </DialogContent>
       </BootstrapDialog>
     </Fragment>

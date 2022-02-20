@@ -8,6 +8,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import { Link } from 'react-router-dom';
 import Jered from '../images/Jered.JPG';
 
+
 export const Logout = () => {
   const [open, setOpen] = React.useState(false);
 
