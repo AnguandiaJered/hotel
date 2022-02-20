@@ -7,6 +7,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
+import { FormControl, FormGroup, Input, InputLabel } from '@mui/material';
 
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -71,15 +72,15 @@ export const Saveservice = () => {
           Ajouter Service
         </BootstrapDialogTitle>
         <DialogContent dividers>
-          <form>
+          <FormGroup>
               <div className='form-group'>
-                  <label htmlFor='designation'>Designation</label>
-                  <input type="text" placeholder='Designation' className='form-control' />
+                  <InputLabel htmlFor='designation'>Designation</InputLabel>
+                  <Input type="text" placeholder='Designation' className='form-control' />
               </div>
-            <div className='form-group'>
-                <input type="submit" value="Enregistrer" className='btn btn-primary col-md-12' />
-            </div>
-          </form>          
+            <FormControl className='form-group'>
+                <Input type="submit" value="Enregistrer" className='btn btn-primary col-md-12' />
+            </FormControl>
+          </FormGroup>          
         </DialogContent>
       </BootstrapDialog>
     </Fragment>

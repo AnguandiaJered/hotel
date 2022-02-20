@@ -7,6 +7,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
+import { FormControl, FormGroup, Input, InputLabel, MenuItem, Select } from '@mui/material';
 
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -71,32 +72,32 @@ export const Savechambre = () => {
           Ajouter Chambre
         </BootstrapDialogTitle>
         <DialogContent dividers>
-          <form>
+          <FormGroup>
             <div className='row'>
               <div className='col-md-12'>
                 <div className='form-group'>
-                  <label htmlFor='numchambre'>Numero chambre</label>
-                  <input type="number" placeholder='Numero chambre' min="0" oninput="this.value = Math.abs(this.value)" className='form-control' />
+                  <InputLabel htmlFor='numchambre'>Numero chambre</InputLabel>
+                  <Input type="number" placeholder='Numero chambre' min="0" oninput="this.value = Math.abs(this.value)" className='form-control' />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='telchambre'>Telephone chambre</label>
-                    <input type="tel" placeholder='Telephone chambre' className='form-control' />
+                    <InputLabel htmlFor='telchambre'>Telephone chambre</InputLabel>
+                    <Input type="tel" placeholder='Telephone chambre' className='form-control' />
                 </div>
               </div>
               <div className='col-md-12'>
                 <div className='form-group'>
-                  <label htmlFor='classchambre'>Classe chambre</label>
-                   <select className='form-control'> 
-                     <option>VIP</option>
-                     <option>Ordinaire</option>
-                   </select>
+                  <InputLabel htmlFor='classchambre'>Classe chambre</InputLabel>
+                   <Select className='form-control'> 
+                     <MenuItem>VIP</MenuItem>
+                     <MenuItem>Ordinaire</MenuItem>
+                   </Select>
                 </div>
               </div>
             </div>
-            <div className='form-group'>
-                <input type="submit" value="Enregistrer" className='btn btn-primary col-md-6' />
-            </div>
-          </form>          
+            <FormControl className='form-group'>
+                <Input type="submit" value="Enregistrer" className='btn btn-primary col-md-6' />
+            </FormControl>
+          </FormGroup>          
         </DialogContent>
       </BootstrapDialog>
     </Fragment>

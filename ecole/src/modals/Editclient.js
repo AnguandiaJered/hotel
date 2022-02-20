@@ -7,6 +7,8 @@ import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import { Link } from 'react-router-dom';
+import { FormControl, FormGroup, Input, InputLabel, MenuItem, Select } from '@mui/material';
+
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
@@ -70,48 +72,48 @@ export const Editclient = () => {
           Update Clients
         </BootstrapDialogTitle>
         <DialogContent dividers>
-          <form>
+          <FormGroup>
             <div className='row'>
               <div className='col-md-6'>
                 <div className='form-group'>
-                  <label htmlFor='noms'>Noms</label>
-                  <input type="text" placeholder='Noms' className='form-control' />
+                  <InputLabel htmlFor='noms'>Noms</InputLabel>
+                  <Input type="text" placeholder='Noms' className='form-control' />
                 </div>
                 <div className='form-group'>
-                  <label htmlFor='sexe'>Sexe</label>
-                   <select className='form-control'> 
-                     <option>M</option>
-                     <option>F</option>
-                   </select>
+                  <InputLabel htmlFor='sexe'>Sexe</InputLabel>
+                   <Select className='form-control'> 
+                     <MenuItem>M</MenuItem>
+                     <MenuItem>F</MenuItem>
+                   </Select>
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='adresse'>Adresse</label>
-                    <input type="text" placeholder='Adresse' className='form-control' />
+                    <InputLabel htmlFor='adresse'>Adresse</InputLabel>
+                    <Input type="text" placeholder='Adresse' className='form-control' />
                 </div>
                 <div className='form-group'>
-                  <label htmlFor='Telephone'>Telephone</label>
-                  <input type="tel" placeholder='Telephone' className='form-control' />
+                  <InputLabel htmlFor='Telephone'>Telephone</InputLabel>
+                  <Input type="tel" placeholder='Telephone' className='form-control' />
                 </div>
               </div>
               <div className='col-md-6'>              
                 <div className='form-group'>
-                    <label htmlFor='datenaissance'>Date naissance</label>
-                    <input type="date"  className='form-control' />
+                    <InputLabel htmlFor='datenaissance'>Date naissance</InputLabel>
+                    <Input type="date"  className='form-control' />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='profession'>Profession</label>
-                    <input type="text" placeholder='Profession' className='form-control' />
+                    <InputLabel htmlFor='profession'>Profession</InputLabel>
+                    <Input type="text" placeholder='Profession' className='form-control' />
                 </div>
                 <div className='form-group'>
-                  <label htmlFor='photo'>Photo</label>
-                  <input type="file" className='form-control' />
+                  <InputLabel htmlFor='photo'>Photo</InputLabel>
+                  <Input type="file" className='form-control' />
                 </div>
               </div>
             </div>
-            <div className='form-group'>
-                <input type="submit" value="Modifier" className='btn btn-primary col-md-6' />
-            </div>
-          </form>          
+            <FormControl className='form-group'>
+                <Input type="submit" value="Modifier" className='btn btn-primary col-md-6' />
+            </FormControl>
+          </FormGroup>          
         </DialogContent>
       </BootstrapDialog>
     </Fragment>

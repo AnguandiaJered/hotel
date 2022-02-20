@@ -7,6 +7,7 @@ import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import { Link } from 'react-router-dom';
+import { FormControl, FormGroup, Input, InputLabel, MenuItem, Select } from '@mui/material';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
@@ -70,48 +71,48 @@ export const Editpaieconsommation = () => {
           Update Paiement Consommation
         </BootstrapDialogTitle>
         <DialogContent dividers>
-          <form>
+          <FormGroup>
             <div className='row'>
               <div className='col-md-6'>
                 <div className='form-group'>
-                  <label htmlFor='client'>Clients</label>
-                  <select className='form-control'> 
-                     <option>Jered</option>
-                     <option>Bob</option>
-                     <option>Marley</option>
-                     <option>Daniel</option>
-                   </select>
+                  <InputLabel htmlFor='client'>Clients</InputLabel>
+                  <Select className='form-control'> 
+                     <MenuItem>Jered</MenuItem>
+                     <MenuItem>Bob</MenuItem>
+                     <MenuItem>Marley</MenuItem>
+                     <MenuItem>Daniel</MenuItem>
+                   </Select>
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='montant'>Montant</label>
-                    <input type="number" placeholder='Montant' min="0" oninput="this.value = Math.abs(this.value)" className='form-control' />
+                    <InputLabel htmlFor='montant'>Montant</InputLabel>
+                    <Input type="number" placeholder='Montant' min="0" oninput="this.value = Math.abs(this.value)" className='form-control' />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='devise'>Devise</label>
-                    <select className='form-control'> 
-                     <option>USD</option>
-                    </select>
+                    <InputLabel htmlFor='devise'>Devise</InputLabel>
+                    <Select className='form-control'> 
+                     <MenuItem>USD</MenuItem>
+                    </Select>
                 </div>
               </div>
               <div className='col-md-6'>
                 <div className='form-group'>
-                  <label htmlFor='libelle'>Libelle</label>
-                  <input type="text" placeholder='Libelle' className='form-control' />
+                  <InputLabel htmlFor='libelle'>Libelle</InputLabel>
+                  <Input type="text" placeholder='Libelle' className='form-control' />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='nom'>Date Payer</label>
-                    <input type="date" className='form-control' />
+                    <InputLabel htmlFor='nom'>Date Payer</InputLabel>
+                    <Input type="date" className='form-control' />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='author'>Author</label>
-                    <input type="text" placeholder='Author' className='form-control' />
+                    <InputLabel htmlFor='author'>Author</InputLabel>
+                    <Input type="text" placeholder='Author' className='form-control' />
                 </div>
               </div>
             </div>
-            <div className='form-group'>
-                <input type="submit" value="Modifier" className='btn btn-primary col-md-6' />
-            </div>
-          </form>          
+            <FormControl className='form-group'>
+                <Input type="submit" value="Modifier" className='btn btn-primary col-md-6' />
+            </FormControl>
+          </FormGroup>          
         </DialogContent>
       </BootstrapDialog>
     </Fragment>

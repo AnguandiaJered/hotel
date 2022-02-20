@@ -76,17 +76,20 @@
 }
 
 .login-heading{
-  background-color: #149077;
+  background-color: #c5933f;
   color: #fff;
  height: 70px;
 
 }
 .portlet-green{
-  border: 1px solid #16a085;
+  border: 1px solid #c5933f;
   background-color: #fff;
 }
 .btn-green{
-  background-color: #149077;
+  background-color: #c5933f!important;
   border-radius: 12px;
   font-size: 25px;
+}
+.text-green{
+  color: #c5933f;
 }

@@ -7,6 +7,7 @@ import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import { Link } from 'react-router-dom';
+import { FormControl, FormGroup, Input, InputLabel, MenuItem, Select } from '@mui/material';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
@@ -70,69 +71,69 @@ export const Editreservechambre = () => {
           Update Reservation Chambre
         </BootstrapDialogTitle>
         <DialogContent dividers>
-          <form>
+          <FormGroup>
           <div className='row'>
               <div className='col-md-6'>
                 <div className='form-group'>
-                  <label htmlFor='client'>Clients</label>
-                   <select className='form-control'> 
-                     <option>Jered</option>
-                     <option>Bob</option>
-                     <option>Marley</option>
-                     <option>Daniel</option>
-                   </select>
+                  <InputLabel htmlFor='client'>Clients</InputLabel>
+                   <Select className='form-control'> 
+                     <MenuItem>Jered</MenuItem>
+                     <MenuItem>Bob</MenuItem>
+                     <MenuItem>Marley</MenuItem>
+                     <MenuItem>Daniel</MenuItem>
+                   </Select>
                 </div>
                 <div className='form-group'>
-                  <label htmlFor='chambre'>Chambres</label>
-                   <select className='form-control'> 
-                     <option>Ch1</option>
-                     <option>Ch2</option>
-                     <option>Ch3</option>
-                     <option>Ch4</option>
-                   </select>
+                  <InputLabel htmlFor='chambre'>Chambres</InputLabel>
+                   <Select className='form-control'> 
+                     <MenuItem>Ch1</MenuItem>
+                     <MenuItem>Ch2</MenuItem>
+                     <MenuItem>Ch3</MenuItem>
+                     <MenuItem>Ch4</MenuItem>
+                   </Select>
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='dateentree'>Date Entrée</label>
-                    <input type="date" className='form-control' />
+                    <InputLabel htmlFor='dateentree'>Date Entrée</InputLabel>
+                    <Input type="date" className='form-control' />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='datesortie'>Date Sortie</label>
-                    <input type="date" className='form-control' />
+                    <InputLabel htmlFor='datesortie'>Date Sortie</InputLabel>
+                    <Input type="date" className='form-control' />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='libelle'>Libelle</label>
-                    <input type="text" placeholder='Libelle' className='form-control' />
+                    <InputLabel htmlFor='libelle'>Libelle</InputLabel>
+                    <Input type="text" placeholder='Libelle' className='form-control' />
                 </div>
               </div>
               <div className='col-md-6'>
                 <div className='form-group'>
-                  <label htmlFor='nom'>Prix unitaire</label>
-                  <input type="number" placeholder='Prix unitaire' min="0" oninput="this.value = Math.abs(this.value)" className='form-control' />
+                  <InputLabel htmlFor='nom'>Prix unitaire</InputLabel>
+                  <Input type="number" placeholder='Prix unitaire' min="0" oninput="this.value = Math.abs(this.value)" className='form-control' />
                 </div>
                 <div className='form-group'>
-                  <label htmlFor='devise'>Devise</label>
-                   <select className='form-control'> 
-                     <option>USD</option>
-                   </select>
+                  <InputLabel htmlFor='devise'>Devise</InputLabel>
+                   <Select className='form-control'> 
+                     <MenuItem>USD</MenuItem>
+                   </Select>
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='datereservation'>Date Reservation</label>
-                    <input type="date" className='form-control' />
+                    <InputLabel htmlFor='datereservation'>Date Reservation</InputLabel>
+                    <Input type="date" className='form-control' />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='observation'>Observation</label>
-                    <input type="text" placeholder='Observation' className='form-control' />
+                    <InputLabel htmlFor='observation'>Observation</InputLabel>
+                    <Input type="text" placeholder='Observation' className='form-control' />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='provenance'>Provenance</label>
-                    <input type="text" placeholder='Provenance' className='form-control' />
+                    <InputLabel htmlFor='provenance'>Provenance</InputLabel>
+                    <Input type="text" placeholder='Provenance' className='form-control' />
                 </div>
               </div>
             </div>
-            <div className='form-group'>
-                <input type="submit" value="Modifier" className='btn btn-primary col-md-6' />
-            </div>
-          </form>          
+            <FormControl className='form-group'>
+                <Input type="submit" value="Modifier" className='btn btn-primary col-md-6' />
+            </FormControl>
+          </FormGroup>          
         </DialogContent>
       </BootstrapDialog>
     </Fragment>
