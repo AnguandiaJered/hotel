@@ -64,7 +64,7 @@
   color: #16a085;
 }
 .btn-success{
-  background-color: #149077!important;
+  background-color: #c5933f!important;
   color: #fff!important;
   width: 100px;
 }
@@ -92,4 +92,7 @@
 }
 .text-green{
   color: #c5933f;
+}
+.text-green:hover{
+  color: #232c36;
 }
