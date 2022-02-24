@@ -106,6 +106,10 @@ export const Savereservechambre = () => {
                     <InputLabel htmlFor='libelle'>Libelle</InputLabel>
                     <Input type="text" placeholder='Libelle' className='form-control' />
                 </div>
+                <div className='form-group'>
+                  <InputLabel htmlFor='jour'>Nombre de jours</InputLabel>
+                  <Input type="number" placeholder='Nombre de jour' min="0" oninput="this.value = Math.abs(this.value)" className='form-control' />
+                </div>
               </div>
               <div className='col-md-6'>
                 <div className='form-group'>
