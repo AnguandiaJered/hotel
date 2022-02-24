@@ -1,12 +1,12 @@
 import React,{ Fragment } from 'react';
 import PropTypes from 'prop-types';
-import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
+import { Link } from 'react-router-dom';
 import { FormControl, FormGroup, Input, InputLabel, MenuItem, Select } from '@mui/material';
 
 
@@ -61,9 +61,9 @@ export const Savereservechambre = () => {
 
   return (
     <Fragment>
-      <Button variant="outlined" onClick={handleClickOpen}>
-       <i className='fa fa-plus'></i> Add Reservation Chambre
-      </Button>
+      <Link variant="outlined" className='btn btn-primary' onClick={handleClickOpen}>
+        <i className='fa fa-plus'></i> Add Reservation Chambre
+      </Link>
       <BootstrapDialog
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"

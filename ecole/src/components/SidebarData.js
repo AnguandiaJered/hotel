@@ -114,6 +114,11 @@ export const SidebarData = [
                 icon: <AiIcons.AiOutlineDoubleRight />
             },
             {
+                title: "Affectations",
+                path: "/affectation",
+                icon: <AiIcons.AiOutlineDoubleRight />
+            },
+            {
                 title: "Nos utilisateurs",
                 path: "/users",
                 icon: <AiIcons.AiOutlineDoubleRight />,

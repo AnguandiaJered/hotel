@@ -18,6 +18,7 @@ import ReservationSalle from './pages/ReservationSalle';
 import {Salle,Reserves} from './pages/Salle';
 import Service from './pages/Service';
 import {Parametre,Utilisateur} from './pages/Utilisateur';
+import Affectation from './pages/Affectation';
 import Login from './components/Login';
 
 
@@ -47,6 +48,7 @@ function App() {
         <Route path='/service' component={Service} />
         <Route path='/parametre' component={Parametre} />
         <Route path='/users' component={Utilisateur} />
+        <Route path='/affectation' component={Affectation} />
         <Route path='/login' component={Login} />
         <Route component={ErrorPage} />
       </Switch>
