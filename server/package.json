@@ -1,7 +1,7 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "backend for hotel manager",
+  "description": "le backend de la gestion d'hotel",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,12 +10,10 @@
   "author": "Jered",
   "license": "ISC",
   "dependencies": {
-    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
     "express": "^4.17.3",
-    "mysql": "^2.18.1",
-    "sequelize": "^6.16.2"
-  },
-  "devDependencies": {
-    "sequelize-cli": "^6.4.1"
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.2.3",
+    "nodemon": "^2.0.15"
   }
 }
