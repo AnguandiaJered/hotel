@@ -45,6 +45,15 @@ module.exports.showClient = async (req, res) =>{
         res.status(200).send("err");
     }
 }
+module.exports.showAllClient = async (req, res) =>{
+    try {
+        const client = await Client.find();
+        const data = client;
+        res.status(200).json({Client:data});
+    } catch (error) {
+        res.status(200).send("err");
+    }
+}
 
 module.exports.deleteClient = async (req, res) =>{
     try {

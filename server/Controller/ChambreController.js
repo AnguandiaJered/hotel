@@ -38,6 +38,16 @@ module.exports.showChambre = async (req, res) =>{
     }
 }
 
+module.exports.showAllChambre = async (req, res) =>{
+    try {
+        const chambre = await Chambre.find();
+        const data = chambre;
+        res.status(200).json({Chambre:data});
+    } catch (error) {
+        res.status(500).send("err");
+    }
+}
+
 module.exports.deleteChambre = async (req, res) =>{
     try {
         const chambre = await Chambre.findByIdAndDelete(req.body);

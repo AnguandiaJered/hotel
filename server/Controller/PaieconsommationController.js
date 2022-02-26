@@ -44,6 +44,16 @@ module.exports.showPaieconsommation = async (req , res) =>{
     }
 }
 
+module.exports.showAllPaieconsommation = async (req , res) =>{
+    try {
+        const paieconsomme = await Paieconsommation.find();
+        const data = paieconsomme;
+        res.status(200).json({Paieconsommation:data});
+    } catch (error) {
+        res.status(200).send("err");
+    }
+}
+
 module.exports.deletePaieconsommation = async (req , res) =>{
     try {
         const paieconsomme = await Paieconsommation.findByIdAndDelete(req.body);

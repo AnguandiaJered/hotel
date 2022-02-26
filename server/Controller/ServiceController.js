@@ -34,6 +34,16 @@ module.exports.showService = async (req, res) =>{
     }
 }
 
+module.exports.showAllService = async (req, res) =>{
+    try {
+        const service = await Service.find();
+        const data = service;
+        res.status(200).json({Service:data});
+    } catch (error) {
+        res.status(500).send("err");
+    }
+}
+
 module.exports.deleteService = async (req, res) =>{
     try {
         const service = await Service.findByIdAndDelete(req.body);

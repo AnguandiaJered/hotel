@@ -44,6 +44,16 @@ module.exports.showPaiesalle = async (req , res) =>{
     }
 }
 
+module.exports.showAllPaiesalle = async (req , res) =>{
+    try {
+        const paiehotel = await Paiesalle.find();
+        const data = paiehotel;
+        res.status(200).json({Paiesalle:data});
+    } catch (error) {
+        res.status(200).send("err");
+    }
+}
+
 module.exports.deletePaiesalle = async (req , res) =>{
     try {
         const paiesalle = await Paiesalle.findByIdAndDelete(req.body);

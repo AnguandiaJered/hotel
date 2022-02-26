@@ -42,6 +42,16 @@ module.exports.showReservationsalle = async (req , res) => {
     }
 }
 
+module.exports.showAllReservationsalle = async (req , res) => {
+    try {
+        const reservesalle = await Reservationsalle.find();
+        const data = reservesalle;
+        res.status(200).json({Reservationsalle:data});
+    } catch (error) {
+        res.status(500).send("err");
+    }
+}
+
 module.exports.deleteReservationsalle = async (req , res) => {
     try {
         const reservesalle = await Reservationsalle.findByIdAndDelete(req.body);

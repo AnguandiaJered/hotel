@@ -60,7 +60,7 @@ export const Editusers = () => {
 
   return (
     <Fragment>
-      <Link variant="outlined" className='btn btn-primary bd' onClick={handleClickOpen}>
+      <Link to='#' variant="outlined" className='btn btn-primary bd' onClick={handleClickOpen}>
        <i className='fa fa-pencil-square-o'></i>
       </Link>
       <BootstrapDialog

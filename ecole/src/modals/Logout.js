@@ -22,7 +22,7 @@ export const Logout = () => {
 
   return (
     <Fragment>
-      <Link variant="outlined" className='ml-2' onClick={handleClickOpen}>
+      <Link to='#' variant="outlined" className='ml-2' onClick={handleClickOpen}>
         <i className="fa fa-sign-out"></i>
       </Link>
       <Dialog
