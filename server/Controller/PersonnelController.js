@@ -57,6 +57,16 @@ module.exports.showPersonnel = async (req , res) => {
     }
 }
 
+module.exports.showAllPersonnel = async (req , res) => {
+    try {
+        const personnel = await Personnel.find();
+        const data = personnel;
+        res.status(200).json({Personnel:data});
+    } catch (error) {
+        res.status(500).send("err");
+    }
+}
+
 module.exports.deletePersonnel = async (req , res) => {
     try {
         const personnel = await Personnel.findByIdAndDelete(req.body);

@@ -33,6 +33,15 @@ module.exports.showFonction = async (req, res) =>{
         res.status(500).send("err");
     }
 }
+module.exports.showAllFonction = async (req, res) =>{
+    try {
+        const fonction = await Fonction.find();
+        const data = fonction;
+        res.status(200).json({Fonction:data});
+    } catch (error) {
+        res.status(500).send("err");
+    }
+}
 
 module.exports.deleteFonction = async (req, res) =>{
     try {

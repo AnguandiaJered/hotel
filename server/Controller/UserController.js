@@ -53,3 +53,13 @@ module.exports.deleteUser = async (req , res) => {
         res.status(500).send("err");
     }
 }
+
+module.exports.showallUser = async (req , res) => {
+    try {
+        const user = await User.find();
+        const data = user;
+        res.status(200).json({User:data});
+    } catch (error) {
+        res.status(500).send("err");
+    }
+}

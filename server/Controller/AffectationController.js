@@ -55,3 +55,13 @@ module.exports.deleteAffectation = async (req , res) => {
         res.status(500).send("err");
     }
 }
+
+module.exports.showAllAffectation = async (req , res) => {
+    try {
+        const affectation = await Affectation.find();
+        const data = affectation;
+        res.status(200).json({Affectation:data});
+    } catch (error) {
+        res.status(500).send("err");
+    }
+}

@@ -1,11 +1,20 @@
-import React,{ Fragment } from "react";
+import React,{ Fragment, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Saveusers } from "../modals/Saveusers";
 import { Editusers } from '../modals/Editusers';
+import axios from 'axios';
 
 
 export const Utilisateur = () =>{
+
+    const [user,setUser] = useState([]);
    
+    useEffect( async () => {
+        await axios.get('http://localhost:8080/user/showall').then((res) =>{
+            setUser(res.data);
+        });
+    },[]);
+
     return(
         <Fragment>
             <div className='dashboard'>
@@ -44,90 +53,20 @@ export const Utilisateur = () =>{
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td><strong>01</strong></td>
-                                        <td>United States</td>
-                                        <td>14,624</td>
-                                        <td>28,981</td>
-                                        <td>281</td>
-                                        <td>30.43%</td>
-                                        <td>
-                                            <Editusers />
-                                            <Link  to="#" className="btn btn-danger ml-3 bd"><i className="fa fa-trash"></i></Link>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>02</strong></td>
-                                        <td>China</td>
-                                        <td>5,745</td>
-                                        <td>10,491</td>
-                                        <td>121</td>
-                                        <td>36.73%</td>
-                                        <td>
-                                            <Editusers />
-                                            <Link  to="#" className="btn btn-danger ml-3 bd"><i className="fa fa-trash"></i></Link>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>03</strong></td>
-                                        <td>Japan</td>
-                                        <td>5,390</td>
-                                        <td>11,165</td>
-                                        <td>102</td>
-                                        <td>35.52%</td>
-                                        <td>
-                                            <Editusers />
-                                            <Link  to="#" className="btn btn-danger ml-3 bd"><i className="fa fa-trash"></i></Link>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>04</strong></td>
-                                        <td>Germany</td>
-                                        <td>3,305</td>
-                                        <td>7,651</td>
-                                        <td>71</td>
-                                        <td>36.24%</td>
-                                        <td>
-                                            <Editusers />
-                                            <Link  to="#" className="btn btn-danger ml-3 bd"><i className="fa fa-trash"></i></Link>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>05</strong></td>
-                                        <td>France</td>
-                                        <td>2,555</td>
-                                        <td>5,615</td>
-                                        <td>56</td>
-                                        <td>34.83%</td>
-                                        <td>
-                                            <Editusers />
-                                            <Link  to="#" className="btn btn-danger ml-3 bd"><i className="fa fa-trash"></i></Link>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>06</strong></td>
-                                        <td>United Kingdom</td>
-                                        <td>2,258</td>
-                                        <td>4,651</td>
-                                        <td>42</td>
-                                        <td>32.73%</td>
-                                        <td>
-                                            <Editusers />
-                                            <Link  to="#" className="btn btn-danger ml-3 bd"><i className="fa fa-trash"></i></Link>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>07</strong></td>
-                                        <td>Italy</td>
-                                        <td>2,036</td>
-                                        <td>4,498</td>
-                                        <td>44</td>
-                                        <td>32.54%</td>
-                                        <td>
-                                            <Editusers />
-                                            <Link  to="#" className="btn btn-danger ml-3 bd"><i className="fa fa-trash"></i></Link>
-                                        </td>
-                                    </tr>
+                                    { user.map((item,index) =>(
+                                        <tr key={index}>
+                                            <td><strong>{index +1}</strong></td>
+                                            <td>{item.noms}</td>
+                                            <td>{item.username}</td>
+                                            <td>{item.password}</td>                            
+                                            <td>{item.mail}</td>                            
+                                            <td>{item.role}</td>                                        
+                                            <td>
+                                                <Editusers />
+                                                <Link  to="#" className="btn btn-danger ml-3 bd"><i className="fa fa-trash"></i></Link>
+                                            </td>
+                                        </tr> 
+                                    ))} 
                                 </tbody>
                             </table>
                         </div>                                

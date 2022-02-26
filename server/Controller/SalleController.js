@@ -38,6 +38,16 @@ module.exports.showSalle = async (req , res) =>{
     }
 }
 
+module.exports.showAllSalle = async (req , res) =>{
+    try {
+        const salle = await Salle.find();
+        const data = salle;
+        res.status(200).json({Salle:data});
+    } catch (error) {
+        res.status(500).send("err");
+    }
+}
+
 module.exports.deleteSalle = async (req , res) =>{
     try {
         const salle = await Salle.findByIdAndDelete(req.body);

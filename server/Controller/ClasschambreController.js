@@ -37,6 +37,15 @@ module.exports.showClassroom = async (req, res) =>{
         res.status(500).send("err");
     }
 }
+module.exports.showAllClassroom = async (req, res) =>{
+    try {
+        const classroom = await Classeroom.find();
+        const data = classroom;
+        res.status(200).json({Classeroom:data});
+    } catch (error) {
+        res.status(500).send("err");
+    }
+}
 
 module.exports.deleteClassroom = async (req, res) =>{
     try {

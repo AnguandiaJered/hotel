@@ -54,6 +54,16 @@ module.exports.showReservationchambre = async (req , res) =>{
     }
 }
 
+module.exports.showAllReservationchambre = async (req , res) =>{
+    try {
+        const reserveroom = await Reservationchambre.find();
+        const data = reserveroom;
+        res.status(200).json({Reservationchambre:data});
+    } catch (error) {
+        res.status(500).send("err");
+    }
+}
+
 module.exports.deleteReservationchambre = async (req , res) =>{
     try {
         const reserveroom = await Reservationchambre.findByIdAndDelete(req.body);

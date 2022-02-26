@@ -61,7 +61,7 @@ export const Savepaieconsommation = () => {
 
   return (
     <Fragment>
-      <Link variant="outlined" className='btn btn-primary' onClick={handleClickOpen}>
+      <Link to='#' variant="outlined" className='btn btn-primary' onClick={handleClickOpen}>
           <i className='fa fa-plus'></i> Add Paie Consommation
       </Link>
       <BootstrapDialog
