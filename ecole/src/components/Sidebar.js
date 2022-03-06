@@ -28,12 +28,12 @@ const Sidebar = ()=>{
     return (
         <>
             <IconContext.Provider value={{color:'#fff'}}>
-                <SidebarNav >
+                <SidebarNav>
                     <SidebarWrap>                       
-                        <nav className="mt-5">
+                        <nav className="mt-3">
                             <ul className="navbar-nav">
                                 <li className="nav-item ml-5">
-                                    <img className="rounded-circle" src={Jered} width={150} height={150} alt="" />
+                                    <img className="rounded-circle" src={Jered} width={50} height={50} alt="" />
                                     <p className="text-white">
                                         <i className="fa fa-key"></i> Logged in as
                                     </p>

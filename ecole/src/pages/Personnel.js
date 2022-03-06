@@ -79,7 +79,7 @@ const Personnel = () =>{
                     <Savepersonnel />
                 </div> 
                 
-                <div className="container mt-5">
+                <div className="container mt-3">
                     <TableContainer component={Paper}>
                         <Table sx={{ minWidth: 700 }} aria-label="customized table">
                             <TableHead>
@@ -116,7 +116,10 @@ const Personnel = () =>{
                                     <StyledTableCell align="center">{row.protein}</StyledTableCell>                                                                                                                                                                                                                                      
                                     <StyledTableCell align="center">{row.protein}</StyledTableCell>                                                                                                                                                                                                                                      
                                     <StyledTableCell align="center">{row.protein}</StyledTableCell>                                                                                                                                                                                                                                      
-                                    <StyledTableCell align="center">{row.protein}</StyledTableCell>                                                                                                                                                                                                                                      
+                                    <StyledTableCell align="center">
+                                        <Editpersonnel/>
+                                        <Link to="#" className="btn btn-danger bd ml-2"><i className="fa fa-trash"></i></Link>
+                                    </StyledTableCell>                                                                                                                                                                                                                                      
                                 </StyledTableRow>
                             ))}
                             </TableBody>
