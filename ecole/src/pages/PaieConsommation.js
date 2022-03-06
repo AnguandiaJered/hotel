@@ -79,7 +79,7 @@ export const PaieConsommation = () =>{
                     <Savepaieconsommation />
                 </div> 
               
-                <div className="container mt-5">
+                <div className="container mt-3">
                     <TableContainer component={Paper}>
                         <Table sx={{ minWidth: 700 }} aria-label="customized table">
                             <TableHead>
@@ -106,7 +106,10 @@ export const PaieConsommation = () =>{
                                     <StyledTableCell align="center">{row.protein}</StyledTableCell>
                                     <StyledTableCell align="center">{row.protein}</StyledTableCell>
                                     <StyledTableCell align="center">{row.protein}</StyledTableCell>                                                                                                                                                                                                                                      
-                                    <StyledTableCell align="center">{row.protein}</StyledTableCell>                                                                                                                                                                                                                                      
+                                    <StyledTableCell align="center">
+                                        <Editpaieconsommation/>
+                                        <Link to="#" className="btn btn-danger bd ml-2"><i className="fa fa-trash"></i></Link>
+                                    </StyledTableCell>                                                                                                                                                                                                                                      
                                 </StyledTableRow>
                             ))}
                             </TableBody>
@@ -157,7 +160,7 @@ export const Paiement = () =>{
                         </div>
                     </div>
                 </div>
-                <div className="container mt-5">
+                <div className="container mt-3">
                     <TableContainer component={Paper}>
                         <Table sx={{ minWidth: 700 }} aria-label="customized table">
                             <TableHead>

@@ -77,7 +77,7 @@ const ClasseChambre = () =>{
                 <div className="offset-9">
                     <Saveclasse />
                 </div> 
-                <div className="container mt-5">
+                <div className="container mt-3">
                     <TableContainer component={Paper}>
                         <Table sx={{ minWidth: 700 }} aria-label="customized table">
                             <TableHead>
@@ -98,7 +98,10 @@ const ClasseChambre = () =>{
                                     <StyledTableCell align="center">{row.calories}</StyledTableCell>
                                     <StyledTableCell align="center">{row.fat}</StyledTableCell>
                                     <StyledTableCell align="center">{row.carbs}</StyledTableCell>
-                                    <StyledTableCell align="center">{row.protein}</StyledTableCell>                                                                                                                                                                                                                                     
+                                    <StyledTableCell align="center">
+                                        <Editclasse/>
+                                        <Link to="#" className="btn btn-danger bd ml-2"><i className="fa fa-trash"></i></Link>
+                                    </StyledTableCell>                                                                                                                                                                                                                                     
                                 </StyledTableRow>
                             ))}
                             </TableBody>
