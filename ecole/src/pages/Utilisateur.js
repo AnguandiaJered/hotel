@@ -4,17 +4,70 @@ import { Saveusers } from "../modals/Saveusers";
 import { Editusers } from '../modals/Editusers';
 import axios from 'axios';
 
+import { styled } from '@mui/material/styles';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell, { tableCellClasses } from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import TablePagination from '@mui/material/TablePagination';
 
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+    [`&.${tableCellClasses.head}`]: {
+      backgroundColor: theme.palette.common.black,
+      color: theme.palette.common.white,
+    },
+    [`&.${tableCellClasses.body}`]: {
+      fontSize: 14,
+    },
+  }));
+  
+  const StyledTableRow = styled(TableRow)(({ theme }) => ({
+    '&:nth-of-type(odd)': {
+      backgroundColor: theme.palette.action.hover,
+    },
+    // hide last border
+    '&:last-child td, &:last-child th': {
+      border: 0,
+    },
+  }));
+  
+  function createData(name, calories, fat, carbs, protein) {
+    return { name, calories, fat, carbs, protein };
+  }
+  
+  const rows = [
+    createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
+    createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
+    createData('Eclair', 262, 16.0, 24, 6.0),
+    createData('Cupcake', 305, 3.7, 67, 4.3),
+    createData('Gingerbread', 356, 16.0, 49, 3.9),
+  ];
+ 
+  
 export const Utilisateur = () =>{
 
-    const [user,setUser] = useState([]);
+    // const [user,setUser] = useState([]);
    
-    useEffect( async () => {
-        await axios.get('http://localhost:8080/user/showall').then((res) =>{
-            setUser(res.data);
-        });
-    },[]);
+    // useEffect( async () => {
+    //     await axios.get('http://localhost:8080/user/showall').then((res) =>{
+    //         setUser(res.data);
+    //     });
+    // },[]);
 
+    const [page, setPage] = React.useState(0);
+    const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  
+    const handleChangePage = (event, newPage) => {
+      setPage(newPage);
+    };
+  
+    const handleChangeRowsPerPage = (event) => {
+      setRowsPerPage(+event.target.value);
+      setPage(0);
+    };
     return(
         <Fragment>
             <div className='dashboard'>
@@ -37,40 +90,46 @@ export const Utilisateur = () =>{
                     <Saveusers />
                 </div> 
                 
-                <div className="container mt-5">
-                    <div className="portlet-body">
-                        <div className="table-responsive">
-                            <table className="table table-striped table-bordered table-hover table-green" id="map-table-example">
-                                <thead>
-                                    <tr>
-                                        <th>Code</th>
-                                        <th>Noms</th>
-                                        <th>Username</th>
-                                        <th>Password</th>
-                                        <th>Email</th>
-                                        <th>Role</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    { user.map((item,index) =>(
-                                        <tr key={index}>
-                                            <td><strong>{index +1}</strong></td>
-                                            <td>{item.noms}</td>
-                                            <td>{item.username}</td>
-                                            <td>{item.password}</td>                            
-                                            <td>{item.mail}</td>                            
-                                            <td>{item.role}</td>                                        
-                                            <td>
-                                                <Editusers />
-                                                <Link  to="#" className="btn btn-danger ml-3 bd"><i className="fa fa-trash"></i></Link>
-                                            </td>
-                                        </tr> 
-                                    ))} 
-                                </tbody>
-                            </table>
-                        </div>                                
-                    </div>
+                <div className="container mt-5">                    
+                    <TableContainer component={Paper}>
+                        <Table sx={{ minWidth: 700 }} aria-label="customized table">
+                            <TableHead>
+                                <TableRow>
+                                    <StyledTableCell>Code</StyledTableCell>
+                                    <StyledTableCell align="center">Noms</StyledTableCell>
+                                    <StyledTableCell align="center">Username</StyledTableCell>
+                                    <StyledTableCell align="center">Password</StyledTableCell>
+                                    <StyledTableCell align="center">Email</StyledTableCell>
+                                    <StyledTableCell align="center">Role</StyledTableCell>
+                                    <StyledTableCell align="center">Actions</StyledTableCell>                                                                    
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                            {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => (
+                                <StyledTableRow key={row.name}>
+                                    <StyledTableCell component="th" scope="row">
+                                        {row.name}
+                                    </StyledTableCell>
+                                    <StyledTableCell align="center">{row.calories}</StyledTableCell>
+                                    <StyledTableCell align="center">{row.fat}</StyledTableCell>
+                                    <StyledTableCell align="center">{row.carbs}</StyledTableCell>
+                                    <StyledTableCell align="center">{row.protein}</StyledTableCell>
+                                    <StyledTableCell align="center">{row.protein}</StyledTableCell>
+                                    <StyledTableCell align="center">{row.protein}</StyledTableCell>                                                                                                                                                                                                                                      
+                                </StyledTableRow>
+                            ))}
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+                    <TablePagination
+                        rowsPerPageOptions={[5,10, 25, 100]}
+                        component="div"
+                        count={rows.length}
+                        rowsPerPage={rowsPerPage}
+                        page={page}
+                        onPageChange={handleChangePage}
+                        onRowsPerPageChange={handleChangeRowsPerPage}
+                    />
                 </div>
             </div>
         </Fragment>
@@ -78,6 +137,17 @@ export const Utilisateur = () =>{
 }
 
 export const Parametre = () =>{
+    const [page, setPage] = React.useState(0);
+    const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  
+    const handleChangePage = (event, newPage) => {
+      setPage(newPage);
+    };
+  
+    const handleChangeRowsPerPage = (event) => {
+      setRowsPerPage(+event.target.value);
+      setPage(0);
+    };
     return(
         <Fragment>
            <div className='dashboard'>
@@ -96,80 +166,45 @@ export const Parametre = () =>{
                     </div>               
                 </div>
                 <div className="container mt-5">
-                    <div className="portlet-body">
-                        <div className="table-responsive">
-                            <table className="table table-striped table-bordered table-hover table-green" id="map-table-example">
-                                <thead>
-                                    <tr>
-                                        <th>Code</th>
-                                        <th>Noms</th>
-                                        <th>Username</th>
-                                        <th>Password</th>
-                                        <th>Email</th>
-                                        <th>Role</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><strong>01</strong></td>
-                                        <td>United States</td>
-                                        <td>14,624</td>
-                                        <td>28,981</td>
-                                        <td>281</td>
-                                        <td>30.43%</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>02</strong></td>
-                                        <td>China</td>
-                                        <td>5,745</td>
-                                        <td>10,491</td>
-                                        <td>121</td>
-                                        <td>36.73%</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>03</strong></td>
-                                        <td>Japan</td>
-                                        <td>5,390</td>
-                                        <td>11,165</td>
-                                        <td>102</td>
-                                        <td>35.52%</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>04</strong></td>
-                                        <td>Germany</td>
-                                        <td>3,305</td>
-                                        <td>7,651</td>
-                                        <td>71</td>
-                                        <td>36.24%</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>05</strong></td>
-                                        <td>France</td>
-                                        <td>2,555</td>
-                                        <td>5,615</td>
-                                        <td>56</td>
-                                        <td>34.83%</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>06</strong></td>
-                                        <td>United Kingdom</td>
-                                        <td>2,258</td>
-                                        <td>4,651</td>
-                                        <td>42</td>
-                                        <td>32.73%</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>07</strong></td>
-                                        <td>Italy</td>
-                                        <td>2,036</td>
-                                        <td>4,498</td>
-                                        <td>44</td>
-                                        <td>32.54%</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>                                
-                    </div>
+                    <TableContainer component={Paper}>
+                        <Table sx={{ minWidth: 700 }} aria-label="customized table">
+                            <TableHead>
+                                <TableRow>
+                                    <StyledTableCell>Code</StyledTableCell>
+                                    <StyledTableCell align="center">Noms</StyledTableCell>
+                                    <StyledTableCell align="center">Username</StyledTableCell>
+                                    <StyledTableCell align="center">Password</StyledTableCell>
+                                    <StyledTableCell align="center">Email</StyledTableCell>
+                                    <StyledTableCell align="center">Role</StyledTableCell>
+                                    <StyledTableCell align="center">Actions</StyledTableCell>                                                                    
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                            {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => (
+                                <StyledTableRow key={row.name}>
+                                    <StyledTableCell component="th" scope="row">
+                                        {row.name}
+                                    </StyledTableCell>
+                                    <StyledTableCell align="center">{row.calories}</StyledTableCell>
+                                    <StyledTableCell align="center">{row.fat}</StyledTableCell>
+                                    <StyledTableCell align="center">{row.carbs}</StyledTableCell>
+                                    <StyledTableCell align="center">{row.protein}</StyledTableCell>
+                                    <StyledTableCell align="center">{row.protein}</StyledTableCell>
+                                    <StyledTableCell align="center">{row.protein}</StyledTableCell>                                                                                                                                                                                                                                      
+                                </StyledTableRow>
+                            ))}
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+                    <TablePagination
+                        rowsPerPageOptions={[5,10, 25, 100]}
+                        component="div"
+                        count={rows.length}
+                        rowsPerPage={rowsPerPage}
+                        page={page}
+                        onPageChange={handleChangePage}
+                        onRowsPerPageChange={handleChangeRowsPerPage}
+                    />
                 </div>
             </div>
         </Fragment>
