@@ -49,25 +49,25 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   
 export const Utilisateur = () =>{
 
-    // const [user,setUser] = useState([]);
+    const [user,setUser] = useState([]);
    
-    // useEffect( async () => {
-    //     await axios.get('http://localhost:8080/user/showall').then((res) =>{
-    //         setUser(res.data);
-    //     });
-    // },[]);
+    useEffect( async () => {
+        await axios.get('http://localhost:8080/user/showall').then((res) =>{
+            setUser(res.data);
+        });
+    },[]);
 
-    const [page, setPage] = React.useState(0);
-    const [rowsPerPage, setRowsPerPage] = React.useState(10);
+    // const [page, setPage] = React.useState(0);
+    // const [rowsPerPage, setRowsPerPage] = React.useState(10);
   
-    const handleChangePage = (event, newPage) => {
-      setPage(newPage);
-    };
+    // const handleChangePage = (event, newPage) => {
+    //   setPage(newPage);
+    // };
   
-    const handleChangeRowsPerPage = (event) => {
-      setRowsPerPage(+event.target.value);
-      setPage(0);
-    };
+    // const handleChangeRowsPerPage = (event) => {
+    //   setRowsPerPage(+event.target.value);
+    //   setPage(0);
+    // };
     return(
         <Fragment>
             <div className='dashboard'>
@@ -105,16 +105,16 @@ export const Utilisateur = () =>{
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                            {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => (
-                                <StyledTableRow key={row.name}>
+                                {user.map((item,index) => (
+                                <StyledTableRow key={index}>
                                     <StyledTableCell component="th" scope="row">
-                                        {row.name}
+                                        {index + 1}
                                     </StyledTableCell>
-                                    <StyledTableCell align="center">{row.calories}</StyledTableCell>
-                                    <StyledTableCell align="center">{row.fat}</StyledTableCell>
-                                    <StyledTableCell align="center">{row.carbs}</StyledTableCell>
-                                    <StyledTableCell align="center">{row.protein}</StyledTableCell>
-                                    <StyledTableCell align="center">{row.protein}</StyledTableCell>
+                                    <StyledTableCell align="center">{item.noms}</StyledTableCell>
+                                    <StyledTableCell align="center">{item.username}</StyledTableCell>
+                                    <StyledTableCell align="center">{item.password}</StyledTableCell>
+                                    <StyledTableCell align="center">{item.email}</StyledTableCell>
+                                    <StyledTableCell align="center">{item.role}</StyledTableCell>
                                     <StyledTableCell align="center">
                                         <Editusers/>
                                         <Link to="#" className="btn btn-danger bd ml-2"><i className="fa fa-trash"></i></Link>
@@ -124,7 +124,7 @@ export const Utilisateur = () =>{
                             </TableBody>
                         </Table>
                     </TableContainer>
-                    <TablePagination
+                    {/* <TablePagination
                         rowsPerPageOptions={[5,10, 25, 100]}
                         component="div"
                         count={rows.length}
@@ -132,7 +132,7 @@ export const Utilisateur = () =>{
                         page={page}
                         onPageChange={handleChangePage}
                         onRowsPerPageChange={handleChangeRowsPerPage}
-                    />
+                    /> */}
                 </div>
             </div>
         </Fragment>
