@@ -47,7 +47,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 
 export const PaieConsommation = () =>{
     const [page, setPage] = React.useState(0);
-    const [rowsPerPage, setRowsPerPage] = React.useState(10);
+    const [rowsPerPage, setRowsPerPage] = React.useState(5);
   
     const handleChangePage = (event, newPage) => {
       setPage(newPage);
@@ -59,7 +59,7 @@ export const PaieConsommation = () =>{
     };
     return(
         <Fragment>
-            <div className='dashboard'>
+            <div className='dashboard container-fluid'>
                 <div className="row">
                     <div className="col-lg-12">
                         <div className="page-title mt-3 ml-4">
@@ -133,7 +133,7 @@ export const PaieConsommation = () =>{
 
 export const Paiement = () =>{
     const [page, setPage] = React.useState(0);
-    const [rowsPerPage, setRowsPerPage] = React.useState(10);
+    const [rowsPerPage, setRowsPerPage] = React.useState(5);
   
     const handleChangePage = (event, newPage) => {
       setPage(newPage);
@@ -145,7 +145,7 @@ export const Paiement = () =>{
     };
     return(
         <Fragment>
-           <div className='dashboard'>
+           <div className='dashboard container-fluid'>
                 <div className="row">
                     <div className="col-lg-12">
                         <div className="page-title mt-3 ml-4">

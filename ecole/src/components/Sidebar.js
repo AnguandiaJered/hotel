@@ -10,7 +10,8 @@ import { Logout } from "../modals/Logout";
 
 const SidebarNav=styled.nav`
 background: #34495e;
-width: 20%;
+width: 250px;
+height:100vh;
 display: flex;
 justify-content: center;
 position: absolute;
