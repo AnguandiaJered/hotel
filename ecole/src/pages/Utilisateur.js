@@ -52,25 +52,26 @@ export const Utilisateur = () =>{
     const [user,setUser] = useState([]);
    
     useEffect( async () => {
-        await axios.get('http://localhost:8080/user/showall').then((res) =>{
-            setUser(res.data);
+        await axios.get("http://localhost:8080/user/showall").then((res) =>{
+            // setUser(res.data);
+            console.log(res.data);
         });
     },[]);
 
-    // const [page, setPage] = React.useState(0);
-    // const [rowsPerPage, setRowsPerPage] = React.useState(10);
+    const [page, setPage] = React.useState(0);
+    const [rowsPerPage, setRowsPerPage] = React.useState(5);
   
-    // const handleChangePage = (event, newPage) => {
-    //   setPage(newPage);
-    // };
+    const handleChangePage = (event, newPage) => {
+      setPage(newPage);
+    };
   
-    // const handleChangeRowsPerPage = (event) => {
-    //   setRowsPerPage(+event.target.value);
-    //   setPage(0);
-    // };
+    const handleChangeRowsPerPage = (event) => {
+      setRowsPerPage(+event.target.value);
+      setPage(0);
+    };
     return(
         <Fragment>
-            <div className='dashboard'>
+            <div className='dashboard container-fluid'>
                 <div className="row">
                     <div className="col-lg-12">
                         <div className="page-title mt-3 ml-4">
@@ -105,26 +106,29 @@ export const Utilisateur = () =>{
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                {user.map((item,index) => (
-                                <StyledTableRow key={index}>
-                                    <StyledTableCell component="th" scope="row">
-                                        {index + 1}
-                                    </StyledTableCell>
-                                    <StyledTableCell align="center">{item.noms}</StyledTableCell>
-                                    <StyledTableCell align="center">{item.username}</StyledTableCell>
-                                    <StyledTableCell align="center">{item.password}</StyledTableCell>
-                                    <StyledTableCell align="center">{item.email}</StyledTableCell>
-                                    <StyledTableCell align="center">{item.role}</StyledTableCell>
-                                    <StyledTableCell align="center">
-                                        <Editusers/>
-                                        <Link to="#" className="btn btn-danger bd ml-2"><i className="fa fa-trash"></i></Link>
-                                    </StyledTableCell>                                                                                                                                                                                                                                      
-                                </StyledTableRow>
-                            ))}
+                                {
+                                    user && user.map((item,index) =>{
+                                    return(                                                                        
+                                        <StyledTableRow key={index}>
+                                        <StyledTableCell component="th" scope="row">
+                                            {index + 1}
+                                        </StyledTableCell>
+                                        <StyledTableCell align="center">{item.noms}</StyledTableCell>
+                                        <StyledTableCell align="center">{item.username}</StyledTableCell>
+                                        <StyledTableCell align="center">{item.password}</StyledTableCell>
+                                        <StyledTableCell align="center">{item.email}</StyledTableCell>
+                                        <StyledTableCell align="center">{item.role}</StyledTableCell>
+                                        <StyledTableCell align="center">
+                                            <Editusers/>
+                                            <Link to="#"  className="btn btn-danger bd ml-2"><i className="fa fa-trash"></i></Link>
+                                        </StyledTableCell>                                                                                                                                                                                                                                      
+                                    </StyledTableRow>                                  
+                                  ) })
+                                }
                             </TableBody>
                         </Table>
                     </TableContainer>
-                    {/* <TablePagination
+                    <TablePagination
                         rowsPerPageOptions={[5,10, 25, 100]}
                         component="div"
                         count={rows.length}
@@ -132,7 +136,7 @@ export const Utilisateur = () =>{
                         page={page}
                         onPageChange={handleChangePage}
                         onRowsPerPageChange={handleChangeRowsPerPage}
-                    /> */}
+                    />
                 </div>
             </div>
         </Fragment>
@@ -141,7 +145,7 @@ export const Utilisateur = () =>{
 
 export const Parametre = () =>{
     const [page, setPage] = React.useState(0);
-    const [rowsPerPage, setRowsPerPage] = React.useState(10);
+    const [rowsPerPage, setRowsPerPage] = React.useState(5);
   
     const handleChangePage = (event, newPage) => {
       setPage(newPage);
@@ -153,7 +157,7 @@ export const Parametre = () =>{
     };
     return(
         <Fragment>
-           <div className='dashboard'>
+           <div className='dashboard container-fluid'>
                 <div className="row">
                     <div className="col-lg-12">
                         <div className="page-title mt-3 ml-4">

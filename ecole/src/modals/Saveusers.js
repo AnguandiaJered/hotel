@@ -1,4 +1,4 @@
-import React,{ Fragment } from 'react';
+import React,{ Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
@@ -8,6 +8,8 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import { Link } from 'react-router-dom';
 import { FormControl, FormGroup, Input, InputLabel } from '@mui/material';
+import axios from 'axios';
+
 
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -58,6 +60,25 @@ export const Saveusers = () => {
     setOpen(false);
   };
 
+  const [users,setUsers] = useState({
+    noms:"",
+    username:"",
+    password:"",
+    mail:"",
+    role:""
+  });
+  const {noms,username,password,mail,role} = users;
+    const handleChange = e =>{
+        setUsers({...users,[e.target.name] : e.target.value});
+    }
+
+    const onSubmit = async e =>{
+      e.preventDefault();
+      await axios.post('http://localhost:8080/user/create',users).then((res)=>{
+        setUsers(res.data);
+      })
+  }
+
   return (
     <Fragment>
       <Link to='#' variant="outlined" className='btn btn-primary' onClick={handleClickOpen}>
@@ -72,30 +93,45 @@ export const Saveusers = () => {
           Ajouter Users
         </BootstrapDialogTitle>
         <DialogContent dividers>
-          <FormGroup>
+          <FormGroup onSubmit={e => onSubmit(e)}>
             <div className='row'>
               <div className='col-md-6'>
                 <div className='form-group'>
                   <InputLabel htmlFor='noms'>Noms</InputLabel>
-                  <Input type="text" placeholder='Noms' className='form-control' />
+                  <Input type="text" placeholder='Noms' 
+                  className='form-control' 
+                  name='noms' value={noms} 
+                  onChange={e => handleChange(e)}  />
                 </div>
                 <div className='form-group'>
                     <InputLabel htmlFor='username'>Username</InputLabel>
-                    <Input type="text" placeholder='Username' className='form-control' />
+                    <Input type="text" placeholder='Username' 
+                    className='form-control' 
+                    name='username' value={username} 
+                    onChange={e => handleChange(e)}  />
                 </div>
                 <div className='form-group'>
                     <InputLabel htmlFor='password'>Password</InputLabel>
-                    <Input type="password" placeholder='Password' className='form-control' />
+                    <Input type="password" placeholder='Password' 
+                    className='form-control' 
+                    name='password' value={password} 
+                    onChange={e => handleChange(e)} />
                 </div>
               </div>
               <div className='col-md-6'>
                 <div className='form-group'>
                   <InputLabel htmlFor='email'>Email</InputLabel>
-                  <Input type="email" placeholder='Email' className='form-control' />
+                  <Input type="email" placeholder='Email' 
+                  className='form-control' 
+                  name='mail' value={mail} 
+                  onChange={e => handleChange(e)} />
                 </div>
                 <div className='form-group'>
                     <InputLabel htmlFor='role'>Role</InputLabel>
-                    <Input type="text" placeholder='Role' className='form-control' />
+                    <Input type="text" placeholder='Role' 
+                    className='form-control' 
+                    name='role' value={role} 
+                    onChange={e => handleChange(e)}  />
                 </div>
               </div>
             </div>
