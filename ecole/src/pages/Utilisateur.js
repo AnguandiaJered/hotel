@@ -50,9 +50,9 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 export const Utilisateur = () =>{
 
     const [user,setUser] = useState([]);
-   
+
     useEffect( async () => {
-        await axios.get("http://localhost:8080/user/showall").then((res) =>{
+        await axios.get('http://localhost:8080/user/showall').then((res) =>{
             // setUser(res.data);
             console.log(res.data);
         });
@@ -70,7 +70,7 @@ export const Utilisateur = () =>{
       setPage(0);
     };
     return(
-        <Fragment>
+        <>
             <div className='dashboard container-fluid'>
                 <div className="row">
                     <div className="col-lg-12">
@@ -139,7 +139,7 @@ export const Utilisateur = () =>{
                     />
                 </div>
             </div>
-        </Fragment>
+        </>
     )
 }
 

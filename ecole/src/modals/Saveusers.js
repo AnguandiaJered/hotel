@@ -7,8 +7,9 @@ import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import { Link } from 'react-router-dom';
-import { FormControl, FormGroup, Input, InputLabel } from '@mui/material';
+import { FormGroup, Input, InputLabel } from '@mui/material';
 import axios from 'axios';
+import { useHistory } from "react-router-dom";
 
 
 
@@ -51,6 +52,7 @@ BootstrapDialogTitle.propTypes = {
 };
 
 export const Saveusers = () => {
+  let history = useHistory();
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -76,7 +78,8 @@ export const Saveusers = () => {
       e.preventDefault();
       await axios.post('http://localhost:8080/user/create',users).then((res)=>{
         setUsers(res.data);
-      })
+      });
+      history.push("/");
   }
 
   return (
@@ -93,52 +96,52 @@ export const Saveusers = () => {
           Ajouter Users
         </BootstrapDialogTitle>
         <DialogContent dividers>
-          <FormGroup onSubmit={e => onSubmit(e)}>
+          <form onSubmit={e => onSubmit(e)}>
             <div className='row'>
               <div className='col-md-6'>
-                <div className='form-group'>
+                <FormGroup>
                   <InputLabel htmlFor='noms'>Noms</InputLabel>
                   <Input type="text" placeholder='Noms' 
                   className='form-control' 
                   name='noms' value={noms} 
                   onChange={e => handleChange(e)}  />
-                </div>
-                <div className='form-group'>
+                </FormGroup>
+                <FormGroup>
                     <InputLabel htmlFor='username'>Username</InputLabel>
                     <Input type="text" placeholder='Username' 
                     className='form-control' 
                     name='username' value={username} 
                     onChange={e => handleChange(e)}  />
-                </div>
-                <div className='form-group'>
+                </FormGroup>
+                <FormGroup>
                     <InputLabel htmlFor='password'>Password</InputLabel>
                     <Input type="password" placeholder='Password' 
                     className='form-control' 
                     name='password' value={password} 
                     onChange={e => handleChange(e)} />
-                </div>
+                </FormGroup>
               </div>
               <div className='col-md-6'>
-                <div className='form-group'>
+                <FormGroup>
                   <InputLabel htmlFor='email'>Email</InputLabel>
                   <Input type="email" placeholder='Email' 
                   className='form-control' 
                   name='mail' value={mail} 
                   onChange={e => handleChange(e)} />
-                </div>
-                <div className='form-group'>
+                </FormGroup>
+                <FormGroup>
                     <InputLabel htmlFor='role'>Role</InputLabel>
                     <Input type="text" placeholder='Role' 
                     className='form-control' 
                     name='role' value={role} 
                     onChange={e => handleChange(e)}  />
-                </div>
+                </FormGroup>
               </div>
             </div>
-            <FormControl className='form-group'>
-                <Input type="submit" value="Enregistrer" className='btn btn-primary col-md-6' />
-            </FormControl>
-          </FormGroup>          
+            <FormGroup>
+                <Input type="submit" value="Enregistrer" className='btn btn-primary col-md-6 mt-3' />
+            </FormGroup>
+          </form>          
         </DialogContent>
       </BootstrapDialog>
     </Fragment>
