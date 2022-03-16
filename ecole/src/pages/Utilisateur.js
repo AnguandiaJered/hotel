@@ -14,6 +14,8 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import TablePagination from '@mui/material/TablePagination';
 
+
+
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: theme.palette.common.black,
@@ -48,16 +50,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
  
   
 export const Utilisateur = () =>{
-
-    const [user,setUser] = useState([]);
-
-    useEffect( async () => {
-        await axios.get('http://localhost:8080/user/showall').then((res) =>{
-            // setUser(res.data);
-            console.log(res.data);
-        });
-    },[]);
-
+  
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
   
@@ -69,6 +62,24 @@ export const Utilisateur = () =>{
       setRowsPerPage(+event.target.value);
       setPage(0);
     };
+
+    const [user,setUser] = useState();
+
+    useEffect( async () => {
+        await axios.get('http://localhost:8080/user/showalluser').then((res) =>{
+            setUser(res.data);
+            console.log(res.data);           
+        });
+    },[]);
+
+    const deleteUser = async (id) =>{
+      await axios.delete(`http://localhost:8080/user/delete/${id}`)
+        .then((res)=>{
+            setUser(res.data);
+        })
+        
+    };
+
     return(
         <>
             <div className='dashboard container-fluid'>
@@ -106,10 +117,10 @@ export const Utilisateur = () =>{
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                {
-                                    user && user.map((item,index) =>{
-                                    return(                                                                        
-                                        <StyledTableRow key={index}>
+                                { user &&
+                                    user.User.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item,index) =>(
+                                                                                                           
+                                    <StyledTableRow key={index}>
                                         <StyledTableCell component="th" scope="row">
                                             {index + 1}
                                         </StyledTableCell>
@@ -119,11 +130,13 @@ export const Utilisateur = () =>{
                                         <StyledTableCell align="center">{item.email}</StyledTableCell>
                                         <StyledTableCell align="center">{item.role}</StyledTableCell>
                                         <StyledTableCell align="center">
-                                            <Editusers/>
-                                            <Link to="#"  className="btn btn-danger bd ml-2"><i className="fa fa-trash"></i></Link>
+                                           <Link to={`/user/edit/${item.id}`}>
+                                                <Editusers/>
+                                           </Link> 
+                                            <Link onClick={() => deleteUser(item.id)} to="#"  className="btn btn-danger bd ml-2"><i className="fa fa-trash"></i></Link>
                                         </StyledTableCell>                                                                                                                                                                                                                                      
                                     </StyledTableRow>                                  
-                                  ) })
+                                  ))
                                 }
                             </TableBody>
                         </Table>

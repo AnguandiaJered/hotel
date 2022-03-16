@@ -17,10 +17,10 @@ const Service = require("../Controller/ServiceController");
 
 
 router.post("/user/create",User.createUser);
-router.get("/user/showuser",User.showUser);
+router.get("/user/edit",User.showUser);
 router.put("/user/update",User.updateUser);
 router.delete("/user/delete",User.deleteUser);
-router.get("/user/showall",User.showallUser);
+router.get("/user/showalluser",User.showallUser);
 
 router.post("/chambre/create",Chambre.createChambre);
 router.get("/chambre/showroom",Chambre.showChambre);
