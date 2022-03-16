@@ -1,4 +1,4 @@
-import React,{ Fragment  } from "react";
+import React,{ Fragment, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Savereservechambre } from "../modals/Savereservechambre";
 import { Editreservechambre } from '../modals/Editreservechambre';
@@ -12,6 +12,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import TablePagination from '@mui/material/TablePagination';
+import axios from "axios";
+
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -57,6 +59,24 @@ const ReservationChambre = () =>{
       setRowsPerPage(+event.target.value);
       setPage(0);
     };
+
+
+    const [reserveroom,setReserveRoom] = useState();
+
+    useEffect( async () => {
+        await axios.get('http://localhost:8080/reserveroom/showallreserve').then((res) =>{
+            setReserveRoom(res.data);
+            console.log(res.data);           
+        });
+    },[]);
+
+    const deleteReserveroom= async (id) =>{
+      await axios.delete(`http://localhost:8080/reserveroom/delete/${id}`)
+        .then((res)=>{
+            setReserveRoom(res.data);
+        })        
+    };
+
     return(
         <Fragment>
             <div className='dashboard container-fluid'>
@@ -95,32 +115,30 @@ const ReservationChambre = () =>{
                                     <StyledTableCell align="center">Nombre Jour</StyledTableCell>
                                     <StyledTableCell align="center">Date Reservation</StyledTableCell>
                                     <StyledTableCell align="center">Observation</StyledTableCell>
-                                    <StyledTableCell align="center">Provenance</StyledTableCell>                            
-                                    <StyledTableCell align="center">Photo</StyledTableCell>                            
+                                    <StyledTableCell align="center">Provenance</StyledTableCell>                                                        
                                     <StyledTableCell align="center">Actions</StyledTableCell>                                                                    
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                            {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => (
-                                <StyledTableRow key={row.name}>
+                            {reserveroom.Reservationchambre.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item,index) => (
+                                <StyledTableRow key={index}>
                                     <StyledTableCell component="th" scope="row">
-                                        {row.name}
+                                        {index +1}
                                     </StyledTableCell>
-                                    <StyledTableCell align="center">{row.calories}</StyledTableCell>
-                                    <StyledTableCell align="center">{row.fat}</StyledTableCell>
-                                    <StyledTableCell align="center">{row.carbs}</StyledTableCell>
-                                    <StyledTableCell align="center">{row.protein}</StyledTableCell>
-                                    <StyledTableCell align="center">{row.protein}</StyledTableCell>
-                                    <StyledTableCell align="center">{row.protein}</StyledTableCell>                                                                                                                                                                                                                                      
-                                    <StyledTableCell align="center">{row.protein}</StyledTableCell>                                                                                                                                                                                                                                      
-                                    <StyledTableCell align="center">{row.protein}</StyledTableCell>                                                                                                                                                                                                                                      
-                                    <StyledTableCell align="center">{row.protein}</StyledTableCell>                                                                                                                                                                                                                                      
-                                    <StyledTableCell align="center">{row.protein}</StyledTableCell>                                                                                                                                                                                                                                      
-                                    <StyledTableCell align="center">{row.protein}</StyledTableCell>                                                                                                                                                                                                                                      
-                                    <StyledTableCell align="center">{row.protein}</StyledTableCell>                                                                                                                                                                                                                                      
+                                    <StyledTableCell align="center">{item.refclient}</StyledTableCell>
+                                    <StyledTableCell align="center">{item.refchambre}</StyledTableCell>
+                                    <StyledTableCell align="center">{item.dateentree}</StyledTableCell>
+                                    <StyledTableCell align="center">{item.datesortie}</StyledTableCell>
+                                    <StyledTableCell align="center">{item.libelle}</StyledTableCell>
+                                    <StyledTableCell align="center">{item.nombrejour}</StyledTableCell>                                                                                                                                                                                                                                      
+                                    <StyledTableCell align="center">{item.prix}</StyledTableCell>                                                                                                                                                                                                                                      
+                                    <StyledTableCell align="center">{item.devise}</StyledTableCell>                                                                                                                                                                                                                                      
+                                    <StyledTableCell align="center">{item.datereservation}</StyledTableCell>                                                                                                                                                                                                                                      
+                                    <StyledTableCell align="center">{item.observation}</StyledTableCell>                                                                                                                                                                                                                                      
+                                    <StyledTableCell align="center">{item.provenance}</StyledTableCell>                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
                                     <StyledTableCell align="center">
                                         <Editreservechambre/>
-                                        <Link to="#" className="btn btn-danger bd ml-2"><i className="fa fa-trash"></i></Link>
+                                        <Link onClick={() => deleteReserveroom(item.id)} to="#" className="btn btn-danger bd ml-2"><i className="fa fa-trash"></i></Link>
                                     </StyledTableCell>                                                                                                                                                                                                                                      
                                 </StyledTableRow>
                             ))}

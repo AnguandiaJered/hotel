@@ -1,4 +1,4 @@
-import React,{ Fragment } from "react";
+import React,{ Fragment,useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Savereservesalle } from "../modals/Savereservesalle";
 import { Editreservesalle } from '../modals/Editreservesalle';
@@ -12,6 +12,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import TablePagination from '@mui/material/TablePagination';
+import axios from "axios";
+
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -57,6 +59,24 @@ const ReservationSalle = () =>{
       setRowsPerPage(+event.target.value);
       setPage(0);
     };
+
+    const [reservesalle,setReserveSalle] = useState();
+
+    useEffect( async () => {
+        await axios.get('http://localhost:8080/reservesalle/showallreserve').then((res) =>{
+            setReserveSalle(res.data);
+            console.log(res.data);           
+        });
+    },[]);
+
+    const deleteReservesalle= async (id) =>{
+      await axios.delete(`http://localhost:8080/reservesalle/delete/${id}`)
+        .then((res)=>{
+            setReserveSalle(res.data);
+        })        
+    };
+
+
     return(
         <Fragment>
             <div className='dashboard container-fluid'>
@@ -94,19 +114,19 @@ const ReservationSalle = () =>{
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                            {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => (
-                                <StyledTableRow key={row.name}>
+                            {reservesalle.Reservationsalle.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item,index) => (
+                                <StyledTableRow key={index}>
                                     <StyledTableCell component="th" scope="row">
-                                        {row.name}
+                                        {index +1}
                                     </StyledTableCell>
-                                    <StyledTableCell align="center">{row.calories}</StyledTableCell>
-                                    <StyledTableCell align="center">{row.fat}</StyledTableCell>
-                                    <StyledTableCell align="center">{row.carbs}</StyledTableCell>
-                                    <StyledTableCell align="center">{row.protein}</StyledTableCell>
-                                    <StyledTableCell align="center">{row.protein}</StyledTableCell>
+                                    <StyledTableCell align="center">{item.refclient}</StyledTableCell>
+                                    <StyledTableCell align="center">{item.datereservation}</StyledTableCell>
+                                    <StyledTableCell align="center">{item.refsalle}</StyledTableCell>
+                                    <StyledTableCell align="center">{item.libelle}</StyledTableCell>
+                                    <StyledTableCell align="center">{item.dateceremonie}</StyledTableCell>
                                     <StyledTableCell align="center">
                                         <Editreservesalle/>
-                                        <Link to="#" className="btn btn-danger bd ml-2"><i className="fa fa-trash"></i></Link>
+                                        <Link onClick={() => deleteReservesalle(item.id)} to="#" className="btn btn-danger bd ml-2"><i className="fa fa-trash"></i></Link>
                                     </StyledTableCell>                                                                                                                                                                                                                                      
                                 </StyledTableRow>
                             ))}

@@ -17,88 +17,88 @@ const Service = require("../Controller/ServiceController");
 
 
 router.post("/user/create",User.createUser);
-router.get("/user/edit",User.showUser);
-router.put("/user/update",User.updateUser);
-router.delete("/user/delete",User.deleteUser);
+router.get("/user/edit/:id",User.showUser);
+router.put("/user/update/:id",User.updateUser);
+router.delete("/user/delete/:id",User.deleteUser);
 router.get("/user/showalluser",User.showallUser);
 
 router.post("/chambre/create",Chambre.createChambre);
-router.get("/chambre/showroom",Chambre.showChambre);
+router.get("/chambre/edit/:id",Chambre.showChambre);
 router.get("/chambre/showallroom",Chambre.showAllChambre);
-router.put("/chambre/update",Chambre.updateChambre);
-router.delete("/chambre/delete",Chambre.deleteChambre);
+router.put("/chambre/update/:id",Chambre.updateChambre);
+router.delete("/chambre/delete/:id",Chambre.deleteChambre);
 
 router.post("/affectation/create",Affectation.createAffectation);
-router.get("/affectation/showaffectation",Affectation.showAffectation);
+router.get("/affectation/edit/:id",Affectation.showAffectation);
 router.get("/affectation/showallaffectation",Affectation.showAllAffectation);
-router.put("/affectation/update",Affectation.updateAffectation);
-router.delete("/affectation/delete",Affectation.deleteAffectation);
+router.put("/affectation/update/:id",Affectation.updateAffectation);
+router.delete("/affectation/delete/:id",Affectation.deleteAffectation);
 
 router.post("/classroom/create",Classeroom.createClassroom);
-router.get("/classroom/showclassroom",Classeroom.showClassroom);
+router.get("/classroom/edit/:id",Classeroom.showClassroom);
 router.get("/classroom/showallclassroom",Classeroom.showAllClassroom);
-router.put("/classroom/update",Classeroom.updateClassroom);
-router.delete("/classroom/delete",Classeroom.deleteClassroom);
+router.put("/classroom/update/:id",Classeroom.updateClassroom);
+router.delete("/classroom/delete/:id",Classeroom.deleteClassroom);
 
 router.post("/client/create",Client.createClient);
-router.get("/client/showclient",Client.showClient);
+router.get("/client/edit/:id",Client.showClient);
 router.get("/client/showallclient",Client.showAllClient);
-router.put("/client/update",Client.updateClient);
-router.delete("/client/delete",Client.deleteClient);
+router.put("/client/update/:id",Client.updateClient);
+router.delete("/client/delete/:id",Client.deleteClient);
 
 router.post("/fonction/create",Fonction.createFonction);
-router.get("/fonction/showfonction",Fonction.showFonction);
+router.get("/fonction/edit/:id",Fonction.showFonction);
 router.get("/fonction/showallfonction",Fonction.showAllFonction);
-router.put("/fonction/update",Fonction.updateFonction);
-router.delete("/fonction/delete",Fonction.deleteFonction);
+router.put("/fonction/update/:id",Fonction.updateFonction);
+router.delete("/fonction/delete/:id",Fonction.deleteFonction);
 
-router.post("/paieconsommation/create",Paieconsommation.createPaieconsommation);
-router.get("/paieconsommation/showconsommation",Paieconsommation.showPaieconsommation);
-router.get("/paieconsommation/showallconsommation",Paieconsommation.showAllPaieconsommation);
-router.put("/paieconsommation/update",Paieconsommation.updatePaieconsommation);
-router.delete("/paieconsommation/delete",Paieconsommation.deletePaieconsommation);
+router.post("/consommation/create",Paieconsommation.createPaieconsommation);
+router.get("/consommation/edit/:id",Paieconsommation.showPaieconsommation);
+router.get("/consommation/showallconsommation",Paieconsommation.showAllPaieconsommation);
+router.put("/consommation/update/:id",Paieconsommation.updatePaieconsommation);
+router.delete("/consommation/delete/:id",Paieconsommation.deletePaieconsommation);
 
 router.post("/paiehotel/create",Paiehotel.createPaiehotel);
-router.get("/paiehotel/showhotel",Paiehotel.showPaiehotel);
+router.get("/paiehotel/edit/:id",Paiehotel.showPaiehotel);
 router.get("/paiehotel/showallhotel",Paiehotel.showAllPaiehotel);
-router.put("/paiehotel/update",Paiehotel.updatePaiehotel);
-router.delete("/paiehotel/delete",Paiehotel.deletePaiehotel);
+router.put("/paiehotel/update/:id",Paiehotel.updatePaiehotel);
+router.delete("/paiehotel/delete/:id",Paiehotel.deletePaiehotel);
 
 router.post("/paiesalle/create",Paiesalle.createPaiesalle);
-router.get("/paiesalle/showsalle",Paiesalle.showPaiesalle);
+router.get("/paiesalle/edit/:id",Paiesalle.showPaiesalle);
 router.get("/paiesalle/showallsalle",Paiesalle.showAllPaiesalle);
-router.put("/paiesalle/update",Paiesalle.updatePaiesalle);
-router.delete("/paiesalle/delete",Paiesalle.deletePaiesalle);
+router.put("/paiesalle/update/:id",Paiesalle.updatePaiesalle);
+router.delete("/paiesalle/delete/:id",Paiesalle.deletePaiesalle);
 
 router.post("/personnel/create",Personnel.createPersonnel);
-router.get("/personnel/showagent",Personnel.showPersonnel);
+router.get("/personnel/edit/:id",Personnel.showPersonnel);
 router.get("/personnel/showallagent",Personnel.showAllPersonnel);
-router.put("/personnel/update",Personnel.updatePersonnel);
-router.delete("/personnel/delete",Personnel.deletePersonnel);
+router.put("/personnel/update/:id",Personnel.updatePersonnel);
+router.delete("/personnel/delete/:id",Personnel.deletePersonnel);
 
 router.post("/reserveroom/create",Reservationchambre.createReservationchambre);
-router.get("/reserveroom/showreserve",Reservationchambre.showReservationchambre);
+router.get("/reserveroom/edit/:id",Reservationchambre.showReservationchambre);
 router.get("/reserveroom/showallreserve",Reservationchambre.showAllReservationchambre);
-router.put("/reserveroom/update",Reservationchambre.updateReservationchambre);
-router.delete("/reserveroom/delete",Reservationchambre.deleteReservationchambre);
+router.put("/reserveroom/update/:id",Reservationchambre.updateReservationchambre);
+router.delete("/reserveroom/delete/:id",Reservationchambre.deleteReservationchambre);
 
 router.post("/reservesalle/create",Reservationsalle.createReservationsalle);
-router.get("/reservesalle/showreserve",Reservationsalle.showReservationsalle);
+router.get("/reservesalle/edit/:id",Reservationsalle.showReservationsalle);
 router.get("/reservesalle/showallreserve",Reservationsalle.showAllReservationsalle);
-router.put("/reservesalle/update",Reservationsalle.updateReservationsalle);
-router.delete("/reservesalle/delete",Reservationsalle.deleteReservationsalle);
+router.put("/reservesalle/update/:id",Reservationsalle.updateReservationsalle);
+router.delete("/reservesalle/delete/:id",Reservationsalle.deleteReservationsalle);
 
 router.post("/salle/create",Salle.createSalle);
-router.get("/salle/showresalle",Salle.showSalle);
+router.get("/salle/edit/:id",Salle.showSalle);
 router.get("/salle/showallresalle",Salle.showAllSalle);
-router.put("/salle/update",Salle.updateSalle);
-router.delete("/salle/delete",Salle.deleteSalle);
+router.put("/salle/update/:id",Salle.updateSalle);
+router.delete("/salle/delete/:id",Salle.deleteSalle);
 
 router.post("/service/create",Service.createService);
-router.get("/service/showservice",Service.showService);
+router.get("/service/edit/:id",Service.showService);
 router.get("/service/showallservice",Service.showAllService);
-router.put("/service/update",Service.updateService);
-router.delete("/service/delete",Service.deleteService);
+router.put("/service/update/:id",Service.updateService);
+router.delete("/service/delete/:id",Service.deleteService);
 
 
 

@@ -1,4 +1,4 @@
-import React,{ Fragment  } from "react";
+import React,{ Fragment, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Savepaiehotel } from "../modals/Savepaiehotel";
 import { Editpaiehotel } from '../modals/Editpaiehotel';
@@ -12,6 +12,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import TablePagination from '@mui/material/TablePagination';
+import axios from "axios";
+
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -57,6 +59,23 @@ const PaieHotel = () =>{
       setRowsPerPage(+event.target.value);
       setPage(0);
     };
+
+    const [hotel,setHotel] = useState();
+
+    useEffect( async () => {
+        await axios.get('http://localhost:8080/paiehotel/showallhotel').then((res) =>{
+            setHotel(res.data);
+            console.log(res.data);           
+        });
+    },[]);
+
+    const deleteHotel= async (id) =>{
+      await axios.delete(`http://localhost:8080/paiehotel/delete/${id}`)
+        .then((res)=>{
+            setHotel(res.data);
+        })        
+    };
+
     return(
         <Fragment>
             <div className='dashboard container-fluid'>
@@ -95,20 +114,20 @@ const PaieHotel = () =>{
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                            {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => (
-                                <StyledTableRow key={row.name}>
+                            {hotel.Paiehotel.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item,index) => (
+                                <StyledTableRow key={index}>
                                     <StyledTableCell component="th" scope="row">
-                                        {row.name}
+                                        {index + 1}
                                     </StyledTableCell>
-                                    <StyledTableCell align="center">{row.calories}</StyledTableCell>
-                                    <StyledTableCell align="center">{row.fat}</StyledTableCell>
-                                    <StyledTableCell align="center">{row.carbs}</StyledTableCell>
-                                    <StyledTableCell align="center">{row.protein}</StyledTableCell>
-                                    <StyledTableCell align="center">{row.protein}</StyledTableCell>
-                                    <StyledTableCell align="center">{row.protein}</StyledTableCell>                                                                                                                                                                                                                                      
+                                    <StyledTableCell align="center">{item.montant}</StyledTableCell>
+                                    <StyledTableCell align="center">{item.devise}</StyledTableCell>
+                                    <StyledTableCell align="center">{item.libelle}</StyledTableCell>
+                                    <StyledTableCell align="center">{item.datepaie}</StyledTableCell>
+                                    <StyledTableCell align="center">{item.refreservation}</StyledTableCell>
+                                    <StyledTableCell align="center">{item.author}</StyledTableCell>                                                                                                                                                                                                                                      
                                     <StyledTableCell align="center">
                                         <Editpaiehotel/>
-                                        <Link to="#" className="btn btn-danger bd ml-2"><i className="fa fa-trash"></i></Link>
+                                        <Link onClick={() => deleteHotel(item.id)} to="#" className="btn btn-danger bd ml-2"><i className="fa fa-trash"></i></Link>
                                     </StyledTableCell>                                                                                                                                                                                                                                      
                                 </StyledTableRow>
                             ))}

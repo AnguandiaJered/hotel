@@ -127,7 +127,7 @@ export const Utilisateur = () =>{
                                         <StyledTableCell align="center">{item.noms}</StyledTableCell>
                                         <StyledTableCell align="center">{item.username}</StyledTableCell>
                                         <StyledTableCell align="center">{item.password}</StyledTableCell>
-                                        <StyledTableCell align="center">{item.email}</StyledTableCell>
+                                        <StyledTableCell align="center">{item.mail}</StyledTableCell>
                                         <StyledTableCell align="center">{item.role}</StyledTableCell>
                                         <StyledTableCell align="center">
                                            <Link to={`/user/edit/${item.id}`}>
