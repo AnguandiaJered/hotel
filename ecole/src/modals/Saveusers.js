@@ -7,7 +7,7 @@ import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import { Link } from 'react-router-dom';
-import { FormGroup, Input, InputLabel } from '@mui/material';
+import { FormControl, FormGroup, Input } from '@mui/material';
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
 
@@ -76,8 +76,8 @@ export const Saveusers = () => {
 
     const onSubmit = async e =>{
       e.preventDefault();
-      await axios.post('http://localhost:8080/user/create',users).then((res)=>{
-        setUsers(res.data);
+      await axios.post('http://localhost:8080/user/create',users).then(res =>{
+        console.log(res.data);
       });
       history.push("/");
   }
@@ -87,7 +87,7 @@ export const Saveusers = () => {
       <Link to='#' variant="outlined" className='btn btn-primary' onClick={handleClickOpen}>
         <i className='fa fa-plus'></i> Add Users
       </Link>
-      <BootstrapDialog
+      <BootstrapDialog 
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
         open={open}
@@ -98,49 +98,44 @@ export const Saveusers = () => {
         <DialogContent dividers>
           <form onSubmit={e => onSubmit(e)}>
             <div className='row'>
-              <div className='col-md-6'>
-                <FormGroup>
-                  <InputLabel htmlFor='noms'>Noms</InputLabel>
+              <div className='col-md-12'>
+                <FormControl className='col-md-12'>              
                   <Input type="text" placeholder='Noms' 
                   className='form-control' 
                   name='noms' value={noms} 
                   onChange={e => handleChange(e)}  />
-                </FormGroup>
-                <FormGroup>
-                    <InputLabel htmlFor='username'>Username</InputLabel>
+                </FormControl>
+                <FormControl className='col-md-12'>                   
                     <Input type="text" placeholder='Username' 
-                    className='form-control' 
+                    className='form-control mt-3' 
                     name='username' value={username} 
                     onChange={e => handleChange(e)}  />
-                </FormGroup>
-                <FormGroup>
-                    <InputLabel htmlFor='password'>Password</InputLabel>
+                </FormControl>
+                <FormControl className='col-md-12'>                    
                     <Input type="password" placeholder='Password' 
-                    className='form-control' 
+                    className='form-control mt-3' 
                     name='password' value={password} 
                     onChange={e => handleChange(e)} />
-                </FormGroup>
+                </FormControl>
               </div>
-              <div className='col-md-6'>
-                <FormGroup>
-                  <InputLabel htmlFor='email'>Email</InputLabel>
+              <div className='col-md-12'>
+                <FormControl className='col-md-12'>                 
                   <Input type="email" placeholder='Email' 
-                  className='form-control' 
+                  className='form-control mt-3' 
                   name='mail' value={mail} 
                   onChange={e => handleChange(e)} />
-                </FormGroup>
-                <FormGroup>
-                    <InputLabel htmlFor='role'>Role</InputLabel>
+                </FormControl>
+                <FormControl className='col-md-12'>                   
                     <Input type="text" placeholder='Role' 
-                    className='form-control' 
+                    className='form-control mt-3' 
                     name='role' value={role} 
                     onChange={e => handleChange(e)}  />
-                </FormGroup>
+                </FormControl>
               </div>
             </div>
-            <FormGroup>
-                <Input type="submit" value="Enregistrer" className='btn btn-primary col-md-6 mt-3' />
-            </FormGroup>
+            <FormControl>
+                <Input type="submit" value="Enregistrer" className='btn btn-primary mt-3' />
+            </FormControl>
           </form>          
         </DialogContent>
       </BootstrapDialog>

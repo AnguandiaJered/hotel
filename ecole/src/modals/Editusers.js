@@ -71,13 +71,13 @@ export const Editusers = () => {
         mail:"",
         role:""
     });
-    const {noms,username,password,mail,role} = users;
+    const {noms,username,password,mail,role,iduser} = users;
     const handleChange = e =>{
         setUsers({...users,[e.target.name] : e.target.value});
     }
-    useEffect(async () =>{
-      await axios.get(`http://localhost:8080/user/showuser/${id}`).then((res)=>{
-        setUsers(res.data);
+    useEffect(async (id) =>{
+      await axios.get(`http://localhost:8080/user/edit/${id}`).then((res)=>{
+        setUsers({...res.data[0]});
       });
     },[]);
 
@@ -104,50 +104,51 @@ export const Editusers = () => {
         <DialogContent dividers>
           <form onSubmit={e => onSubmit(e)}>
             <div className='row'>
-              <div className='col-md-6'>
-                <FormGroup>
-                  <InputLabel htmlFor='noms'>Noms</InputLabel>
+              <div className='col-md-12'>
+                <div>              
+                  <input type="hidden"
+                  className='form-control' 
+                  name='id' value={iduser} 
+                  onChange={e => handleChange(e)}  />
+                </div>
+                <FormControl className='col-md-12'>              
                   <Input type="text" placeholder='Noms' 
                   className='form-control' 
                   name='noms' value={noms} 
                   onChange={e => handleChange(e)}  />
-                </FormGroup>
-                <FormGroup>
-                    <InputLabel htmlFor='username'>Username</InputLabel>
+                </FormControl>
+                <FormControl className='col-md-12'>                   
                     <Input type="text" placeholder='Username' 
-                    className='form-control' 
+                    className='form-control mt-3' 
                     name='username' value={username} 
                     onChange={e => handleChange(e)}  />
-                </FormGroup>
-                <FormGroup>
-                    <InputLabel htmlFor='password'>Password</InputLabel>
+                </FormControl>
+                <FormControl className='col-md-12'>                    
                     <Input type="password" placeholder='Password' 
-                    className='form-control' 
+                    className='form-control mt-3' 
                     name='password' value={password} 
                     onChange={e => handleChange(e)} />
-                </FormGroup>
+                </FormControl>
               </div>
-              <div className='col-md-6'>
-                <FormGroup>
-                  <InputLabel htmlFor='email'>Email</InputLabel>
+              <div className='col-md-12'>
+                <FormControl className='col-md-12'>                 
                   <Input type="email" placeholder='Email' 
-                  className='form-control' 
+                  className='form-control mt-3' 
                   name='mail' value={mail} 
                   onChange={e => handleChange(e)} />
-                </FormGroup>
-                <FormGroup>
-                    <InputLabel htmlFor='role'>Role</InputLabel>
+                </FormControl>
+                <FormControl className='col-md-12'>                   
                     <Input type="text" placeholder='Role' 
-                    className='form-control' 
+                    className='form-control mt-3' 
                     name='role' value={role} 
                     onChange={e => handleChange(e)}  />
-                </FormGroup>
+                </FormControl>
               </div>
             </div>
-            <FormGroup>
-                <Input type="submit" value="Modifier" className='btn btn-primary col-md-6 mt-3' />
-            </FormGroup>
-          </form>         
+            <FormControl>
+                <Input type="submit" value="Modifier" className='btn btn-primary mt-3' />
+            </FormControl>
+          </form>  
         </DialogContent>
       </BootstrapDialog>
     </Fragment>
