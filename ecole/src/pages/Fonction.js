@@ -1,4 +1,4 @@
-import React,{ Fragment } from "react";
+import React,{ Fragment, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Savefonction } from "../modals/Savefonction";
 import { Editfonction } from '../modals/Editfonction';
@@ -12,6 +12,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import TablePagination from '@mui/material/TablePagination';
+import axios from "axios";
+
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -57,6 +59,23 @@ export const Fonction = () =>{
       setRowsPerPage(+event.target.value);
       setPage(0);
     };
+
+    const [fonction,setFonction] = useState();
+
+    useEffect( async () => {
+        await axios.get('http://localhost:8080/fonction/showallfonction').then((res) =>{
+            setFonction(res.data);
+            console.log(res.data);           
+        });
+    },[]);
+
+    const deleteFonction= async (id) =>{
+      await axios.delete(`http://localhost:8080/fonction/delete/${id}`)
+        .then((res)=>{
+            setFonction(res.data);
+        })        
+    };
+
     return(
         <Fragment>
             <div className='dashboard container-fluid'>
@@ -90,15 +109,15 @@ export const Fonction = () =>{
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                            {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => (
-                                <StyledTableRow key={row.name}>
+                            {fonction.Fonction.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item,index) => (
+                                <StyledTableRow key={index}>
                                     <StyledTableCell component="th" scope="row">
-                                        {row.name}
+                                        {index +1}
                                     </StyledTableCell>
-                                    <StyledTableCell align="center">{row.calories}</StyledTableCell>
+                                    <StyledTableCell align="center">{item.designation}</StyledTableCell>
                                     <StyledTableCell align="center">
                                         <Editfonction/>
-                                        <Link to="#" className="btn btn-danger bd ml-2"><i className="fa fa-trash"></i></Link>
+                                        <Link onClick={() =>deleteFonction(item.id)} to="#" className="btn btn-danger bd ml-2"><i className="fa fa-trash"></i></Link>
                                     </StyledTableCell>                                                                                                                                                                                                                                     
                                 </StyledTableRow>
                             ))}

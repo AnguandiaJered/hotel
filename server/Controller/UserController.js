@@ -20,7 +20,8 @@ module.exports.createUser = async (req , res) => {
 
 module.exports.updateUser = async (req , res) => {
     try {
-        const user = await  User.findByIdAndUpdate(req.body._id, { $set:{
+        const user = await  User.findByIdAndUpdate(req.params.id, { $set:{
+            _id:id,
             noms: req.body.noms,
             username: req.body.username,
             password: req.body.password,
@@ -36,7 +37,7 @@ module.exports.updateUser = async (req , res) => {
 
 module.exports.showUser = async (req , res) => {
     try {
-        const user = await User.findOne(req.body);
+        const user = await User.findOne(req.params.id);
         const data = user;
         res.status(200).json({User:data});
     } catch (error) {
@@ -46,7 +47,7 @@ module.exports.showUser = async (req , res) => {
 
 module.exports.deleteUser = async (req , res) => {
     try {
-        const user = await User.findByIdAndDelete(req.body);
+        const user = await User.findByIdAndDelete(req.params.id);
         const data = user;
         res.status(200).json({User:data});
     } catch (error) {

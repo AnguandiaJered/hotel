@@ -1,4 +1,4 @@
-import React,{ Fragment } from "react";
+import React,{ Fragment, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Savechambre } from "../modals/Savechambre";
 import { Editchambre } from '../modals/Editchambre';
@@ -12,6 +12,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import TablePagination from '@mui/material/TablePagination';
+import axios from "axios";
+
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -57,6 +59,24 @@ export const Chambre = () =>{
       setRowsPerPage(+event.target.value);
       setPage(0);
     };
+
+    const [room,setRoom] = useState();
+
+    useEffect( async () => {
+        await axios.get('http://localhost:8080/chambre/showallroom').then((res) =>{
+            setRoom(res.data);
+            console.log(res.data);           
+        });
+    },[]);
+
+    const deleteRoom = async (id) =>{
+      await axios.delete(`http://localhost:8080/chambre/delete/${id}`)
+        .then((res)=>{
+            setRoom(res.data);
+        })        
+    };
+
+
     return(
         <Fragment>
             <div className='dashboard container-fluid'>
@@ -90,17 +110,17 @@ export const Chambre = () =>{
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                            {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => (
-                                <StyledTableRow key={row.name}>
+                            {room.Chambre.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item,index) => (
+                                <StyledTableRow key={index}>
                                     <StyledTableCell component="th" scope="row">
-                                        {row.name}
+                                        {index + 1}
                                     </StyledTableCell>
-                                    <StyledTableCell align="center">{row.calories}</StyledTableCell>
-                                    <StyledTableCell align="center">{row.fat}</StyledTableCell>
-                                    <StyledTableCell align="center">{row.carbs}</StyledTableCell>                                                                                                                                                                                                                                     
+                                    <StyledTableCell align="center">{item.numchambre}</StyledTableCell>
+                                    <StyledTableCell align="center">{item.telephone}</StyledTableCell>
+                                    <StyledTableCell align="center">{item.refclasse}</StyledTableCell>                                                                                                                                                                                                                                     
                                     <StyledTableCell align="center">
                                         <Editchambre/>
-                                        <Link to="#" className="btn btn-danger bd ml-2"><i className="fa fa-trash"></i></Link>
+                                        <Link onClick={() => deleteRoom(item.id)} to="#" className="btn btn-danger bd ml-2"><i className="fa fa-trash"></i></Link>
                                     </StyledTableCell>                                                                                                                                                                                                                                     
                                 </StyledTableRow>
                             ))}

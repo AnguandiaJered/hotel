@@ -83,7 +83,7 @@ export const Editusers = () => {
 
     const onSubmit = async e =>{
         e.preventDefault();
-        await axios.put(`http://localhost:8080/user/update/${id}`,users);
+        await axios.put(`http://localhost:8080/user/update`,users);
         history.push("/");
     };
 

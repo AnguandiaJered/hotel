@@ -1,4 +1,4 @@
-import React,{ Fragment } from "react";
+import React,{ Fragment, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Savepaiesalle } from "../modals/Savepaiesalle";
 import { Editpaiesalle } from '../modals/Editpaiesalle';
@@ -12,6 +12,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import TablePagination from '@mui/material/TablePagination';
+import axios from "axios";
+
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -57,6 +59,23 @@ const PaieSalle = () =>{
       setRowsPerPage(+event.target.value);
       setPage(0);
     };
+
+    const [salles,setSalles] = useState();
+
+    useEffect( async () => {
+        await axios.get('http://localhost:8080/paiesalle/showallsalle').then((res) =>{
+            setSalles(res.data);
+            console.log(res.data);           
+        });
+    },[]);
+
+    const deleteSalles= async (id) =>{
+      await axios.delete(`http://localhost:8080/paiesalle/delete/${id}`)
+        .then((res)=>{
+            setSalles(res.data);
+        })        
+    };
+
     return(
         <Fragment>
             <div className='dashboard container-fluid'>
@@ -95,20 +114,20 @@ const PaieSalle = () =>{
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                            {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => (
-                                <StyledTableRow key={row.name}>
+                            {salles.Paiesalle.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item,index) => (
+                                <StyledTableRow key={index}>
                                     <StyledTableCell component="th" scope="row">
-                                        {row.name}
+                                        {index +1}
                                     </StyledTableCell>
-                                    <StyledTableCell align="center">{row.calories}</StyledTableCell>
-                                    <StyledTableCell align="center">{row.fat}</StyledTableCell>
-                                    <StyledTableCell align="center">{row.carbs}</StyledTableCell>
-                                    <StyledTableCell align="center">{row.protein}</StyledTableCell>
-                                    <StyledTableCell align="center">{row.protein}</StyledTableCell>
-                                    <StyledTableCell align="center">{row.protein}</StyledTableCell>                                                                                                                                                                                                                                      
+                                    <StyledTableCell align="center">{item.montant}</StyledTableCell>
+                                    <StyledTableCell align="center">{item.devise}</StyledTableCell>
+                                    <StyledTableCell align="center">{item.libelle}</StyledTableCell>
+                                    <StyledTableCell align="center">{item.datepaie}</StyledTableCell>
+                                    <StyledTableCell align="center">{item.refreservation}</StyledTableCell>
+                                    <StyledTableCell align="center">{item.author}</StyledTableCell>                                                                                                                                                                                                                                      
                                     <StyledTableCell align="center">
                                         <Editpaiesalle/>
-                                        <Link to="#" className="btn btn-danger bd ml-2"><i className="fa fa-trash"></i></Link>
+                                        <Link onClick={() => deleteSalles(item.id)} to="#" className="btn btn-danger bd ml-2"><i className="fa fa-trash"></i></Link>
                                     </StyledTableCell>                                                                                                                                                                                                                                      
                                 </StyledTableRow>
                             ))}

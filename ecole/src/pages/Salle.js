@@ -1,4 +1,4 @@
-import React,{ Fragment } from "react";
+import React,{ Fragment,useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Savesalle } from "../modals/Savesalle";
 import { Editsalle } from '../modals/Editsalle';
@@ -12,6 +12,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import TablePagination from '@mui/material/TablePagination';
+import axios from "axios";
+
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -57,6 +59,23 @@ export const Salle = () =>{
       setRowsPerPage(+event.target.value);
       setPage(0);
     };
+
+    const [salle,setSalle] = useState();
+
+    useEffect( async () => {
+        await axios.get('http://localhost:8080/salle/showallresalle').then((res) =>{
+            setSalle(res.data);
+            console.log(res.data);           
+        });
+    },[]);
+
+    const deleteSalle= async (id) =>{
+      await axios.delete(`http://localhost:8080/salle/delete/${id}`)
+        .then((res)=>{
+            setSalle(res.data);
+        })        
+    };
+
     return(
         <Fragment>
             <div className='dashboard container-fluid'>
@@ -92,17 +111,17 @@ export const Salle = () =>{
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                            {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => (
-                                <StyledTableRow key={row.name}>
+                            {salle.Salle.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item,index) => (
+                                <StyledTableRow key={index}>
                                     <StyledTableCell component="th" scope="row">
-                                        {row.name}
+                                        {index +1}
                                     </StyledTableCell>
-                                    <StyledTableCell align="center">{row.calories}</StyledTableCell>
-                                    <StyledTableCell align="center">{row.fat}</StyledTableCell>
-                                    <StyledTableCell align="center">{row.carbs}</StyledTableCell>
+                                    <StyledTableCell align="center">{item.designation}</StyledTableCell>
+                                    <StyledTableCell align="center">{item.prix}</StyledTableCell>
+                                    <StyledTableCell align="center">{item.devise}</StyledTableCell>
                                     <StyledTableCell align="center">
                                         <Editsalle/>
-                                        <Link to="#" className="btn btn-danger bd ml-2"><i className="fa fa-trash"></i></Link>
+                                        <Link onClick={() => deleteSalle(item.id)} to="#" className="btn btn-danger bd ml-2"><i className="fa fa-trash"></i></Link>
                                     </StyledTableCell>                                                                                                                                                                                                                                      
                                 </StyledTableRow>
                             ))}
@@ -137,6 +156,7 @@ export const Reserves = () =>{
       setRowsPerPage(+event.target.value);
       setPage(0);
     };
+
     return(
         <Fragment>
            <div className='dashboard container-fluid'>
