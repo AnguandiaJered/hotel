@@ -1,4 +1,4 @@
-import React,{ Fragment } from 'react';
+import React,{ Fragment,useState } from 'react';
 import PropTypes from 'prop-types';
 import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
@@ -7,7 +7,10 @@ import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import { Link } from 'react-router-dom';
-import { FormControl, FormGroup, Input, InputLabel, MenuItem, Select } from '@mui/material';
+import { FormControl, Input, InputLabel, MenuItem, Select } from '@mui/material';
+import axios from 'axios';
+import { useHistory } from "react-router-dom";
+
 
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -58,6 +61,25 @@ export const Savechambre = () => {
     setOpen(false);
   };
 
+  let history = useHistory();
+  const [chambre,setChambre] = useState({
+    numchambre:"",
+    telephone:"",
+    refclasse:""
+  });
+  const {numchambre,telephone,refclasse} = chambre;
+    const handleChange = e =>{
+        setChambre({...chambre,[e.target.name] : e.target.value});
+    }
+
+    const onSubmit = async e =>{
+      e.preventDefault();
+      await axios.post('http://localhost:8080/chambre/create',chambre).then(res =>{
+        console.log(res.data);
+      });
+      history.push("/");
+  }
+
   return (
     <Fragment>
       <Link to='#' variant="outlined" className='btn btn-primary' onClick={handleClickOpen}>
@@ -72,22 +94,36 @@ export const Savechambre = () => {
           Ajouter Chambre
         </BootstrapDialogTitle>
         <DialogContent dividers>
-          <FormGroup>
+          <form onSubmit={e =>onSubmit(e)}>
             <div className='row'>
               <div className='col-md-12'>
                 <div className='form-group'>
                   <InputLabel htmlFor='numchambre'>Numero chambre</InputLabel>
-                  <Input type="number" placeholder='Numero chambre' min="0" oninput="this.value = Math.abs(this.value)" className='form-control' />
+                  <Input type="number" 
+                  placeholder='Numero chambre' 
+                  min="0" 
+                  className='form-control' 
+                  name='numchambre' 
+                  value={numchambre} 
+                  onChange={e => handleChange(e)} />
                 </div>
                 <div className='form-group'>
                     <InputLabel htmlFor='telchambre'>Telephone chambre</InputLabel>
-                    <Input type="tel" placeholder='Telephone chambre' className='form-control' />
+                    <Input type="tel" 
+                    placeholder='Telephone chambre' 
+                    className='form-control' 
+                    name='telephone' 
+                    value={telephone} 
+                    onChange={e => handleChange(e)} />
                 </div>
               </div>
               <div className='col-md-12'>
                 <div className='form-group'>
                   <InputLabel htmlFor='classchambre'>Classe chambre</InputLabel>
-                   <Select className='form-control'> 
+                   <Select className='form-control'  
+                   name='refclasse' 
+                    value={refclasse} 
+                    onChange={e => handleChange(e)}> 
                      <MenuItem>VIP</MenuItem>
                      <MenuItem>Ordinaire</MenuItem>
                    </Select>
@@ -97,7 +133,7 @@ export const Savechambre = () => {
             <FormControl className='form-group'>
                 <Input type="submit" value="Enregistrer" className='btn btn-primary col-md-6' />
             </FormControl>
-          </FormGroup>          
+          </form>          
         </DialogContent>
       </BootstrapDialog>
     </Fragment>

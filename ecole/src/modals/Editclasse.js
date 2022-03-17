@@ -1,4 +1,4 @@
-import React,{ Fragment } from 'react';
+import React,{ Fragment,useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
@@ -7,7 +7,10 @@ import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import { Link } from 'react-router-dom';
-import { FormControl, FormGroup, Input, InputLabel, MenuItem, Select } from '@mui/material';
+import { FormControl, Input, InputLabel, MenuItem, Select } from '@mui/material';
+import axios from 'axios';
+import { useHistory, useParams } from "react-router-dom";
+
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
@@ -57,6 +60,31 @@ export const Editclasse = () => {
     setOpen(false);
   };
 
+   
+  let history = useHistory();
+  const {id}= useParams();
+  const [classroom,setClassroom] = useState({
+    idclass:"",
+    designation:"",
+    montant:"",
+    devise:""
+  });
+  const {designation,montant,devise,idclass} = classroom;
+    const handleChange = e =>{
+        setClassroom({...classroom,[e.target.name] : e.target.value});
+    }
+  useEffect(async (id) =>{
+    await axios.get(`http://localhost:8080/chambre/edit/${id}`).then((res)=>{
+      setClassroom({...res.data[0]});
+    });
+  },[]);
+
+  const onSubmit = async e =>{
+      e.preventDefault();
+      await axios.put(`http://localhost:8080/chambre/update/${id}`,classroom);
+      history.push("/");
+  };
+
   return (
     <Fragment>
       <Link to='#' variant="outlined" className='btn btn-primary bd' onClick={handleClickOpen}>
@@ -71,22 +99,41 @@ export const Editclasse = () => {
           Update Classe Chambre
         </BootstrapDialogTitle>
         <DialogContent dividers>
-          <FormGroup>
-          <div className='row'>
+        <form onSubmit={e =>onSubmit(e)}>
+            <div className='row'>
               <div className='col-md-12'>
+                <div className='form-control'>              
+                  <input type="hidden"
+                  className='form-control' 
+                  name='idclass' value={idclass} 
+                  onChange={e => handleChange(e)}  />
+                </div>
                 <div className='form-group'>
                   <InputLabel htmlFor='designation'>Designation</InputLabel>
-                  <Input type="text" placeholder='Designation' className='form-control' />
+                  <Input type="text" 
+                  placeholder='Designation' 
+                  className='form-control' 
+                  name='designation' 
+                  value={designation} 
+                  onChange={e => handleChange(e)}/>
                 </div>
                 <div className='form-group'>
                     <InputLabel htmlFor='montant'>Montant</InputLabel>
-                    <Input type="number" placeholder='Montant' min="0" oninput="this.value = Math.abs(this.value)" className='form-control' />
+                    <Input type="number" 
+                    placeholder='Montant' min="0" 
+                    className='form-control' 
+                    name='montant' 
+                    value={montant} 
+                    onChange={e => handleChange(e)}/>
                 </div>                
               </div>
               <div className='col-md-12'>
                 <div className='form-group'>
                   <InputLabel htmlFor='devise'>Devise</InputLabel>
-                   <Select className='form-control'> 
+                   <Select className='form-control'
+                    name='devise' 
+                    value={devise} 
+                    onChange={e => handleChange(e)}> 
                      <MenuItem>USD</MenuItem>
                    </Select>
                 </div>
@@ -95,7 +142,7 @@ export const Editclasse = () => {
             <FormControl className='form-group'>
                 <Input type="submit" value="Modifier" className='btn btn-primary col-md-6' />
             </FormControl>
-          </FormGroup>          
+          </form>        
         </DialogContent>
       </BootstrapDialog>
     </Fragment>

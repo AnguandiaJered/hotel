@@ -1,4 +1,4 @@
-import React,{ Fragment } from 'react';
+import React,{ Fragment, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
@@ -7,7 +7,10 @@ import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import { Link } from 'react-router-dom';
-import { FormControl, FormGroup, Input, InputLabel, MenuItem, Select } from '@mui/material';
+import { FormControl, Input, InputLabel, MenuItem, Select } from '@mui/material';
+import axios from 'axios';
+import { useHistory, useParams } from "react-router-dom";
+
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
@@ -57,6 +60,35 @@ export const Editpaieconsommation = () => {
     setOpen(false);
   };
 
+  let history = useHistory();
+  const {id}= useParams();
+  const [consommation,setConsommation] = useState({
+    idcons:"",
+    refclient:"",
+    datepaie:"",
+    montant:"",
+    devise:"",
+    libelle:"",
+    author:""
+  });
+
+  const {refclient,datepaie,montant,devise,libelle,author,idcons} = consommation;
+    const handleChange = e =>{
+        setConsommation({...consommation,[e.target.name] : e.target.value});
+    }
+
+  useEffect(async (id) =>{
+    await axios.get(`http://localhost:8080/consommation/edit/${id}`).then((res)=>{
+      setConsommation({...res.data[0]});
+    });
+  },[]);
+
+  const onSubmit = async e =>{
+      e.preventDefault();
+      await axios.put(`http://localhost:8080/consommation/update/${id}`,consommation);
+      history.push("/");
+  };
+
   return (
     <Fragment>
       <Link to='#' variant="outlined" className='btn btn-primary bd' onClick={handleClickOpen}>
@@ -71,12 +103,21 @@ export const Editpaieconsommation = () => {
           Update Paiement Consommation
         </BootstrapDialogTitle>
         <DialogContent dividers>
-          <FormGroup>
+          <form onSubmit={e => onSubmit(e)}>
             <div className='row'>
               <div className='col-md-6'>
+                <div className='form-control'>              
+                  <input type="hidden"
+                  className='form-control' 
+                  name='idcons' value={idcons} 
+                  onChange={e => handleChange(e)}  />
+                </div>
                 <div className='form-group'>
                   <InputLabel htmlFor='client'>Clients</InputLabel>
-                  <Select className='form-control'> 
+                  <Select className='form-control' 
+                  name='refclient' 
+                  value={refclient} 
+                  onChange={e => handleChange(e)}> 
                      <MenuItem>Jered</MenuItem>
                      <MenuItem>Bob</MenuItem>
                      <MenuItem>Marley</MenuItem>
@@ -85,11 +126,19 @@ export const Editpaieconsommation = () => {
                 </div>
                 <div className='form-group'>
                     <InputLabel htmlFor='montant'>Montant</InputLabel>
-                    <Input type="number" placeholder='Montant' min="0" oninput="this.value = Math.abs(this.value)" className='form-control' />
+                    <Input type="number" 
+                    placeholder='Montant' 
+                    min="0" name='montant' 
+                    value={montant} 
+                    onChange={e => handleChange(e)} 
+                    className='form-control' />
                 </div>
                 <div className='form-group'>
                     <InputLabel htmlFor='devise'>Devise</InputLabel>
-                    <Select className='form-control'> 
+                    <Select className='form-control' 
+                    name='devise'
+                    value={devise} 
+                    onChange={e => handleChange(e)} > 
                      <MenuItem>USD</MenuItem>
                     </Select>
                 </div>
@@ -97,22 +146,36 @@ export const Editpaieconsommation = () => {
               <div className='col-md-6'>
                 <div className='form-group'>
                   <InputLabel htmlFor='libelle'>Libelle</InputLabel>
-                  <Input type="text" placeholder='Libelle' className='form-control' />
+                  <Input type="text" 
+                  placeholder='Libelle' 
+                  className='form-control' 
+                  name='libelle'
+                  value={libelle} 
+                  onChange={e => handleChange(e)} />
                 </div>
                 <div className='form-group'>
                     <InputLabel htmlFor='nom'>Date Payer</InputLabel>
-                    <Input type="date" className='form-control' />
+                    <Input type="date" 
+                    className='form-control' 
+                    name='datepaie'
+                    value={datepaie} 
+                    onChange={e => handleChange(e)} />
                 </div>
                 <div className='form-group'>
                     <InputLabel htmlFor='author'>Author</InputLabel>
-                    <Input type="text" placeholder='Author' className='form-control' />
+                    <Input type="text" 
+                    placeholder='Author' 
+                    className='form-control' 
+                    name='author'
+                    value={author} 
+                    onChange={e => handleChange(e)} />
                 </div>
               </div>
             </div>
             <FormControl className='form-group'>
                 <Input type="submit" value="Modifier" className='btn btn-primary col-md-6' />
             </FormControl>
-          </FormGroup>          
+          </form>          
         </DialogContent>
       </BootstrapDialog>
     </Fragment>
