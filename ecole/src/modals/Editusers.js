@@ -61,7 +61,7 @@ export const Editusers = () => {
     setOpen(false);
   };
 
-  let history = useHistory();
+    let history = useHistory();
     const {id}= useParams();
     const [users,setUsers] = useState({
         iduser:"",
@@ -83,7 +83,7 @@ export const Editusers = () => {
 
     const onSubmit = async e =>{
         e.preventDefault();
-        await axios.put(`http://localhost:8080/user/update`,users);
+        await axios.put(`http://localhost:8080/user/update/${id}`,users);
         history.push("/");
     };
 
@@ -108,7 +108,7 @@ export const Editusers = () => {
                 <div>              
                   <input type="hidden"
                   className='form-control' 
-                  name='id' value={iduser} 
+                  name='iduser' value={iduser} 
                   onChange={e => handleChange(e)}  />
                 </div>
                 <FormControl className='col-md-12'>              

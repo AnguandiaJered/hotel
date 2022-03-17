@@ -1,4 +1,4 @@
-import React,{ Fragment } from 'react';
+import React,{ Fragment, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
@@ -7,7 +7,10 @@ import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import { Link } from 'react-router-dom';
-import { FormControl, FormGroup, Input, InputLabel } from '@mui/material';
+import { FormControl, Input, InputLabel } from '@mui/material';
+import axios from 'axios';
+import { useHistory, useParams } from "react-router-dom";
+
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
@@ -57,6 +60,29 @@ export const Editfonction = () => {
     setOpen(false);
   };
 
+  let history = useHistory();
+  const {id}= useParams();
+  const [fonction,setFonction] = useState({
+    idfonc:"",
+    designation:""
+  });
+
+  const {designation,idfonc} = fonction;
+    const handleChange = e =>{
+        setFonction({...fonction,[e.target.name] : e.target.value});
+    }
+  useEffect(async (id) =>{
+    await axios.get(`http://localhost:8080/fonction/edit/${id}`).then((res)=>{
+      setFonction({...res.data[0]});
+    });
+  },[]);
+
+  const onSubmit = async e =>{
+      e.preventDefault();
+      await axios.put(`http://localhost:8080/fonction/update/${id}`,fonction);
+      history.push("/");
+  };
+
   return (
     <Fragment>
       <Link to='#' variant="outlined" className='btn btn-primary bd' onClick={handleClickOpen}>
@@ -71,15 +97,26 @@ export const Editfonction = () => {
           Update Fonction
         </BootstrapDialogTitle>
         <DialogContent dividers>
-          <FormGroup>
+        <form onSubmit={e => onSubmit(e)}>
+            <div className='form-control'>              
+                <input type="hidden"
+                className='form-control' 
+                name='idfonc' value={idfonc} 
+                onChange={e => handleChange(e)}  />
+            </div>
             <div className='form-group'>
               <InputLabel htmlFor='designation'>Designation</InputLabel>
-              <Input type="text" placeholder='Designation' className='form-control' />
+              <Input type="text" 
+              placeholder='Designation' 
+              className='form-control' 
+              name='designation' 
+              value={designation} 
+              onChange={e => handleChange(e)} />
             </div>
             <FormControl className='form-group'>
                 <Input type="submit" value="Modifier" className='btn btn-primary col-md-6' />
             </FormControl>
-          </FormGroup>          
+          </form>            
         </DialogContent>
       </BootstrapDialog>
     </Fragment>
