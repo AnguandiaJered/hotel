@@ -120,7 +120,8 @@ const ReservationChambre = () =>{
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                            {reserveroom.Reservationchambre.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item,index) => (
+                            {reserveroom &&
+                                reserveroom.Reservationchambre.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item,index) => (
                                 <StyledTableRow key={index}>
                                     <StyledTableCell component="th" scope="row">
                                         {index +1}

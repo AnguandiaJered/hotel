@@ -111,7 +111,8 @@ export const Salle = () =>{
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                            {salle.Salle.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item,index) => (
+                            {salle &&
+                                salle.Salle.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item,index) => (
                                 <StyledTableRow key={index}>
                                     <StyledTableCell component="th" scope="row">
                                         {index +1}

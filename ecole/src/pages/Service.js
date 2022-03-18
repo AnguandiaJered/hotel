@@ -110,7 +110,8 @@ const Service = () =>{
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                            {service.Service.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item,index) => (
+                            {service &&
+                                service.Service.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item,index) => (
                                 <StyledTableRow key={index}>
                                     <StyledTableCell component="th" scope="row">
                                         {index +1}

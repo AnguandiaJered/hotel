@@ -116,7 +116,8 @@ const Affectation = () =>{
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                            {affectation.Affectation.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item,index) => (
+                            {affectation &&
+                                affectation.Affectation.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item,index) => (
                                 <StyledTableRow key={index}>
                                     <StyledTableCell component="th" scope="row">
                                         {index + 1}

@@ -119,7 +119,8 @@ const Personnel = () =>{
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                            {agent.Personnel.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item,index) => (
+                            {agent &&
+                                agent.Personnel.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item,index) => (
                                 <StyledTableRow key={index}>
                                     <StyledTableCell component="th" scope="row">
                                         {index +1}

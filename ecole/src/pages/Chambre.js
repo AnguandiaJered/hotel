@@ -110,7 +110,8 @@ export const Chambre = () =>{
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                            {room.Chambre.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item,index) => (
+                            {room && 
+                                room.Chambre.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item,index) => (
                                 <StyledTableRow key={index}>
                                     <StyledTableCell component="th" scope="row">
                                         {index + 1}

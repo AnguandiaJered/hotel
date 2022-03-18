@@ -1,4 +1,4 @@
-import React,{ Fragment } from 'react';
+import React,{ Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
@@ -7,7 +7,9 @@ import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import { Link } from 'react-router-dom';
-import { FormControl, FormGroup, Input, InputLabel, MenuItem, Select } from '@mui/material';
+import { FormControl, Input, InputLabel, MenuItem, Select } from '@mui/material';
+import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 
 
@@ -59,6 +61,31 @@ export const Savepaiesalle = () => {
     setOpen(false);
   };
 
+      
+  let history = useHistory();
+  const [paiesalle,setPaiesalle] = useState({
+    montant:"",
+    devise:"",
+    libelle:"",
+    datepaie:"",
+    refreservation:"",
+    author:""
+  });
+  
+  const {montant,devise,libelle,datepaie,refreservation,author} = paiesalle;
+    const handleChange = e =>{
+        setPaiesalle({...paiesalle,[e.target.name] : e.target.value});
+    }
+
+    const onSubmit = async e =>{
+      e.preventDefault();
+      await axios.post('http://localhost:8080/paiesalle/create',paiesalle).then(res =>{
+        console.log(res.data);
+      });
+      history.push("/");
+  }
+
+
   return (
     <Fragment>
       <Link to='#' variant="outlined" className='btn btn-primary' onClick={handleClickOpen}>
@@ -73,12 +100,15 @@ export const Savepaiesalle = () => {
           Ajouter Paiement Salle
         </BootstrapDialogTitle>
         <DialogContent dividers>
-          <FormGroup>
+        <form onSubmit={e => onSubmit(e)}>
             <div className='row'>
               <div className='col-md-6'>
                 <div className='form-group'>
                   <InputLabel htmlFor='reservation'>Reservation</InputLabel>
-                  <Select className='form-control'> 
+                  <Select className='form-control'  
+                  name='refreservation' 
+                  value={refreservation} 
+                  onChange={e => handleChange(e)}> 
                      <MenuItem>Reservation 1</MenuItem>
                      <MenuItem>Reservation 2</MenuItem>
                      <MenuItem>Reservation 3</MenuItem>
@@ -87,11 +117,19 @@ export const Savepaiesalle = () => {
                 </div>
                 <div className='form-group'>
                     <InputLabel htmlFor='montant'>Montant</InputLabel>
-                    <Input type="number" placeholder='Montant' min="0" oninput="this.value = Math.abs(this.value)" className='form-control' />
+                    <Input type="number" 
+                    placeholder='Montant' min="0" 
+                    className='form-control'
+                    name='montant' 
+                    value={montant} 
+                    onChange={e => handleChange(e)} />
                 </div>
                 <div className='form-group'>
                     <InputLabel htmlFor='devise'>Devise</InputLabel>
-                    <Select className='form-control'> 
+                    <Select className='form-control' 
+                    name='devise' 
+                    value={devise} 
+                    onChange={e => handleChange(e)}> 
                      <MenuItem>USD</MenuItem>
                     </Select>
                 </div>
@@ -99,22 +137,36 @@ export const Savepaiesalle = () => {
               <div className='col-md-6'>
                 <div className='form-group'>
                   <InputLabel htmlFor='libelle'>Libelle</InputLabel>
-                  <Input type="text" placeholder='Libelle' className='form-control' />
+                  <Input type="text" 
+                  placeholder='Libelle' 
+                  className='form-control' 
+                  name='libelle' 
+                  value={libelle} 
+                  onChange={e => handleChange(e)}/>
                 </div>
                 <div className='form-group'>
                     <InputLabel htmlFor='nom'>Date Payer</InputLabel>
-                    <Input type="date" className='form-control' />
+                    <Input type="date" 
+                    className='form-control' 
+                    name='datepaie' 
+                    value={datepaie} 
+                    onChange={e => handleChange(e)}/>
                 </div>
                 <div className='form-group'>
                     <InputLabel htmlFor='author'>Author</InputLabel>
-                    <Input type="text" placeholder='Author' className='form-control' />
+                    <Input type="text" 
+                    placeholder='Author' 
+                    className='form-control' 
+                    name='author' 
+                    value={author} 
+                    onChange={e => handleChange(e)} />
                 </div>
               </div>
             </div>
             <FormControl className='form-group'>
                 <Input type="submit" value="Enregistrer" className='btn btn-primary col-md-6' />
             </FormControl>
-          </FormGroup>          
+          </form>                  
         </DialogContent>
       </BootstrapDialog>
     </Fragment>

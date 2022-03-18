@@ -109,7 +109,8 @@ const ClasseChambre = () =>{
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                            {classroom.Classeroom.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item,index) => (
+                            {classroom &&
+                                classroom.Classeroom.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item,index) => (
                                 <StyledTableRow key={index}>
                                     <StyledTableCell component="th" scope="row">
                                         {index + 1}

@@ -109,7 +109,8 @@ export const Fonction = () =>{
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                            {fonction.Fonction.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item,index) => (
+                            {fonction && 
+                                fonction.Fonction.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item,index) => (
                                 <StyledTableRow key={index}>
                                     <StyledTableCell component="th" scope="row">
                                         {index +1}

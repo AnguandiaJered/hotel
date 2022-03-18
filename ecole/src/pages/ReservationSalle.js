@@ -114,7 +114,8 @@ const ReservationSalle = () =>{
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                            {reservesalle.Reservationsalle.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item,index) => (
+                            {reservesalle &&
+                                reservesalle.Reservationsalle.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item,index) => (
                                 <StyledTableRow key={index}>
                                     <StyledTableCell component="th" scope="row">
                                         {index +1}
