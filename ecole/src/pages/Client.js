@@ -127,7 +127,7 @@ const Client = () =>{
                                     <StyledTableCell align="center">{item.telephone}</StyledTableCell>
                                     <StyledTableCell align="center">{item.datenaissance}</StyledTableCell>
                                     <StyledTableCell align="center">{item.profession}</StyledTableCell>                                                                                                                                                                                                                                      
-                                    <StyledTableCell align="center">{item.photo}</StyledTableCell>                                                                                                                                                                                                                                      
+                                    <StyledTableCell align="center"><img src={item.photo} alt='image client' /></StyledTableCell>                                                                                                                                                                                                                                      
                                     <StyledTableCell align="center">
                                         <Editclient/>
                                         <Link onClick={() => deleteClient(item.id)} to="#" className="btn btn-danger bd ml-2"><i className="fa fa-trash"></i></Link>

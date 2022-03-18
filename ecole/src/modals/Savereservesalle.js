@@ -153,7 +153,7 @@ export const Savereservesalle = () => {
               </div>
             </div>
             <FormControl className='form-group'>
-                <Input type="submit" value="Enregistrer" className='btn btn-primary col-md-6' />
+                <Input type="submit" value="Enregistrer" className='btn btn-primary' />
             </FormControl>
           </form>          
         </DialogContent>

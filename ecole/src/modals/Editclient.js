@@ -178,7 +178,7 @@ export const Editclient = () => {
               </div>
             </div>
             <FormControl className='form-group'>
-                <Input type="submit" value="Modifier" className='btn btn-primary col-md-6' />
+                <Input type="submit" value="Modifier" className='btn btn-primary' />
             </FormControl>
           </form>           
         </DialogContent>
