@@ -115,8 +115,8 @@ export const Saveclient = () => {
                    name='sexe' 
                   value={sexe} 
                   onChange={e => handleChange(e)}> 
-                     <MenuItem>M</MenuItem>
-                     <MenuItem>F</MenuItem>
+                     <MenuItem value='M'>M</MenuItem>
+                     <MenuItem value='F'>F</MenuItem>
                    </Select>
                 </div>
                 <div className='form-group'>
@@ -167,7 +167,7 @@ export const Saveclient = () => {
               </div>
             </div>
             <FormControl className='form-group'>
-                <Input type="submit" value="Enregistrer" className='btn btn-primary col-md-6' />
+                <Input type="submit" value="Enregistrer" className='btn btn-primary' />
             </FormControl>
           </form>          
         </DialogContent>

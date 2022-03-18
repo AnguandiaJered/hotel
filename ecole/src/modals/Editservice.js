@@ -118,7 +118,7 @@ export const Editservice = () => {
                   onChange={e => handleChange(e)}/>
               </div>
             <FormControl className='form-group'>
-                <Input type="submit" value="Modifier" className='btn btn-primary col-md-12' />
+                <Input type="submit" value="Modifier" className='btn btn-primary' />
             </FormControl>
           </form>          
         </DialogContent>

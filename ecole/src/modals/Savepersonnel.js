@@ -131,8 +131,8 @@ export const Savepersonnel = () => {
                     name='sexe' 
                     value={sexe} 
                     onChange={e => handleChange(e)}> 
-                     <MenuItem>M</MenuItem>
-                     <MenuItem>F</MenuItem>
+                     <MenuItem value='M'>M</MenuItem>
+                     <MenuItem value='F'>F</MenuItem>
                    </Select>
                 </div>
                 <div className='form-group'>
@@ -158,10 +158,9 @@ export const Savepersonnel = () => {
                     name='etatcivil' 
                     value={etatcivil} 
                     onChange={e => handleChange(e)}> 
-                     <MenuItem>Marié</MenuItem>
-                     <MenuItem>Celibataire</MenuItem>
-                     <MenuItem>Divorcé</MenuItem>
-                     <MenuItem>Autres</MenuItem>
+                     <MenuItem value='Marié'>Marié</MenuItem>
+                     <MenuItem value='Celibataire'>Celibataire</MenuItem>                    
+                     <MenuItem value='Autres'>Autres</MenuItem>
                     </Select>
                 </div>
               </div>
@@ -224,7 +223,7 @@ export const Savepersonnel = () => {
               </div>
             </div>
             <FormControl className='form-group'>
-                <Input type="submit" value="Enregistrer" className='btn btn-primary col-md-6' />
+                <Input type="submit" value="Enregistrer" className='btn btn-primary' />
             </FormControl>
           </form>          
         </DialogContent>

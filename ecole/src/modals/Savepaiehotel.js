@@ -128,7 +128,7 @@ export const Savepaiehotel = () => {
                     name='devise' 
                     value={devise} 
                     onChange={e => handleChange(e)}> 
-                     <MenuItem>USD</MenuItem>
+                     <MenuItem value='USD'>USD</MenuItem>
                     </Select>
                 </div>
               </div>
@@ -162,7 +162,7 @@ export const Savepaiehotel = () => {
               </div>
             </div>
             <FormControl className='form-group'>
-                <Input type="submit" value="Enregistrer" className='btn btn-primary col-md-6' />
+                <Input type="submit" value="Enregistrer" className='btn btn-primary' />
             </FormControl>
           </form>          
         </DialogContent>
