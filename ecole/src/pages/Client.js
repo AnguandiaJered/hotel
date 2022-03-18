@@ -115,7 +115,8 @@ const Client = () =>{
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                            {client.Client.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item,index) => (
+                            {client &&
+                                    client.Client.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item,index) =>(
                                 <StyledTableRow key={index}>
                                     <StyledTableCell component="th" scope="row">
                                         {index + 1}

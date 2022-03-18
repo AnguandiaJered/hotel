@@ -114,7 +114,8 @@ export const PaieConsommation = () =>{
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                            {consommation.Paieconsommation.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item,index) => (
+                            {consommation &&
+                                consommation.Paieconsommation.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item,index) => (
                                 <StyledTableRow key={index}>
                                     <StyledTableCell component="th" scope="row">
                                         {index +1}

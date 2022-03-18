@@ -1,4 +1,4 @@
-import React,{ Fragment } from 'react';
+import React,{ Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
@@ -7,8 +7,9 @@ import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import { Link } from 'react-router-dom';
-import { FormControl, FormGroup, Input, InputLabel, MenuItem, Select } from '@mui/material';
-
+import { FormControl, Input, InputLabel, MenuItem, Select } from '@mui/material';
+import axios from 'axios';
+import { useHistory } from "react-router-dom";
 
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -59,6 +60,29 @@ export const Savereservesalle = () => {
     setOpen(false);
   };
 
+  let history = useHistory();
+  const [reservesalle,setReservesalle] = useState({
+    refclient:"",
+    datereservation:"",
+    refsalle:"",
+    libelle:"",
+    dateceremonie:""
+  });
+  
+  const {refclient,datereservation,refsalle,libelle,dateceremonie} = reservesalle;
+    
+  const handleChange = e =>{
+        setReservesalle({...reservesalle,[e.target.name] : e.target.value});
+    }
+
+    const onSubmit = async e =>{
+      e.preventDefault();
+      await axios.post('http://localhost:8080/reservesalle/create',reservesalle).then(res =>{
+        console.log(res.data);
+      });
+      history.push("/");
+  }
+
   return (
     <Fragment>
       <Link to='#' variant="outlined" className='btn btn-primary' onClick={handleClickOpen}>
@@ -73,12 +97,15 @@ export const Savereservesalle = () => {
           Ajouter Reservation Salle
         </BootstrapDialogTitle>
         <DialogContent dividers>
-          <FormGroup>
+          <form onSubmit={e =>onSubmit(e)}>
             <div className='row'>
               <div className='col-md-6'>
                 <div className='form-group'>
                   <InputLabel htmlFor='client'>Clients</InputLabel>
-                   <Select className='form-control'> 
+                   <Select className='form-control'  
+                    name='refclient' 
+                    value={refclient} 
+                    onChange={e => handleChange(e)}> 
                      <MenuItem>Jered</MenuItem>
                      <MenuItem>Bob</MenuItem>
                      <MenuItem>Marley</MenuItem>
@@ -87,11 +114,18 @@ export const Savereservesalle = () => {
                 </div>
                 <div className='form-group'>
                     <InputLabel htmlFor='datereservationsalle'>Date Reservation</InputLabel>
-                    <Input type="date" className='form-control' />
+                    <Input type="date" 
+                    className='form-control'  
+                    name='datereservation' 
+                    value={datereservation} 
+                    onChange={e => handleChange(e)}/>
                 </div>
                 <div className='form-group'>
                   <InputLabel htmlFor='salles'>Salles</InputLabel>
-                   <Select className='form-control'> 
+                   <Select className='form-control'  
+                    name='refsalle' 
+                    value={refsalle} 
+                    onChange={e => handleChange(e)}> 
                      <MenuItem>Salle 1</MenuItem>
                      <MenuItem>Salle 2</MenuItem>
                      <MenuItem>Salle 3</MenuItem>
@@ -101,18 +135,27 @@ export const Savereservesalle = () => {
               <div className='col-md-6'>
                 <div className='form-group'>
                   <InputLabel htmlFor='libelle'>Libelle</InputLabel>
-                  <Input type="text" placeholder='Libelle' className='form-control' />
+                  <Input type="text" 
+                  placeholder='Libelle' 
+                  className='form-control'  
+                  name='libelle' 
+                  value={libelle} 
+                  onChange={e => handleChange(e)} />
                 </div>
                 <div className='form-group'>
                     <InputLabel htmlFor='dateceremonie'>Date Ceremonie</InputLabel>
-                    <Input type="date" className='form-control' />
+                    <Input type="date" 
+                    className='form-control'  
+                    name='dateceremonie' 
+                    value={dateceremonie} 
+                    onChange={e => handleChange(e)} />
                 </div>
               </div>
             </div>
             <FormControl className='form-group'>
                 <Input type="submit" value="Enregistrer" className='btn btn-primary col-md-6' />
             </FormControl>
-          </FormGroup>          
+          </form>          
         </DialogContent>
       </BootstrapDialog>
     </Fragment>

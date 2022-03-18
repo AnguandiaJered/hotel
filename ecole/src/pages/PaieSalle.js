@@ -114,7 +114,8 @@ const PaieSalle = () =>{
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                            {salles.Paiesalle.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item,index) => (
+                            {salles &&
+                                salles.Paiesalle.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item,index) => (
                                 <StyledTableRow key={index}>
                                     <StyledTableCell component="th" scope="row">
                                         {index +1}

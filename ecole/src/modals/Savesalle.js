@@ -1,4 +1,4 @@
-import React,{ Fragment } from 'react';
+import React,{ Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
@@ -7,7 +7,9 @@ import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import { Link } from 'react-router-dom';
-import { FormControl, FormGroup, Input, InputLabel, MenuItem, Select } from '@mui/material';
+import { FormControl, Input, InputLabel, MenuItem, Select } from '@mui/material';
+import axios from 'axios';
+import { useHistory } from "react-router-dom";
 
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -58,6 +60,27 @@ export const Savesalle = () => {
     setOpen(false);
   };
 
+  let history = useHistory();
+  const [salle,setSalle] = useState({
+    designation:"",
+    prix:"",
+    devise:""
+  });
+  
+  const {designation,prix,devise} = salle;
+    
+  const handleChange = e =>{
+        setSalle({...salle,[e.target.name] : e.target.value});
+    }
+
+    const onSubmit = async e =>{
+      e.preventDefault();
+      await axios.post('http://localhost:8080/salle/create',salle).then(res =>{
+        console.log(res.data);
+      });
+      history.push("/");
+  }
+
   return (
     <Fragment>
       <Link to='#' variant="outlined" className='btn btn-primary' onClick={handleClickOpen}>
@@ -72,22 +95,35 @@ export const Savesalle = () => {
           Ajouter Salle
         </BootstrapDialogTitle>
         <DialogContent dividers>
-          <FormGroup>
+          <form onSubmit={e =>onSubmit(e)}>
             <div className='row'>
               <div className='col-md-12'>
                 <div className='form-group'>
                   <InputLabel htmlFor='designation'>Designation</InputLabel>
-                  <Input type="text" placeholder='Designation' className='form-control' />
+                  <Input type="text" 
+                  placeholder='Designation' 
+                  className='form-control' 
+                  name='designation' 
+                  value={designation} 
+                  onChange={e => handleChange(e)} />
                 </div>
                 <div className='form-group'>
                     <InputLabel htmlFor='prix'>Prix</InputLabel>
-                    <Input type="number" placeholder='Prix' min="0" oninput="this.value = Math.abs(this.value)" className='form-control' />
+                    <Input type="number" 
+                    placeholder='Prix' 
+                    min="0" className='form-control' 
+                    name='prix' 
+                    value={prix} 
+                    onChange={e => handleChange(e)}/>
                 </div>
               </div>
               <div className='col-md-12'>
                 <div className='form-group'>
                   <InputLabel htmlFor='prix'>Devise</InputLabel>
-                   <Select className='form-control'> 
+                   <Select className='form-control' 
+                    name='devise' 
+                    value={devise} 
+                    onChange={e => handleChange(e)}> 
                      <MenuItem>USD</MenuItem>
                    </Select>
                 </div>
@@ -96,7 +132,7 @@ export const Savesalle = () => {
             <FormControl className='form-group'>
                 <Input type="submit" value="Enregistrer" className='btn btn-primary col-md-6' />
             </FormControl>
-          </FormGroup>          
+          </form>          
         </DialogContent>
       </BootstrapDialog>
     </Fragment>
