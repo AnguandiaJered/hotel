@@ -133,7 +133,7 @@ export const Saveusers = () => {
                 </FormControl>
               </div>
             </div>
-            <FormControl>
+            <FormControl className='col-md-6'>
                 <Input type="submit" value="Enregistrer" className='btn btn-primary mt-3' />
             </FormControl>
           </form>          

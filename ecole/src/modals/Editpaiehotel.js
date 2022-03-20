@@ -105,7 +105,7 @@ export const Editpaiehotel = () => {
           <form onSubmit={e => onSubmit(e)}>
             <div className='row'>
               <div className='col-md-6'>
-                <div className='form-control'>              
+                <div>              
                   <input type="hidden"
                   className='form-control' 
                   name='idhotel' value={idhotel} 
@@ -171,7 +171,7 @@ export const Editpaiehotel = () => {
                 </div>
               </div>
             </div>
-            <FormControl className='form-group'>
+            <FormControl className='col-md-6'>
                 <Input type="submit" value="Modifier" className='btn btn-primary' />
             </FormControl>
           </form>          

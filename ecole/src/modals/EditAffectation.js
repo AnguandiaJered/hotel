@@ -107,7 +107,7 @@ export const EditAffectation = () => {
           <form onSubmit={e =>onSubmit(e)}>
             <div className='row'>
               <div className='col-md-6'>
-                <div className='form-group'>              
+                <div>              
                   <input type="hidden"
                   className='form-control' 
                   name='idaffect' value={idaffect} 
@@ -180,7 +180,7 @@ export const EditAffectation = () => {
                 </div>
               </div>
             </div>
-            <FormControl className='form-group'>
+            <FormControl className='col-md-6'>
                 <Input type="submit" value="Modifier" className='btn btn-primary' />
             </FormControl>
           </form>            

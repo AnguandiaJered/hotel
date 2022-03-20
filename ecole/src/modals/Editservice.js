@@ -101,13 +101,13 @@ export const Editservice = () => {
         </BootstrapDialogTitle>
         <DialogContent dividers>
           <form onSubmit={e =>onSubmit(e)}>
-              <div className='form-control'>              
-                  <input type="hidden"
-                  className='form-control' 
-                  name='idservice' 
-                  value={idservice} 
-                  onChange={e => handleChange(e)}  />
-                </div>
+              <div>              
+                <input type="hidden"
+                className='form-control' 
+                name='idservice' 
+                value={idservice} 
+                onChange={e => handleChange(e)}  />
+              </div>
               <div className='form-group'>
                   <InputLabel htmlFor='designation'>Designation</InputLabel>
                   <Input type="text" 
@@ -117,7 +117,7 @@ export const Editservice = () => {
                   value={designation} 
                   onChange={e => handleChange(e)}/>
               </div>
-            <FormControl className='form-group'>
+            <FormControl className='col-md-6'>
                 <Input type="submit" value="Modifier" className='btn btn-primary' />
             </FormControl>
           </form>          

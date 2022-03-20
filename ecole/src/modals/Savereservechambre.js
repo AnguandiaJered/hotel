@@ -147,9 +147,11 @@ export const Savereservechambre = () => {
                   onChange={e => handleChange(e)} />
                 </div>
                 <div className='form-group'>
-                  <InputLabel htmlFor='libelle'>Libelle</InputLabel>
+                  <InputLabel htmlFor='libelle'>Libelle</InputLabel>           
                   <Input type="text" 
                   placeholder='Libelle' 
+                  min="0" 
+                  className='form-control'  
                   name='libelle' 
                   value={libelle} 
                   onChange={e => handleChange(e)} />
@@ -213,7 +215,7 @@ export const Savereservechambre = () => {
                 </div>
               </div>
             </div>
-            <FormControl className='form-group'>
+            <FormControl className='col-md-6'>
                 <Input type="submit" value="Enregistrer" className='btn btn-primary' />
             </FormControl>
           </form>          
