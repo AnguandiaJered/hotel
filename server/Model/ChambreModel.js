@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const schema = mongoose.Schema({
     numchambre:{
-        type:Number,
+        type:String,
         require:true
     },
     telephone:{

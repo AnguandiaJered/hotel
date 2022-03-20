@@ -112,7 +112,7 @@ export const Editreservechambre = () => {
           <form onSubmit={e =>onSubmit(e)}>
             <div className='row'>
               <div className='col-md-6'>
-                <div className='form-control'>              
+                <div>              
                   <input type="hidden"
                   className='form-control' 
                   name='idroom' value={idroom} 
@@ -162,6 +162,8 @@ export const Editreservechambre = () => {
                   <InputLabel htmlFor='libelle'>Libelle</InputLabel>
                   <Input type="text" 
                   placeholder='Libelle' 
+                  min="0" 
+                  className='form-control'  
                   name='libelle' 
                   value={libelle} 
                   onChange={e => handleChange(e)} />
@@ -225,7 +227,7 @@ export const Editreservechambre = () => {
                 </div>
               </div>
             </div>
-            <FormControl className='form-group'>
+            <FormControl className='col-md-6'>
                 <Input type="submit" value="Modifier" className='btn btn-primary' />
             </FormControl>
           </form>           

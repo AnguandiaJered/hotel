@@ -160,7 +160,7 @@ export const Savepaieconsommation = () => {
                 </div>
               </div>
             </div>
-            <FormControl className='form-group'>
+            <FormControl className='col-md-6'>
                 <Input type="submit" value="Enregistrer" className='btn btn-primary' />
             </FormControl>
           </form>          

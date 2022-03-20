@@ -99,7 +99,7 @@ export const Savechambre = () => {
               <div className='col-md-12'>
                 <div className='form-group'>
                   <InputLabel htmlFor='numchambre'>Numero chambre</InputLabel>
-                  <Input type="number" 
+                  <Input type="text" 
                   placeholder='Numero chambre' 
                   min="0" 
                   className='form-control' 
@@ -124,13 +124,14 @@ export const Savechambre = () => {
                    name='refclasse' 
                     value={refclasse} 
                     onChange={e => handleChange(e)}> 
-                     <MenuItem>VIP</MenuItem>
-                     <MenuItem>Ordinaire</MenuItem>
+                     <MenuItem value='VIP'>VIP</MenuItem>
+                     <MenuItem value='Moyen'>Moyen</MenuItem>
+                     <MenuItem value='Ordinaire'>Ordinaire</MenuItem>
                    </Select>
                 </div>
               </div>
             </div>
-            <FormControl className='form-group'>
+            <FormControl className='col-md-6'>
                 <Input type="submit" value="Enregistrer" className='btn btn-primary' />
             </FormControl>
           </form>          

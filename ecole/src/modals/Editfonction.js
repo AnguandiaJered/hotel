@@ -98,7 +98,7 @@ export const Editfonction = () => {
         </BootstrapDialogTitle>
         <DialogContent dividers>
         <form onSubmit={e => onSubmit(e)}>
-            <div className='form-control'>              
+            <div>              
                 <input type="hidden"
                 className='form-control' 
                 name='idfonc' value={idfonc} 
@@ -113,7 +113,7 @@ export const Editfonction = () => {
               value={designation} 
               onChange={e => handleChange(e)} />
             </div>
-            <FormControl className='form-group'>
+            <FormControl className='col-md-6'>
                 <Input type="submit" value="Modifier" className='btn btn-primary' />
             </FormControl>
           </form>            
