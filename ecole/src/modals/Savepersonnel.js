@@ -115,7 +115,7 @@ export const Savepersonnel = () => {
                   className='form-control' 
                   name='matricule' 
                   value={matricule} 
-                  onChange={e => handleChange(e)} />
+                  onChange={e => handleChange(e)} required/>
                 </div>
                 <div className='form-group'>
                   <InputLabel htmlFor='noms'>Noms</InputLabel>
@@ -123,7 +123,7 @@ export const Savepersonnel = () => {
                   className='form-control' 
                   name='noms' 
                   value={noms} 
-                  onChange={e => handleChange(e)} />
+                  onChange={e => handleChange(e)} required/>
                 </div>
                 <div className='form-group'>
                   <InputLabel htmlFor='sexe'>Sexe</InputLabel>
@@ -141,7 +141,7 @@ export const Savepersonnel = () => {
                   className='form-control' 
                   name='datenaissance' 
                   value={datenaissance} 
-                  onChange={e => handleChange(e)} />
+                  onChange={e => handleChange(e)} required/>
                 </div>
                 <div className='form-group'>
                     <InputLabel htmlFor='adresse'>Adresse</InputLabel>
@@ -150,7 +150,7 @@ export const Savepersonnel = () => {
                     className='form-control' 
                     name='adresse' 
                     value={adresse} 
-                    onChange={e => handleChange(e)} />
+                    onChange={e => handleChange(e)} required/>
                 </div>
                 <div className='form-group'>
                     <InputLabel htmlFor='etatcivil'>Etat civil</InputLabel>
@@ -172,7 +172,7 @@ export const Savepersonnel = () => {
                   className='form-control' 
                   name='telephone' 
                   value={telephone} 
-                  onChange={e => handleChange(e)} />
+                  onChange={e => handleChange(e)} required/>
                 </div>
                 <div className='form-group'>
                     <InputLabel htmlFor='nom'>Email</InputLabel>
@@ -181,7 +181,7 @@ export const Savepersonnel = () => {
                     className='form-control' 
                     name='mail' 
                     value={mail} 
-                    onChange={e => handleChange(e)} />
+                    onChange={e => handleChange(e)} required/>
                 </div>
                 <div className='form-group'>
                     <InputLabel htmlFor='niveau'>Niveau Etude</InputLabel>
@@ -190,7 +190,7 @@ export const Savepersonnel = () => {
                     className='form-control' 
                     name='etude' 
                     value={etude} 
-                    onChange={e => handleChange(e)} />
+                    onChange={e => handleChange(e)} required/>
                 </div>
                 <div className='form-group'>
                   <InputLabel htmlFor='province'>Province Origine</InputLabel>
@@ -199,7 +199,7 @@ export const Savepersonnel = () => {
                   className='form-control' 
                   name='provinceorigine' 
                   value={provinceorigine} 
-                  onChange={e => handleChange(e)} />
+                  onChange={e => handleChange(e)} required/>
                 </div>
                 <div className='form-group'>
                     <InputLabel htmlFor='fonction'>Fonction</InputLabel>
@@ -218,7 +218,7 @@ export const Savepersonnel = () => {
                     <Input type="file" className='form-control' 
                     name='photo' 
                     value={photo} 
-                    onChange={e => handleChange(e)} />
+                    onChange={e => handleChange(e)} required/>
                 </div>
               </div>
             </div>

@@ -103,19 +103,19 @@ export const Saveusers = () => {
                   <Input type="text" placeholder='Noms' 
                   className='form-control' 
                   name='noms' value={noms} 
-                  onChange={e => handleChange(e)}  />
+                  onChange={e => handleChange(e)} required/>
                 </FormControl>
                 <FormControl className='col-md-12'>                   
                     <Input type="text" placeholder='Username' 
                     className='form-control mt-3' 
                     name='username' value={username} 
-                    onChange={e => handleChange(e)}  />
+                    onChange={e => handleChange(e)} required/>
                 </FormControl>
                 <FormControl className='col-md-12'>                    
                     <Input type="password" placeholder='Password' 
                     className='form-control mt-3' 
                     name='password' value={password} 
-                    onChange={e => handleChange(e)} />
+                    onChange={e => handleChange(e)} required/>
                 </FormControl>
               </div>
               <div className='col-md-12'>
@@ -123,13 +123,13 @@ export const Saveusers = () => {
                   <Input type="email" placeholder='Email' 
                   className='form-control mt-3' 
                   name='mail' value={mail} 
-                  onChange={e => handleChange(e)} />
+                  onChange={e => handleChange(e)} required/>
                 </FormControl>
                 <FormControl className='col-md-12'>                   
                     <Input type="text" placeholder='Role' 
                     className='form-control mt-3' 
                     name='role' value={role} 
-                    onChange={e => handleChange(e)}  />
+                    onChange={e => handleChange(e)} required/>
                 </FormControl>
               </div>
             </div>
