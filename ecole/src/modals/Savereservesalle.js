@@ -118,7 +118,7 @@ export const Savereservesalle = () => {
                     className='form-control'  
                     name='datereservation' 
                     value={datereservation} 
-                    onChange={e => handleChange(e)}/>
+                    onChange={e => handleChange(e)} required/>
                 </div>
                 <div className='form-group'>
                   <InputLabel htmlFor='salles'>Salles</InputLabel>
@@ -140,7 +140,7 @@ export const Savereservesalle = () => {
                   className='form-control'  
                   name='libelle' 
                   value={libelle} 
-                  onChange={e => handleChange(e)} />
+                  onChange={e => handleChange(e)} required/>
                 </div>
                 <div className='form-group'>
                     <InputLabel htmlFor='dateceremonie'>Date Ceremonie</InputLabel>
@@ -148,7 +148,7 @@ export const Savereservesalle = () => {
                     className='form-control'  
                     name='dateceremonie' 
                     value={dateceremonie} 
-                    onChange={e => handleChange(e)} />
+                    onChange={e => handleChange(e)} required/>
                 </div>
               </div>
             </div>

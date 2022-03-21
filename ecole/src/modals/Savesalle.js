@@ -105,7 +105,7 @@ export const Savesalle = () => {
                   className='form-control' 
                   name='designation' 
                   value={designation} 
-                  onChange={e => handleChange(e)} />
+                  onChange={e => handleChange(e)} required/>
                 </div>
                 <div className='form-group'>
                     <InputLabel htmlFor='prix'>Prix</InputLabel>
@@ -114,7 +114,7 @@ export const Savesalle = () => {
                     min="0" className='form-control' 
                     name='prix' 
                     value={prix} 
-                    onChange={e => handleChange(e)}/>
+                    onChange={e => handleChange(e)} required/>
                 </div>
               </div>
               <div className='col-md-12'>

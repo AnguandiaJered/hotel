@@ -101,7 +101,7 @@ export const Saveservice = () => {
                   className='form-control'  
                   name='designation' 
                   value={designation} 
-                  onChange={e => handleChange(e)}/>
+                  onChange={e => handleChange(e)} required/>
               </div>
             <FormControl className='col-md-6'>
                 <Input type="submit" value="Enregistrer" className='btn btn-primary' />

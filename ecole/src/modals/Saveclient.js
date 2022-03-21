@@ -107,7 +107,7 @@ export const Saveclient = () => {
                   className='form-control' 
                   name='noms' 
                   value={noms} 
-                  onChange={e => handleChange(e)} />
+                  onChange={e => handleChange(e)} required/>
                 </div>
                 <div className='form-group'>
                   <InputLabel htmlFor='sexe'>Sexe</InputLabel>
@@ -126,7 +126,7 @@ export const Saveclient = () => {
                     className='form-control' 
                     name='adresse' 
                     value={adresse} 
-                    onChange={e => handleChange(e)} />
+                    onChange={e => handleChange(e)} required/>
                 </div>
                 <div className='form-group'>
                   <InputLabel htmlFor='Telephone'>Telephone</InputLabel>
@@ -135,7 +135,7 @@ export const Saveclient = () => {
                   className='form-control' 
                   name='telephone' 
                   value={telephone} 
-                  onChange={e => handleChange(e)} />
+                  onChange={e => handleChange(e)} required/>
                 </div>
               </div>
               <div className='col-md-6'>              
@@ -145,7 +145,7 @@ export const Saveclient = () => {
                     className='form-control' 
                     name='datenaissance' 
                     value={datenaissance} 
-                    onChange={e => handleChange(e)}/>
+                    onChange={e => handleChange(e)} required/>
                 </div>
                 <div className='form-group'>
                     <InputLabel htmlFor='profession'>Profession</InputLabel>
@@ -154,7 +154,7 @@ export const Saveclient = () => {
                     className='form-control' 
                     name='profession' 
                     value={profession} 
-                    onChange={e => handleChange(e)} />
+                    onChange={e => handleChange(e)} required/>
                 </div>
                 <div className='form-group'>
                   <InputLabel htmlFor='photo'>Photo</InputLabel>
